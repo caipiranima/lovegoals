@@ -84,42 +84,69 @@
           </div>
         </div>
       </div>
-      <div class="">
-        (1 de 7)
-        Homossexuais são perseguidos e apedrejados no interior do CE devido à incitação de civiltares.
-
-        (2 de 7)
-        Depoimentos de violência contra população LGBT crescem, mas vítimas ainda temem relatar os agressores.
-
-        (3 de 7)
-        Violência homofóbica: Brasil tem 5 denúncias por dia, mas números reais são muito maiores, diz relatório.
-
-        (4 de 7)
-        Em 200 dias, 173 pessoas LGBT foram vítimas de crime de ódio no Brasil;
-        Só nos 13 primeiros dias de julho, foram registradas 15 mortes, segundo dados do Grupo Gay da Bahia
-
-        (5 de 7)
-        A cada hora, 1 gay sofre violência no Brasil; denúncias crescem 460%, mas a maioria não é investigada pelas autoridades.
-
-        (6 de 7)
-        Debatedores cobram leis para combater violência crescente contra população LGBT;
-        Brasil é o país que mais mata pessoas LGBTs no mundo. A cada 27 horas uma pessoa é assassinada no País por conta da orientação sexual
-
-        (7 de 7)
-        Pesquisa mostra que adolescentes LGBT sofrem mais violência nas escolas brasileiras.
+      <div class="posts">
+        <div class="posts-carousel">
+          <div class="carousel-cell">
+            <img src="img/placeholder.png" class="pure-img" />
+            <small>Homossexuais são perseguidos e apedrejados no interior do CE devido à incitação de civiltares. <a href="#">[+]</a></small>
+          </div>
+          <div class="carousel-cell">
+            <img src="img/placeholder.png" class="pure-img" />
+            <small>Depoimentos de violência contra população LGBT crescem, mas vítimas ainda temem relatar os agressores. <a href="#">[+]</a></small>
+          </div>
+          <div class="carousel-cell">
+            <img src="img/placeholder.png" class="pure-img"  />
+            <small>Violência homofóbica: Brasil tem 5 denúncias por dia, mas números reais são muito maiores, diz relatório. <a href="#">[+]</a></small>
+          </div>
+          <div class="carousel-cell">
+            <img src="img/placeholder.png" class="pure-img"  />
+            <small>Em 200 dias, 173 pessoas LGBT foram vítimas de crime de ódio no Brasil... <a href="#">[+]</a></small>
+          </div>
+          <div class="carousel-cell">
+            <img src="img/placeholder.png" class="pure-img"  />
+            <small>A cada hora, 1 gay sofre violência no Brasil; denúncias crescem 460%... <a href="#">[+]</a></small>
+          </div>
+          <div class="carousel-cell">
+            <img src="img/placeholder.png" class="pure-img"  />
+            <small>Debatedores cobram leis para combater violência crescente contra população LGBT... <a href="#">[+]</a></small>
+          </div>
+          <div class="carousel-cell">
+            <img src="img/placeholder.png" class="pure-img"  />
+            <small>Pesquisa mostra que adolescentes LGBT sofrem mais violência nas escolas brasileiras. <a href="#">[+]</a></small
+          </div>
+        </div>
       </div>
     </div>
-    <footer></footer>
+    <footer>
+      <div class="social">
+        <a href="#"><img src="img/facebook.png" /></a>
+        <a href="#"><img src="img/instagram.png" /></a>
+        <a href="#"><img src="img/twitter.png" /></a>
+        <a href="#"><img src="img/youtube.png" /></a>
+      </div>
+      <div class="logo-sm">
+        <img src="img/logo-sm.png" />
+        <small>#lgBR_oficial2037</small>
+      </div>
+    </footer>
     <script src="js/flickity.pkgd.min.js" type="text/javascript"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        // element argument can be a selector string
-        //   for an individual element
+
         var flkty = new Flickity( '.headlines-carousel', {
           cellAlign: 'center',
           contain: true,
           wrapAround: true,
           imagesLoaded: true,
+          draggable: false,
+        });
+
+        var flkty = new Flickity( '.posts-carousel', {
+          cellAlign: 'left',
+          contain: true,
+          wrapAround: true,
+          imagesLoaded: true,
+          draggable: false,
         });
       });
     </script>
