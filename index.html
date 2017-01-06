@@ -1,136 +1,94 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>RiveScript-JS</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="chat.css">
-<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="datadumper.js"></script>
-<script type="text/javascript" src="rivescript.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h1>Chat</h1>
+    <title>#lovegoals</title>
 
-<fieldset>
-	<legend>Chat Log</legend>
-	<div id="dialogue"></div>
-</fieldset>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="menu-wrapper" id="menu">
+        <div class="pure-menu">
+          <a href="#" class="pure-menu-heading custom-brand"><img class="menu-brand-image" src="img/logo.jpg" alt="logo"></a>
+          <a href="#" class="custom-toggle" id="toggle"><s class="bar"></s><s class="bar"></s><s class="bar"></s></a>
+        </div>
+        <div class="pure-menu pure-menu-horizontal custom-can-transform">
+          <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Notícias</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Fórum</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Quem somos</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <div class="media media-header">
+        <div class="media-img">
+          <img src="img/rss-white.png" alt="me" />
+        </div>
+        <div class="media-body">
+          <strong>_#lgBR_oficial</strong> // Resistindo à intolerância… porque também somos legião!
+          <br />
+          <br />
+          <small>
+            Página oficial da #lovegoals - Brasil. <br />
+            Informe-se sobre nossas últimas iniciativas de luta contra o preconceito geral, prestes a ser legalizado pela PEC 137. <br/>
+            Colabore com nossa causa você também! Saiba como <a href="#">aqui</a>.
+          </small>
+        </div>
+      </div>
+      <div class="">
+        (slideshow - 1 de 5  -imagem de multidão em protesto)
+        #lovegoals na luta!
+        Estivemos presentes na manifestação do dia 10/12 no Largo do Arouche para protestar contra o Governo Cohen e suas últimas práticas de perseguição aos LGBTs.
 
-<form onSubmit="return sendMessage()">
-	<fieldset>
-		<legend>Send a Message</legend>
+        (2 de 5 - imagem de ativistas fugindo de repressão policial)
+        …e a resistência continua!
+        #lovegoals se articula com outros movimentos sociais Brasil afora e expõe sua repulsa à opressão policial praticada nos protestos de novembro.
 
-		<table class="input-table">
-			<tr>
-				<td class="text-box">
-					<input type="text" size="40" name="message" id="message" autocomplete="off" disabled placeholder="Please wait... loading...">
-				</td>
-				<td class="send-button">
-					<input type="submit" value="Send">
-				</td>
-			</tr>
-		</table>
-	</fieldset>
-</form>
+        (3 de 5 - imagem de travesti assassinada)
+        Quem vigia os vigilantes?
+        Ações independentes das Patrulhas Familiares na Velha São Paulo continuam levando travestis à morte todos os dias.
 
-<fieldset>
-	<legend>Debugger</legend>
+        (4 de 5 - imagem de Cohen discursando)
+        Mais indiferença, impossível!
+        O Protetor da União Elizandro Cohen afirma que políticas públicas de criminalização de relações homoafetivas serão intensificadas.
 
-	<input type="button" value="Debug Mode" id="toggle" onClick="toggleDebug()">
-	<input type="button" value="Clear Log" onClick="$('#debug').empty()">
-	<input type="button" value="Dump Data Structure" onClick="DumperPopup(rs)">
+        (5 de 5 - debate)
+        Discutindo o futuro do movimento
+        #lovegoals organiza debates com líderes de comunidades LGBTs com o intuito de colocar um basta na aprovação de leis homofóbicas por Cohen e sua bancada no Parlamento Nacional.
+      </div>
+      <div class="">
+        (1 de 7)
+        Homossexuais são perseguidos e apedrejados no interior do CE devido à incitação de civiltares.
 
-	<div id="debug"></div>
-</fieldset>
+        (2 de 7)
+        Depoimentos de violência contra população LGBT crescem, mas vítimas ainda temem relatar os agressores.
 
-<script type="text/javascript">
-// Handle the debug mode query string parameter.
-var debugMode = false;
-if (window.location.search.indexOf("debug=1") > -1) {
-	$("#toggle").val("Disable Debug Mode");
-	debugMode = true;
-} else {
-	$("#toggle").val("Enable Debug Mode");
-}
+        (3 de 7)
+        Violência homofóbica: Brasil tem 5 denúncias por dia, mas números reais são muito maiores, diz relatório.
 
-// Create our RiveScript interpreter.
-var rs = new RiveScript({
-	debug:   debugMode,
-	onDebug: onDebug
-});
+        (4 de 7)
+        Em 200 dias, 173 pessoas LGBT foram vítimas de crime de ódio no Brasil;
+        Só nos 13 primeiros dias de julho, foram registradas 15 mortes, segundo dados do Grupo Gay da Bahia
 
-// This won't work on the web!
-//rs.loadDirectory("brain");
+        (5 de 7)
+        A cada hora, 1 gay sofre violência no Brasil; denúncias crescem 460%, mas a maioria não é investigada pelas autoridades.
 
-// Load our files from the brain/ folder.
-rs.loadFile([
-	"brain/begin.rive",
-	"brain/admin.rive",
-	"brain/clients.rive",
-	"brain/eliza.rive",
-	"brain/myself.rive",
-	"brain/rpg.rive",
-	"brain/javascript.rive"
-	], on_load_success, on_load_error);
+        (6 de 7)
+        Debatedores cobram leis para combater violência crescente contra população LGBT;
+        Brasil é o país que mais mata pessoas LGBTs no mundo. A cada 27 horas uma pessoa é assassinada no País por conta da orientação sexual
 
-// You can register objects that can then be called
-// using <call></call> syntax
-rs.setSubroutine('fancyJSObject', function(rs, args){
-	// doing complex stuff here
-});
-
-function on_load_success () {
-	$("#message").removeAttr("disabled");
-	$("#message").attr("placeholder", "Send message");
-	$("#message").focus();
-
-	// Now to sort the replies!
-	rs.sortReplies();
-}
-
-function on_load_error (err) {
-	console.log("Loading error: " + err);
-}
-
-// Handle sending a message to the bot.
-function sendMessage () {
-	var text = $("#message").val();
-	$("#message").val("");
-	$("#dialogue").append("<div><span class='user'>You:</span> " + text + "</div>");
-	try {
-	var reply = rs.reply("soandso", text);
-	reply = reply.replace(/\n/g, "<br>");
-	$("#dialogue").append("<div><span class='bot'>Bot:</span> " + reply + "</div>");
-	$("#dialogue").animate({ scrollTop: $("#dialogue").height() }, 1000);
-	} catch(e) {
-		window.alert(e.message + "\n" + e.line);
-		console.log(e);
-	}
-
-	return false;
-}
-
-// Button that turns debugging on and off.
-function toggleDebug () {
-	if (debugMode) {
-		window.location = "?debug=0";
-	} else {
-		window.location = "?debug=1";
-	}
-}
-
-function onDebug(message) {
-	if (debugMode) {
-		$("#debug").append("<div>[RS] " + escapeHtml(message) + "</div>");
-	}
-}
-
-function escapeHtml(text) {
-	return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
-</script>
-
-</body>
+        (7 de 7)
+        Pesquisa mostra que adolescentes LGBT sofrem mais violência nas escolas brasileiras.
+      </div>
+    </div>
+    <footer></footer>
+  </body>
 </html>
