@@ -7,13 +7,15 @@
     <title>#lovegoals</title>
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" />
+    <link rel="stylesheet" href="css/flickity.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+
   </head>
   <body>
     <header>
       <div class="menu-wrapper" id="menu">
         <div class="pure-menu">
-          <a href="#" class="pure-menu-heading custom-brand"><img class="menu-brand-image" src="img/logo.jpg" alt="logo"></a>
+          <a href="#" class="pure-menu-heading custom-brand"><img class="menu-brand-image" src="img/logo.png" alt="logo"></a>
           <a href="#" class="custom-toggle" id="toggle"><s class="bar"></s><s class="bar"></s><s class="bar"></s></a>
         </div>
         <div class="pure-menu pure-menu-horizontal custom-can-transform">
@@ -43,26 +45,34 @@
           </small>
         </div>
       </div>
-      <div class="">
-        (slideshow - 1 de 5  -imagem de multidão em protesto)
-        #lovegoals na luta!
-        Estivemos presentes na manifestação do dia 10/12 no Largo do Arouche para protestar contra o Governo Cohen e suas últimas práticas de perseguição aos LGBTs.
-
-        (2 de 5 - imagem de ativistas fugindo de repressão policial)
-        …e a resistência continua!
-        #lovegoals se articula com outros movimentos sociais Brasil afora e expõe sua repulsa à opressão policial praticada nos protestos de novembro.
-
-        (3 de 5 - imagem de travesti assassinada)
-        Quem vigia os vigilantes?
-        Ações independentes das Patrulhas Familiares na Velha São Paulo continuam levando travestis à morte todos os dias.
-
-        (4 de 5 - imagem de Cohen discursando)
-        Mais indiferença, impossível!
-        O Protetor da União Elizandro Cohen afirma que políticas públicas de criminalização de relações homoafetivas serão intensificadas.
-
-        (5 de 5 - debate)
-        Discutindo o futuro do movimento
-        #lovegoals organiza debates com líderes de comunidades LGBTs com o intuito de colocar um basta na aprovação de leis homofóbicas por Cohen e sua bancada no Parlamento Nacional.
+      <div class="destaques">
+        <div class="destaques-carousel">
+          <div class="carousel-cell">
+            <img class="pure-img" src="img/01.jpg" />
+            #lovegoals na luta!
+            Estivemos presentes na manifestação do dia 10/12 no Largo do Arouche para protestar contra o Governo Cohen e suas últimas práticas de perseguição aos LGBTs.
+          </div>
+          <div class="carousel-cell">
+            <img class="pure-img" src="img/02.jpg" />
+            …e a resistência continua!
+            #lovegoals se articula com outros movimentos sociais Brasil afora e expõe sua repulsa à opressão policial praticada nos protestos de novembro.
+          </div>
+          <div class="carousel-cell">
+            <img class="pure-img" src="img/03.jpg" />
+            Quem vigia os vigilantes?
+            Ações independentes das Patrulhas Familiares na Velha São Paulo continuam levando travestis à morte todos os dias.
+          </div>
+          <div class="carousel-cell">
+            <img class="pure-img" src="img/04.jpg" />
+            Mais indiferença, impossível!
+            O Protetor da União Elizandro Cohen afirma que políticas públicas de criminalização de relações homoafetivas serão intensificadas.
+          </div>
+          <div class="carousel-cell">
+            <img class="pure-img" src="img/05.jpg" />
+            Discutindo o futuro do movimento
+            #lovegoals organiza debates com líderes de comunidades LGBTs com o intuito de colocar um basta na aprovação de leis homofóbicas por Cohen e sua bancada no Parlamento Nacional.
+          </div>
+        </div>
       </div>
       <div class="">
         (1 de 7)
@@ -90,5 +100,18 @@
       </div>
     </div>
     <footer></footer>
+    <script src="js/flickity.pkgd.min.js" type="text/javascript"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // element argument can be a selector string
+        //   for an individual element
+        var flkty = new Flickity( '.destaques-carousel', {
+          cellAlign: 'center',
+          contain: true,
+          wrapAround: true,
+          imagesLoaded: true,
+        });
+      });
+    </script>
   </body>
 </html>
