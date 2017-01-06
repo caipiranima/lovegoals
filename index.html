@@ -45,32 +45,42 @@
           </small>
         </div>
       </div>
-      <div class="destaques">
-        <div class="destaques-carousel">
+      <div class="headlines">
+        <div class="headlines-carousel">
           <div class="carousel-cell">
             <img class="pure-img" src="img/01.jpg" />
-            #lovegoals na luta!
-            Estivemos presentes na manifestação do dia 10/12 no Largo do Arouche para protestar contra o Governo Cohen e suas últimas práticas de perseguição aos LGBTs.
+            <div class="headlines-carousel-caption">
+              <strong>#lovegoals na luta!</strong>
+              Estivemos presentes na manifestação do dia 10/12 no Largo do Arouche para protestar contra o Governo Cohen e suas últimas práticas de perseguição aos LGBTs.
+            </div>
           </div>
           <div class="carousel-cell">
             <img class="pure-img" src="img/02.jpg" />
-            …e a resistência continua!
-            #lovegoals se articula com outros movimentos sociais Brasil afora e expõe sua repulsa à opressão policial praticada nos protestos de novembro.
+            <div class="headlines-carousel-caption">
+              <strong>…e a resistência continua!</strong>
+              #lovegoals se articula com outros movimentos sociais Brasil afora e expõe sua repulsa à opressão policial praticada nos protestos de novembro.
+            </div>
           </div>
           <div class="carousel-cell">
             <img class="pure-img" src="img/03.jpg" />
-            Quem vigia os vigilantes?
-            Ações independentes das Patrulhas Familiares na Velha São Paulo continuam levando travestis à morte todos os dias.
+            <div class="headlines-carousel-caption">
+              <strong>Quem vigia os vigilantes?</strong>
+              Ações independentes das Patrulhas Familiares na Velha São Paulo continuam levando travestis à morte todos os dias.
+            </div>
           </div>
           <div class="carousel-cell">
             <img class="pure-img" src="img/04.jpg" />
-            Mais indiferença, impossível!
-            O Protetor da União Elizandro Cohen afirma que políticas públicas de criminalização de relações homoafetivas serão intensificadas.
+            <div class="headlines-carousel-caption">
+              <strong>Mais indiferença, impossível!</strong>
+              O Protetor da União Elizandro Cohen afirma que políticas públicas de criminalização de relações homoafetivas serão intensificadas.
+            </div>
           </div>
           <div class="carousel-cell">
             <img class="pure-img" src="img/05.jpg" />
-            Discutindo o futuro do movimento
-            #lovegoals organiza debates com líderes de comunidades LGBTs com o intuito de colocar um basta na aprovação de leis homofóbicas por Cohen e sua bancada no Parlamento Nacional.
+            <div class="headlines-carousel-caption">
+              <strong>Discutindo o futuro do movimento</strong>
+              #lovegoals organiza debates com líderes de comunidades LGBTs com o intuito de colocar um basta na aprovação de leis homofóbicas por Cohen e sua bancada no Parlamento Nacional.
+            </div>
           </div>
         </div>
       </div>
@@ -105,7 +115,7 @@
       document.addEventListener('DOMContentLoaded', function () {
         // element argument can be a selector string
         //   for an individual element
-        var flkty = new Flickity( '.destaques-carousel', {
+        var flkty = new Flickity( '.headlines-carousel', {
           cellAlign: 'center',
           contain: true,
           wrapAround: true,
