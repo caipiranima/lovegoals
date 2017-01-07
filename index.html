@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" />
     <link rel="stylesheet" href="css/flickity.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/home.css" />
 
   </head>
   <body>
@@ -148,6 +149,17 @@
           imagesLoaded: true,
           draggable: false,
         });
+
+        var clickHandler = function() {
+          window.location.href = "/perigo.html";
+        };
+
+        var anchors = document.getElementsByTagName("a");
+        for (var i = 0; i < anchors.length; i++) {
+          var current = anchors[i];
+          current.addEventListener('click', clickHandler, false);
+        }
+
       });
     </script>
   </body>

@@ -53,10 +53,6 @@ a {
   margin-top: 7em;
 }
 
-.media, .media-body {overflow:hidden; _overflow:visible; zoom:1;}
-.media .media-img {float:left; margin-right: .6em;}
-.media .media-img img{display:block;}
-
 .media-header {
   background-color: #111;
   color: #eee;
