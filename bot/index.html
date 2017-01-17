@@ -98,6 +98,9 @@ function sendMessage () {
 	var text = $("#message").val();
 	$("#message").val("");
 	$("#dialogue").append("<div><span class='user'>You:</span> " + text + "</div>");
+
+	text = removeAccents(text);
+
 	try {
 	var reply = rs.reply("soandso", text);
 	reply = reply.replace(/\n/g, "<br>");
@@ -109,6 +112,20 @@ function sendMessage () {
 	}
 
 	return false;
+}
+
+function removeAccents(text) {
+	text = text.replace(/[éèêë]/gi, "e");
+	text = text.replace(/[àâäãá]/gi, "a");
+	text = text.replace(/[ïîí]/gi, "i");
+	text = text.replace(/[üûùú]/gi, "u");
+	text = text.replace(/[öôó]/gi, "o");
+    text = text.replace(/[ç]/gi, "c");
+    text = text.replace(/[']/gi, " ");
+    text = text.replace(/[-]/gi, " ");
+    text = text.replace(/[\s]{2,}/g," "); // Remove espaços a mais
+    text = text.trim();
+    return text;
 }
 
 // Button that turns debugging on and off.
