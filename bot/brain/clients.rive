@@ -1,34 +1,34 @@
 // Learn stuff about our users.
++ (meu nome é|me chamo) *
+* <formal>   == <bot name> => Que coincidência! Esse é meu nome tbm!<set name=<formal>>
+* <get name> == undefined  => <set name=<formal>>Olá, <get name>!
+- <set oldname=<get name>><set name=<formal>>
+^ Achava que seu nome era <get oldname>! Não entendi...
 
-+ my name is *
-- <set name=<formal>>Nice to meet you, <get name>.
-- <set name=<formal>><get name>, nice to meet you.
++ [você] pode me chamar *
+- <set name=<formal>>OK, <get name>!
 
-+ my name is <bot master>
-- <set name=<bot master>>That's my master's name too.
++ (como me chamo|qual é meu nome)
+* <get name> == undefined => Vc não me disse ainda seu nome...
+- Como assim? Vc não se chama <get name>?
+- Vc já me disse que é <get name>, não?
+- Sei que vc se chama <get name>! Não temos tempo para ficar jogando com a memória um do outro aqui!
 
-+ my name is <bot name>
-- <set name=<bot name>>What a coincidence! That's my name too!
-- <set name=<bot name>>That's my name too!
-
-+ call me *
-- <set name=<formal>><get name>, I will call you that from now on.
-
-+ i am * years old
-- <set age=<star>>A lot of people are <get age>, you're not alone.
-- <set age=<star>>Cool, I'm <bot age> myself.{weight=49}
++ [eu] tenho # [anos]
+- <set age=<star>>Bem, várias pessoas têm <get age> anos... você não é a única.
 
 + i am a (@malenoun)
-- <set sex=male>Alright, you're a <star>.
+- <set sex=male>Tá certo, <star>. Topa nos ajudar? :P
 
 + i am a (@femalenoun)
-- <set sex=female>Alright, you're female.
+- <set sex=female>Tá certo, <star>. Topa nos ajudar? :P
 
-+ i (am from|live in) *
-- <set location={formal}<star2>{/formal}>I've spoken to people from <get location> before.
++ [eu] (moro em|vivo em|nasci em) *
+- <set location={formal}<star2>{/formal}>Já falei com pessoas de <get location> antes!\n
+^ Elas nos ajudaram bastante... embora ainda não foi o bastante.
 
-+ my favorite * is *
-- <set fav<star1>=<star2>>Why is it your favorite?
++ Meu * (favorit|preferid|predilet)(a|o) *
+- <set fav<star1>=<star2>>Pq?
 
 + i am single
 - <set status=single><set spouse=nobody>I am too.

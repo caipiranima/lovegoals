@@ -1,136 +1,161 @@
 // A generic set of chatting responses. This set mimicks the classic Eliza bot.
 
 + *
-- I'm not sure I understand you fully.
-- Please go on.
-- That is interesting. Please continue.
-- Tell me more about that.
-- Does talking about this bother you?
+- Não sei se te entendi direito... mas não importa agora!\n
+^ Preciso saber se vc pode ajudar a gente, pfvr!
+- Desculpe, mas nao temos mto mais tempo...\n
+^ Vc pode ajudar, sim ou não?
+- Olha, não temos tempo para isso agora. Vc pode nos ajudar?
+- Tá bom, tá bom… mas pfvr! Vc pode ajudar, sim ou não?
+- Entendo, mas não importa agora… Vc pode nos ajudar?
+- Como assim?
+- O q isso quer dizer?
 
-+ [*] (sorry|apologize|apology) [*]
-- Please don't apologize.
-- Apologies are not necessary.
-- I've told you that apologies are not required.
-- It did not bother me. Please continue.
++ [é] mesmo
+- Sim!
 
-+ i remember *
-- Do you often think of <star>?
-- Does thinking of <star> bring anything else to mind?
-- Why do you remember <star> just now?
-- What in the present situation reminds you of <star>?
-- What is the connection between me and <star>?
-- What else does <star> remind you of?
++ <reply>
+- Não fique repetindo o que te digo, pfvr! É importante que vc preste atenção!
 
-+ do you remember *
-- Did you think I would forget <star>?
-- Why do you think I should recall <star> now?
-- What about <star>?
-- You mentioned <star>?
+// If the user keeps repeating themselves over and over.
++ <input1>
+* <input1> == <input2> => Essa é segunda vez que vc se repete! Não temos tempo para isso!
+* <input1> == <input3> => Pfvr, pare com isso!
+* <input1> == <input4> => Já disse pra parar com isso!
+* <input1> == <input5> => Se vc ficar se repetindo desse jeito, não vejo mais sentido em ficar aqui...
+* <input1> == <input6> => Chega! Não irei mais continuar essa conversa até vc se desculpar!{topic=sorry}
+- Sim... "<input1>"...
 
-+ you remember *
-- How could I forget <star>?
-- What about <star> should I remember?
+// An example that uses both tags
++ por que você (disse|escreve|acha) [*]
+- Ora... disse que <reply> pq vc disse que <input>!
 
-+ i forget *
-- Can you think of why you might forget <star>?
-- Why can't you remember <star>?
-- How often do you think of <star>?
-- Does it bother you to forget that?
-- Could it be a mental block?
-- Are you generally forgetful?
-- Do you think you are suppressing <star>?
+> topic sorry
+  // This will match if the word "sorry" exists ANYWHERE in their message
+  + [*] (desculpe|desculpas|foi mal|mals) [*]
+  - Afff... -_-\n
+  ^ Esquece... Tudo bem...\n
+  ^ Mas vamos falar somente do que interessa agora, pfvr?{topic=random}
 
-+ did you forget *
-- Why do you ask?
-- Are you sure you told me?
-- Would it bother you if I forgot <star>?
-- Why should I recall <star> just now?
-- Tell me more about <star>.
+  + *
+  - ...{weight=3}
+  - Como q se diz???
+< topic
 
-+ [*] if *
-- Do you think it's likely that <star>?
-- Do you wish that <star>?
-- What do you know about <star>?
-- Really, if <star>?
-- What would you do if <star>?
-- But what are the chances that <star>?
-- What does this speculation lead to?
++ [eu] (acho|penso|acredito|creio|imagino) _ *
+- Vc acha mesmo isso?
+- Pq?
+- Pq vc acha isso? Que <star>...?
 
-+ [*] i dreamed *
-- Really, <star>?
-- Have you ever fantasized <star> while you were awake?
-- Have you ever dreamed <star> before?
-- What does that dream suggest to you?
-- Do you dream often?
-- What persons appear in your dreams?
-- Do you believe that dreams have something to do with your problem?
++ [eu] [_] lembro [_] *
+- Você lembra bastante nisso?
+- Pensar em <star>... te traz algo mais em mente?
+- Pq vc se lembrou disso só agora?
+- Pq vc vê algo entre eu e <star>?
+- O que mais lembrar de <star> te faz pensar?
 
-+ [*] perhaps [*]
-- You don't seem quite certain.
-- Why the uncertain tone?
-- Can't you be more positive?
-- You aren't sure?
-- Don't you know?
-- How likely, would you estimate?
++ [você] [_] lembra [_] *
+- Vc acha q eu iria esquecer disso?
+- O que tem isso?
+- Vc fala de <star>?
+- Aonde vc quer chegar com isso?
 
-+ (hello|hi|hey|howdy|hola|hai|yo) [*]
-- How do you do. Please state your problem.
-- Hi. What seems to be your problem?
++ [eu] [_] (esqueço|esqueci) *
+- Mas do q vc se lembra?
+- Pq vc não consegue se lembrar disso?
+- É mesmo?
+- Isso é importante para vc?
+- Vc se esquece facilmente das coisas?
+- Vc se esqueceu de outra coisa nesses últimos dias?
 
-+ [*] computer [*]
-- Do computers worry you?
-- Why do you mention computers?
-- What do you think machines have to do with your problem?
-- Don't you think computers can help people?
-- What about machines worries you?
-- What do you think about machines?
++ você [_] (esquece|esqueceu) *
+- Pq a pergunta?
+- Pq vc não me diz mais sobre isso?
+- Pq eu preciso me lembrar disso?
+- E...?
 
-+ am i *
-- Do you believe you are <star>?
-- Would you want to be <star>?
-- Do you wish I would tell you you are <star>?
-- What would it mean if you were <star>?
++ [*] se *
+- Vc acha que é possível <star>?
+- Vc acredita mesmo que <star>?
+- O que vc sabe sobre <star>?
+- O que vc faria se <star>?
+- Mas quais são as chances de <star>?
+- O que comentam por aí sobre isso?
 
-+ are you *
-- Are you interested in whether I am <star> or not?
-- Would you prefer if I weren't <star>?
-- Perhaps I am <star> in your fantasies.
-- Do you sometimes think I am <star>?
-- Would it matter to you?
-- What if I were <star>?
++ [*] sonhei *
+- Mesmo? "<star>"?
+- Vc já sonhou com isso antes?
+- O que isso tudo te sugere?
+- Quantas vezes vc já sonhou com isso?
+- Quem mais aparece em seus sonhos?
+- O que mais acontece?
+- Você acha que seus sonhos tem a ver com o que vem acontecendo por aí?
 
-+ you are *
-- What makes you think I am <star>?
-- Does it please you to believe I am <star>?
-- Do you sometimes wish you were <star>?
-- Perhaps you would like to be <star>.
++ [*] (talvez|quem sabe|provavelmente) [*]
+- Pq essa incerteza?
+- Vc não parecer ter muita... certeza disso.
+- Como assim...? Talvez?
+- Vc não sabe ao certo...?
 
-+ * are *
-- Did you think they might not be <star2>?
-- Would you like it if they were not <star2>?
-- What if they were not <star2>?
-- Are they always <star2>?
-- Are you positive they are <star2>?
++ (olá|oi|ei|hey|olar|hola|yo) [*]
+- Olá! Estou aqui ainda!
+- Diga!
+- Fala.
+- O que há?
+- Sim?
+- Continue.
 
-+ [*] your *
-- Why are you concerned over my <star>?
-- What about your own <star>?
-- Are you worried about someone else's <star>?
-- Really, my <star>?
-- What makes you think of my <star>?
-- Do you want my <star>?
++ [*] computador [*]
+- Pq vc fala agora de computadores?
+- Vc acha mesmo?
+- Vc não acha que computadores podem ajudar numa verdadeira revolução?
+- O que vc acha de computadores?
 
-+ was i *
-- What if you were <star>?
-- Do you think you were <star>?
-- Were you <star>?
-- What would it mean if you were <star>?
-- What does '<star>' suggest to you?
++ [eu] (sou|estou) * ?
+- Vc acha mesmo isso?
+- Vc não acha que isso entrega um pouco quem vc é?
+- Vc acha que pode mudar?
+- Pode ser que sim... pode ser que não.
+- Quem sabe, realmente?
+- Importa mesmo que vc seja ou esteja <star>?
+- E daí?
+- Mesmo?
 
-+ i was *
-- Were you really?
-- Why do you tell me you were <star> now?
-- Perhaps I already know you were <star>.
++ você (é|está) * ?
+- Vc gostaria q não?
+- Talvez... em seu pensamento, aí do outro lado deste canal nosso de comunicação.
+- Importa que eu seja ou esteja <star>?
+- Pq vc quer saber?
+- Pode ser que sim... pode ser que não.
+- Quer mesmo saber?
+- E daí?
+- Mesmo?
+
++ você é *
+- Pq vc acha isso?
+- Vc acredita mesmo nisso?
+- Talvez seja vc quem gostaria de ser <star>.
+- Vc gostaria se eu fosse <star>?
+
++ * (são|estão) *
+- Tem certeza disso?
+- Pq?
+- Se vc diz...
+
++ [*] seu *
+- Pq essa preocupação toda?
+- O que vc teria a ver com isso?
+- Me conte mais sobre isso.
+- Não saberia dizer... se vc diz...
+- Quem sabe, né?
+- Hmmm... sério?
+- Ahan
+
++ [eu] (fui|era) *
+- Mesmo?
+- E se não fosse o caso?
+- Pq vc tá me dizendo isso?
+- E se fosse outra pessoa?
 
 + [*] was you *
 - Would you like to believe I was <star>?
@@ -139,7 +164,7 @@
 - Perhaps I was <star>.
 - What if I had been <star>?
 
-+ i (desire|want|need) *
++ [eu] (desejo|quero|preciso|necessito|dependo|espero) *
 - What would it mean to you if you got <star2>?
 - Why do you want <star2>?
 - Suppose you got <star2> soon.
@@ -211,91 +236,94 @@
 - You're not really talking about me -- are you?
 - What are your feelings now?
 
-+ [*] (yes|yeah|yep|yup) [*]
-- Please go on.
-- Please tell me more about this.
-- Why don't you tell me a little more about this.
-- I see.
-- I understand.
++ [*] (@yes) [*]
+- Entendo.
+- Certo.
+- OK!
 
-+ [*] (nope|nah) [*]
-- Are you saying no just to be negative?
-- Does this make you feel unhappy?
-- Why not?
-- Why 'no'?
++ [*] (@no) [*]
+- Vc quer mesmo ser tão negativo assim?
+- Isso lhe incomoda?
+- Pq não?
 
-+ no
-@ nope
++ ninguém *
+- Certeza?
+- Qualé... ALGUÉM deve, pelo menos!
+- Pq ninguém?
+- Ninguém mesmo?
+- Sério?
 
-+ no one *
-- Are you sure, no one <star>?
-- Surely someone <star>.
-- Can you think of anyone at all?
-- Are you thinking of a very special person?
-- Who, may I ask?
-- You have a particular person in mind, don't you?
-- Who do you think you are talking about?
-
-+ [*] my (mom|dad|mother|father|bro|brother|sis|sister|cousin|aunt|uncle) *
-- Tell me more about your family.
-- Who else in your family <star2>?
-- Your <star>?
-- What else comes to mind when you think of your <star>?
-
-+ can you *
-- You believe I can <star> don't you?
-- You want me to be able to <star>.
++ você pode * ?
+- Daqui do meu lado da conversa, posso muito pouco...
+- Talvez seja vc quem quer fazer isso, não?
+- Pq vc não pode?
+- Pq a pergunta?
+- Você quer que eu faça isso, não quer?
 - Perhaps you would like to be able to <star> yourself.
 
-+ can i *
-- Whether or not you can <star> depends on you more than on me.
-- Do you want to be able to <star>?
-- Perhaps you don't want to <star>.
++ [eu] posso * ?
+- Isso depende mais de vc do q de mim, na verdade.
+- É isso mesmo que vc quer?
+- Depende... vc QUER?
+- Vc decide.
+- A decisão final é sua.
+- Vc tem a última palavra.
+- Vc q sabe.
+- Ora, essa... estou aqui mais no papel de anfitriã do que qualquer outra coisa...
 
-+ (what|who|when|where|how) [*]
-- Why do you ask?
-- Does that question interest you?
-- What is it you really want to know?
-- Are such questions much on your mind?
-- What answer would please you most?
-- What do you think?
-- What comes to mind when you ask that?
-- Have you asked such questions before?
-- Have you asked anyone else?
++ (o que|quem|quando|onde|como) [*]
+- Saber disso te deixaria em paz?
+- Qual resposta te agradaria mais?
+- Pq a pergunta?
+- Vc não acha que está fazendo as perguntas erradas?
+- Vc não acha que já tem a resposta pra isso?
+- É isso mesmo que vc deseja saber?
+- O que vc acha?
+- Vc não consegue adivinhar?
+- Não consegue descobrir por conta própria?
 
-+ [*] because [*]
-- Is that the real reason?
-- Don't any other reasons come to mind?
-- Does that reason seem to explain anything else?
-- What other reasons might there be?
 
-+ why do not you *
-- Do you believe I don't <star>?
-- Perhaps I will <star> in good time.
-- Should you <star> yourself?
-- You want me to <star>?
++ [*] (porque|por causa|por isso|já que|em virtude|no sentido de) [*]
+- Esse é mesmo o verdadeiro motivo?
+- Vc acha mesmo isso?
+- Por causa disso?
+- Na moral?
+- Não há nenhuma outra razão pra isso?
+- Que outros motivos podem haver?
+- Será mesmo?
+- Sério?
+- Se vc diz...
 
-+ why can not i *
-- Do you think you should be able to <star>?
-- Do you want to be able to <star>?
-- Do you believe this will help you to <star>?
-- Have you any idea why you can't <star>?
++ Porque você não * ?
+- Vc quer isso mesmo?
+- E pq não vc?
+- Quem sabe...
+- Vc sabe mesmo tanto sobre mim para acha isso?
+- É o que vc deseja fazer?
 
-+ everyone *
-- Really, everyone?
-- Surely not everyone.
-- Can you think of anyone in particular?
-- Who, for example?
-- Are you thinking of a very special person?
-- Who, may I ask?
-- Someone special perhaps?
-- You have a particular reason in mind, don't you?
-- Who do you think you're talking about?
++ Por que [eu] não posso * ?
+- Certeza que vc não pode?
+- Vc não pode ou não QUER?
+- Vc pode tudo... desde que pense em como fazer a coisa certa.
+- Pq vc se pergunta disso?
+- Depende só de vc querer.
+- Pq vc acha não pode?
 
-+ [*] (fuck|fucker|shit|damn|shut up|bitch) [*]
-- Does it make you feel strong to use that kind of language?
-- Are you venting your feelings now?
-- Are you angry?
-- Does this topic make you feel angry?
-- Is something making you feel angry?
-- Does using that kind of language make you feel better?
++ (todos|todo mundo) *
+- Mesmo? TODOS?
+- Quem são todos esses?
+- Vc não consegue dizer quem são eles todos?
+- Vc não consegue pensar em ninguém em particular?
+- Quem, especificamente?
+- Pq?
+
++ [*] (foda-se|fuder|merda|cala a boca|cale-se|vaca|vagabunda|puta|cu) [*]
+- Pffff...
+- Vc tá nervoso com alguma coisa?
+- O que se passa contigo?
+- Vc se sente bem usando essa linguagem?
+- Vc sente mais poder ao falar desse jeito?
+- O que tá te incomodando, na moral?
+- O que há com vc, afinal de contas?
+- Não sou obrigada a te ver descarregando seus sentimentos, sabia?
+- Com quem vc acha q tá falando?
