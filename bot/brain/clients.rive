@@ -1,14 +1,14 @@
 // Learn stuff about our users.
-+ (meu nome é|me chamo) *
++ (meu nome e|me chamo) *
 * <formal>   == <bot name> => Que coincidência! Esse é meu nome tbm!<set name=<formal>>
 * <get name> == undefined  => <set name=<formal>>Olá, <get name>!
 - <set oldname=<get name>><set name=<formal>>
 ^ Achava que seu nome era <get oldname>! Não entendi...
 
-+ [você] pode me chamar *
++ [voce] pode me chamar *
 - <set name=<formal>>OK, <get name>!
 
-+ (como me chamo|qual é meu nome)
++ (como me chamo|qual e meu nome)
 * <get name> == undefined => Vc não me disse ainda seu nome...
 - Como assim? Vc não se chama <get name>?
 - Vc já me disse que é <get name>, não?

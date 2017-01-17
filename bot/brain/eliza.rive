@@ -11,7 +11,7 @@
 - Como assim?
 - O q isso quer dizer?
 
-+ [é] mesmo
++ [_] mesmo
 - Sim!
 
 + <reply>
@@ -27,7 +27,7 @@
 - Sim... "<input1>"...
 
 // An example that uses both tags
-+ por que você (disse|escreve|acha) [*]
++ por que voce (disse|escreve|acha) [*]
 - Ora... disse que <reply> pq vc disse que <input>!
 
 > topic sorry
@@ -48,13 +48,13 @@
 - Pq vc acha isso? Que <star>...?
 
 + [eu] [_] lembro [_] *
-- Você lembra bastante nisso?
+- voce lembra bastante nisso?
 - Pensar em <star>... te traz algo mais em mente?
 - Pq vc se lembrou disso só agora?
 - Pq vc vê algo entre eu e <star>?
 - O que mais lembrar de <star> te faz pensar?
 
-+ [você] [_] lembra [_] *
++ [voce] [_] lembra [_] *
 - Vc acha q eu iria esquecer disso?
 - O que tem isso?
 - Vc fala de <star>?
@@ -68,7 +68,7 @@
 - Vc se esquece facilmente das coisas?
 - Vc se esqueceu de outra coisa nesses últimos dias?
 
-+ você [_] (esquece|esqueceu) *
++ voce [_] (esquece|esqueceu) *
 - Pq a pergunta?
 - Pq vc não me diz mais sobre isso?
 - Pq eu preciso me lembrar disso?
@@ -89,7 +89,7 @@
 - Quantas vezes vc já sonhou com isso?
 - Quem mais aparece em seus sonhos?
 - O que mais acontece?
-- Você acha que seus sonhos tem a ver com o que vem acontecendo por aí?
+- voce acha que seus sonhos tem a ver com o que vem acontecendo por aí?
 
 + [*] (talvez|quem sabe|provavelmente) [*]
 - Pq essa incerteza?
@@ -121,7 +121,7 @@
 - E daí?
 - Mesmo?
 
-+ você (é|está) * ?
++ voce (e|esta) * ?
 - Vc gostaria q não?
 - Talvez... em seu pensamento, aí do outro lado deste canal nosso de comunicação.
 - Importa que eu seja ou esteja <star>?
@@ -131,13 +131,13 @@
 - E daí?
 - Mesmo?
 
-+ você é *
++ voce e *
 - Pq vc acha isso?
 - Vc acredita mesmo nisso?
 - Talvez seja vc quem gostaria de ser <star>.
 - Vc gostaria se eu fosse <star>?
 
-+ * (são|estão) *
++ * (sao|estao) *
 - Tem certeza disso?
 - Pq?
 - Se vc diz...
@@ -246,19 +246,19 @@
 - Isso lhe incomoda?
 - Pq não?
 
-+ ninguém *
++ ninguem *
 - Certeza?
 - Qualé... ALGUÉM deve, pelo menos!
 - Pq ninguém?
 - Ninguém mesmo?
 - Sério?
 
-+ você pode * ?
++ voce pode * ?
 - Daqui do meu lado da conversa, posso muito pouco...
 - Talvez seja vc quem quer fazer isso, não?
 - Pq vc não pode?
 - Pq a pergunta?
-- Você quer que eu faça isso, não quer?
+- voce quer que eu faça isso, não quer?
 - Perhaps you would like to be able to <star> yourself.
 
 + [eu] posso * ?
@@ -282,7 +282,7 @@
 - Vc não consegue adivinhar?
 - Não consegue descobrir por conta própria?
 
-+ [*] (porque|por causa|por isso|já que|em virtude|no sentido de) [*]
++ [*] (porque|por causa|por isso|ja que|em virtude|no sentido de) [*]
 - Esse é mesmo o verdadeiro motivo?
 - Vc acha mesmo isso?
 - Por causa disso?
@@ -293,14 +293,14 @@
 - Sério?
 - Se vc diz...
 
-+ Porque você não * ?
++ Porque voce nao * ?
 - Vc quer isso mesmo?
 - E pq não vc?
 - Quem sabe...
 - Vc sabe mesmo tanto sobre mim para acha isso?
 - É o que vc deseja fazer?
 
-+ Por que [eu] não posso * ?
++ Por que [eu] nao posso * ?
 - Certeza que vc não pode?
 - Vc não pode ou não QUER?
 - Vc pode tudo... desde que pense em como fazer a coisa certa.
