@@ -77,17 +77,18 @@
 - Acesse esse link: <bot link_site_cont>\n
 ^ Se vc tiver qualquer dúvida... ou se sentir perdido... infelizmente, não tenho como lhe orientar uma vez que você entrar :(\n
 ^ Mas deixei lá algumas pistas que poderão te ajudar na sua "investigação".\n
-^ E tbm confio na sua boa- vontade, já que vc me aturou até agora, rsss!\n
-^ Boa sorte! \o/{topic=stop_chat}
+^ E, além disso, confio na sua boa vontade, já que vc tbm me aturou até agora.\n
+^ Boa sorte! \o/\n\n
+^ --- [<bot name> saiu da conversa]{topic=stop_chat}
 
-+ (posso|quero|topo|aceito|consigo) [*]
++ (posso|quero|topo|aceito|consigo|esta bom|esta bem) [*]
 @tudo bem
 
 + (@yes) [*]
 @tudo bem
 
 + [*] (chega disso|nao [me] interessa|nao quero|nao topo|me tire daqui|quero sair) [*]
-- Tem certeza?{topic=want_out}
+- Tem certeza que não pode fazer nada?{topic=want_out}
 
 > topic want_out
   // This will match if the word "sorry" exists ANYWHERE in their message
@@ -102,7 +103,7 @@
 
   + *
   - Vamos continuar a conversar, então... mas se decida rápido, pfvr.\n
-  ^ Não quero te pressionar ou nada do tipo, mas uma força sua seria mto importante pra nós mesmo!{topic=random}
+  ^ Não quero te pressionar ou nada do tipo, mas uma força sua seria mto importante pra nós!{topic=random}
 < topic
 
 > topic stop_chat

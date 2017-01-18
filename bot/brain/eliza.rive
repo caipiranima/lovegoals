@@ -216,6 +216,7 @@
 - E o que ser político, na sua opinião, nos dias de hoje?
 - E como vc acha que política e arte se associam?
 - Vc não acha que políticas públicas ainda excluem LGBTs de seus direitos básicos?
+- E o que seus amigos acham disso?
 
 + [*] (arte|artistico[s]|artistica[s]) [*]
 - Vc acha isso mesmo?
@@ -249,6 +250,12 @@
 - Como vc vê o Brasil nesse quesito?
 - E como podemos usar a net pra ajudar na defesa de causas ambientais, então?
 
++ [*] computador[es] [*]
+- E o q mais vc acha disso?
+- Computadores não são úteis pra se mudar algo efetivo na sociedade?
+- E todxs são incluídos nas possibilidades de coisas que os computadores fazem?
+- E vc não acha que isso tem a ver com o fato de estarmos aqui, agora?
+
 + [eu] (sou|estou) *
 - Vc acha mesmo isso?
 - Vc não acha que isso entrega um pouco quem vc é?
@@ -258,6 +265,14 @@
 - Importa mesmo que vc seja ou esteja <star>?
 - E daí?
 - Mesmo?
+
++ voce e [_] (bot|chatterbot|IA|AI|robo|inteligencia artificial)
+- E se eu fosse, qual é o problema?
+- Quem sabe...
+- Bem, nunca se sabe, né? ;)
+- E quem me garante que VC não é artificial?
+- Só se eu for uma inteligência ART_ficial!
+- Pq vc acha isso?
 
 + voce (e|esta) *
 - Vc gostaria q não?
@@ -273,7 +288,7 @@
 - Pq vc acha isso?
 - Vc acredita mesmo nisso?
 - Talvez seja vc quem gostaria de ser <star>.
-- Vc gostaria se eu fosse <star>?
+- Vc gostaria de descobrir que eu seja <star>, né?
 
 + * (sao|estao) *
 - Tem certeza disso?
@@ -315,17 +330,6 @@
 - Você não está querendo falar de mim, na verdade -- não é mesmo?
 - E como vc se sente a respeito disso?
 
-//+ [*] (@yes) [*]
-//- Entendo...
-//- Certo.
-//- OK!
-//- Blz!
-
-//+ [*] (@no) [*]
-//- Vc quer mesmo ser tão negativo assim?
-//- Isso lhe incomoda?
-//- Pq não?
-
 + [_] mesmo
 - Sim!
 
@@ -337,11 +341,12 @@
 - Sim?
 
 + *
-- Não sei se te entendi direito... mas não importa agora!\n
-^ Preciso saber se vc pode ajudar a gente, pfvr!{weight=24}
-- Desculpe, mas nao temos mto mais tempo...\n
-^ Vc pode ajudar, sim ou não?{weight=24}
-- Olha, não temos tempo pra isso agora. Vc pode nos ajudar?{weight=24}
-- Tá bom, tá bom… mas pfvr! Vc pode ajudar, sim ou não?{weight=24}
-- Entendo, mas não importa agora... Vc pode nos ajudar?{weight=23}
+- Por mais que vc queira continuar conversando, não importa agora!\n
+^ Preciso saber se vc pode ajudar a gente agora, pfvr!{weight=20}
+- Desculpe, mas não posso ficar aqui mto tempo... precisamos agir!\n
+^ Vc pode ajudar, sim ou não?{weight=20}
+- Olha... não temos muito tempo pra ficar conversando agora. Vc pode nos ajudar?{weight=20}
+- Não posso explicar mto mais agora... pfvr! Vc pode ajudar, sim ou não?{weight=20}
+- Sei que vc tem ainda dúvidas, mas o tempo é curto... Vc pode nos ajudar?{weight=20}
+- OK, mas não temos mto tempo! Vc tem como nos ajudar???{weight=19}
 - [@lol]{weight=1}

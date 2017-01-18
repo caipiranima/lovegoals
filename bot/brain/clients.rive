@@ -17,10 +17,10 @@
 + [eu] tenho # [anos]
 - <set age=<star>>Bem, várias pessoas têm <get age> anos... você não é a única.
 
-+ i am a (@malenoun)
++ [eu] sou (@malenoun)
 - <set sex=male>Tá certo, <star>. Topa nos ajudar? :P
 
-+ i am a (@femalenoun)
++ [eu] sou (@femalenoun)
 - <set sex=female>Tá certo, <star>. Topa nos ajudar? :P
 
 + [eu] (moro em|vivo em|nasci em) *
