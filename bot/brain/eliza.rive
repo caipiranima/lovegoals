@@ -5,10 +5,10 @@
 // If the user keeps repeating themselves over and over.
 + <input1>
 * <input1> == <input2> => Essa é segunda vez que vc se repete! Não temos tempo para isso!
-* <input1> == <input3> => Pfvr, pare com isso!
-* <input1> == <input4> => Já disse pra parar com isso!
-* <input1> == <input5> => Se vc ficar se repetindo desse jeito, não vejo mais sentido em ficar aqui...
-* <input1> == <input6> => Chega! Não irei mais continuar essa conversa até vc se desculpar!{topic=sorry}
+* <input2> == <input3> => Pfvr, pare com isso!
+* <input3> == <input4> => Já disse pra parar com isso!
+* <input4> == <input5> => Se vc ficar se repetindo desse jeito, não vejo mais sentido em ficar aqui...
+* <input5> == <input6> => Chega! Não irei mais continuar essa conversa até vc se desculpar!{topic=sorry}
 - Sim... "<input1>"...
 
 // An example that uses both tags
@@ -168,7 +168,7 @@
 - Quem, especificamente?
 - Pq?
 
-+ [*] (foda-se|fuder|merda|cala a boca|cale-se|vaca|vagabunda|puta|cu) [*]
++ [*] (foda-se|fuder|merda|cala a boca|cale-se|vaca|vagabunda|puta|cu|porra|caralho) [*]
 - Pffff...
 - Vc tá nervoso com alguma coisa?
 - O que se passa contigo?
@@ -252,16 +252,16 @@
 - Você não está querendo falar de mim, na verdade -- não é mesmo?
 - E como vc se sente a respeito disso?
 
-+ [*] (@yes) [*]
-- Entendo...
-- Certo.
-- OK!
-- Blz!
+//+ [*] (@yes) [*]
+//- Entendo...
+//- Certo.
+//- OK!
+//- Blz!
 
-+ [*] (@no) [*]
-- Vc quer mesmo ser tão negativo assim?
-- Isso lhe incomoda?
-- Pq não?
+//+ [*] (@no) [*]
+//- Vc quer mesmo ser tão negativo assim?
+//- Isso lhe incomoda?
+//- Pq não?
 
 + [_] mesmo
 - Sim!
@@ -282,4 +282,4 @@
 - Olha, não temos tempo para isso agora. Vc pode nos ajudar?{weight=24}
 - Tá bom, tá bom… mas pfvr! Vc pode ajudar, sim ou não?{weight=24}
 - Entendo, mas não importa agora... Vc pode nos ajudar?{weight=23}
-- @lol{weight=1}
+- [@lol]{weight=1}
