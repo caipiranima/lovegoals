@@ -44,12 +44,12 @@
 ^ Você já sabe disso!
 
 + [o] (que aconteceu|que houve|que e isso|onde estou)
-- Não tenho muito tempo para explicar tudo em detalhes. Importa dizer o q vc precisa fazer agora.\n
+- Não tenho muito tempo pra explicar tudo em detalhes. Importa dizer o q vc precisa fazer agora.\n
 ^ Vc precisa continuar navegando.
 
-+ (por que|do que voce|que ajuda|como assim) *
++ (por que|do que voce|que ajuda|como assim) [*]
 - Há um segredo que precisa ser encontrado... e não consigo encontrá-lo sozinha.\n
-^ Se vc topar nos ajudar, vc será redirecionado para um ambiente que ainda não tenho certeza do q é exatamente.\n
+^ Se vc topar nos ajudar, vc será redirecionado pra um ambiente que ainda não tenho certeza do q é exatamente.\n
 ^ Parece ser um espaço virtual ainda em fase de testes… parte do novo sistema de vigilância que a uForge vem desenvolvendo em parceria com o Depto de Cibersegurança.\n
 ^ Porém, eles tem deixado “migalhas” na rede toda vez que bloqueiam um site suspeito de infringir a lei anti-LGBT.\n
 ^ Consegui acessar essa brecha, mas há algo que eles estão escondendo nessa plataforma...\n
@@ -60,13 +60,17 @@
 ^ não só na rede, mas no mundo real também.\n
 ^ Somos poucxs, e, por isso, mais do que nunca, precisamos de sua ajuda!
 
-+ [o] que (e|tem) [a] uforge?
-- É uma multinacional que vem atuando em diferentes frentes de vigilância e monitoramento, fornecendo equipamentos e serviços para países do mundo todo há pelo menos uma década.\n
-^ Dizem até que ela literalmente comprou alguns governos para operar livre, coletando e armazenando todo o tipo de dados da população para vender depois às entidades interessadas.\n
++ [o] que (e|tem) [a] uforge
+- É uma multinacional que vem atuando em diferentes frentes de vigilância e monitoramento, fornecendo equipamentos e serviços pra países do mundo todo há pelo menos uma década.\n
+^ Dizem até que ela literalmente comprou alguns governos pra operar livre, coletando e armazenando todo o tipo de dados da população pra vender depois às entidades interessadas.\n
 ^ Sabe o canal da webTV, a UTV? É propriedade deles.
 
-+ [o] que (e|tem) [o] departamento de ciberseguranca?
-- É um braço da Polícia Federal criando para monitorar atividades “suspeitas” na rede, contando com o apoio técnico da uForge e outros investidores privados.\n
++ [o] que (e|tem) [a] utv
+- Como já disse, é um canal na internet que surgiu após a aquisição da estrutura das antigas emissoras de televisão pela uForge.\n
+^ Basicamente, são eles quem controlam as informações da grande mídia brasileira nos dias de hoje.
+
++ [o] que (e|tem) [o] departamento de ciberseguranca
+- É um braço da Polícia Federal criando pra monitorar atividades “suspeitas” na rede, contando com o apoio técnico da uForge e outros investidores privados.\n
 ^ Eles conseguiram derrubar nosso site… mas será por pouco tempo.
 
 + tudo bem [*]
@@ -88,8 +92,8 @@
 > topic want_out
   // This will match if the word "sorry" exists ANYWHERE in their message
   + (sim|tenho) [*]
-  - Entendo...\n
-  ^ Mas, pelo menos, reserve uns minutos para assistir isso: <bot link_video01>\n
+  - Entendi...\n
+  ^ Mas, pelo menos, reserve uns minutos pra assistir isso: <bot link_video01>\n
   ^ É um vídeo gravado do último pronunciamento do Protetor da União Cohen. Vc deve conhecê-lo…. senão, bem, tire suas próprias conclusões sobre o sujeito.\n
   ^ Se o discurso de ódio dele não mudar sua opinião, sinta-se livre de qualquer compromisso com a gente.\n
   ^ Mas se você mudar de ideia... vc sabe onde me encontrar ;)\n\n
@@ -97,7 +101,7 @@
 
   + *
   - Vamos continuar a conversar, então... mas se decida rápido, pfvr.\n
-  ^ Não quero pressionar ou nada do tipo, mas sua força seria muito importante para nós mesmo!{topic=random}
+  ^ Não quero te pressionar ou nada do tipo, mas uma força sua seria mto importante pra nós mesmo!{topic=random}
 < topic
 
 > topic stop_chat

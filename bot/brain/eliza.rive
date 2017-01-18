@@ -4,11 +4,10 @@
 
 // If the user keeps repeating themselves over and over.
 + <input1>
-* <input1> == <input2> => Essa é segunda vez que vc se repete! Não temos tempo para isso!
-* <input2> == <input3> => Pfvr, pare com isso!
-* <input3> == <input4> => Já disse pra parar com isso!
-* <input4> == <input5> => Se vc ficar se repetindo desse jeito, não vejo mais sentido em ficar aqui...
-* <input5> == <input6> => Chega! Não irei mais continuar essa conversa até vc se desculpar!{topic=sorry}
+* <input1> == <input5> => Chega! Não irei mais continuar essa conversa até vc se desculpar!{topic=sorry}
+* <input1> == <input4> => Se vc ficar se repetindo desse jeito, não vejo mais sentido em ficar aqui...
+* <input1> == <input3> => Pfvr, pare com isso!
+* <input1> == <input2> => Essa é segunda vez que vc se repete! Não temos tempo pra isso!
 - Sim... "<input1>"...
 
 // An example that uses both tags
@@ -49,12 +48,13 @@
 - Mas do q vc se lembra?
 - Pq vc não consegue se lembrar disso?
 - É mesmo?
-- Isso é importante para vc?
+- Isso é importante pra vc?
 - Vc se esquece facilmente das coisas?
 - Vc se esqueceu de outra coisa nesses últimos dias?
 
 + voce [_] (esquece|esqueceu) *
-- Pq a pergunta?
+- Pq isso importa tanto pra vc?
+- E vc se lembra de tudo o tempo todo?
 - Pq vc não me diz mais sobre isso?
 - Pq eu preciso me lembrar disso?
 - E...?
@@ -91,13 +91,13 @@
 + [eu] (estou|me sinto) (triste|infeliz|com raiva) [*]
 - Entendo... mas quem sabe vc pode descontar isso que vc sente em algo capaz de desmoralizar esse nosso governo golpista?
 - E vc não acha que ajudando a gente, vc não se sentiria melhor? É uma chance de mudar as coisas!
-- Sinto muito por isso... mas não posso fazer nada por vc agora para te fazer sentir melhor\n
+- Sinto muito por isso... mas não posso fazer nada por vc agora pra te fazer sentir melhor\n
 ^ Posso apenas lhe dar uma oportunidade de catarse... uma chance de fazer sua microparte pra q alguma microcoisa aconteça!\n
 ^ Vc topa ajudar?
 
 + [eu] (estou|me sinto) (feliz|contente|bem|ok) [*]
 - Fico contente por vc!
-- Que bom! Então vc tá com ânimo para ajudar a gente? :)
+- Que bom! Então vc tá com ânimo pra ajudar a gente? :)
 
 + ninguem *
 - Certeza?
@@ -111,7 +111,6 @@
 - Talvez seja vc quem quer fazer isso, não?
 - Pq VC não pode?
 - voce quer que eu faça isso, não quer?
-- Perhaps you would like to be able to <star> yourself.
 
 + [eu] posso *
 - Isso depende mais de vc do q de mim, na verdade.
@@ -149,7 +148,7 @@
 - Vc quer isso mesmo?
 - E pq não VC?
 - Quem sabe...
-- Vc sabe mesmo tanto sobre mim para acha isso?
+- Vc sabe mesmo tanto sobre mim pra acha isso?
 - É o que vc deseja fazer?
 
 + [por que] [eu] nao posso *
@@ -168,7 +167,7 @@
 - Quem, especificamente?
 - Pq?
 
-+ [*] (foda-se|fuder|merda|cala a boca|cale-se|vaca|vagabunda|puta|cu|porra|caralho) [*]
++ [*] (@ofensas) [*]
 - Pffff...
 - Vc tá nervoso com alguma coisa?
 - O que se passa contigo?
@@ -179,11 +178,69 @@
 - Não sou obrigada a te ver descarregando seus sentimentos, sabia?
 - Com quem vc acha q tá falando?
 
-+ [*] computador [*]
-- Pq vc fala agora de computadores?
-- Vc acha mesmo?
-- Vc não acha que computadores podem ajudar numa verdadeira revolução?
-- O que vc acha de computadores?
++ [*] (midia|tv|televisao|radio|jornal|jornais|revista[s]) [*]
+- Vc acha isso mesmo?
+- Vc não acha que uma midia descompromissada de interesses políticos e econômicos pode contribuir pra uma verdadeira revolução?
+- E como a mídia tem sido manipulada atualmente?
+- Como mídia e política se associam?
+- E pq o meio ambiente não interessa nem um pouco a mídia em massa?
+- O que VC acha da mídia brasileira?
+- Vc pode colaborar pra que isso mude, sabia?
+
++ [*] (internet|rede|web|www) [*]
+- Vc acha isso mesmo?
+- Vc acha que a internet pode causar transformações na sociedade?
+- E como vc utiliza a internet atualmente?
+- Vc acha que a internet alimenta a intolerância?
+- Como vc vê o papel das redes na formação de um pensamento crítico?
+
++ [*] (revolucao|revolucoes) [*]
+- Vc acha isso mesmo?
+- Como vc faria a revolução acontecer em tempos de vigilância e monitoramento constantes como esses?
+- O que é a revolução nessa era doida de "pós-digital"?
+- Como fazer uma revolução que seja inclusiva pra todxs?
+- O que é "revolução"? Faz sentido falar disso nos dias de hoje?
+
++ [*] (politica[s]|politico[S]) [*]
+- Vc acha isso mesmo?
+- Como a politica influencia sua vida atualmente?
+- Vc nao pode fazer nada pra mudar isso?
+- Pq vc acha isso?
+- Tudo o q a gente faz pra movimentar a sociedade não é um ato político?
+- E o que ser político, na sua opinião, nos dias de hoje?
+- E como vc acha que política e arte se associam?
+
++ [*] (arte|artistico[s]|artistica[s]) [*]
+- Vc acha isso mesmo?
+- E o que vc acha da arte contemporânea?
+- Vc não acha que a arte deve ter relação com o contexto político e social do país?
+- Como vc julga que a arte pode atuar de forma transformadora na nossa sociedade?
+- E o que é arte pra vc, então?
+- A arte pode falar de política tbm?
+
++ [*] (economia|economico[s]|economica[s]) [*]
+- Vc acha isso mesmo?
+- Pq vc se preocupa com isso?
+- E o que é "economia" pra vc?
+- E dá pra ter uma boa economia a longo prazo com tanta degradação ambiental acontecendo por aí?
+- E qual é o seu papel nisso?
+- Como vc vê os políticos atuando na economia do país?
+- Como a arte pode mudar isso?
+
++ [*] (sociedade|social|sociais) [*]
+- Vc acha isso mesmo?
+- E dá pra separar sociedade de política?
+- E vc não acha que tudo o que fazemos em sociedade não é político?
+- Como vc vê o futuro do Brasil, com tudo isso que vc disse em mente?
+- E como VC poderia mudar isso?
+
++ [*] (meio ambiente|ambiental|ambientais) [*]
+- Vc acha isso mesmo?
+- Pq vc se preocupa com isso?
+- E vc não acha que o cenário político atual tem a ver com isso?
+- Vc não acredita que a arte pode falar de questões ambientais tbm?
+- Como vc vê o Brasil nesse quesito?
+- E como podemos usar a net pra ajudar na defesa de causas ambientais, então?
 
 + [eu] (sou|estou) *
 - Vc acha mesmo isso?
@@ -217,7 +274,6 @@
 - Se vc diz...
 
 + [*] seu *
-- Pq essa preocupação toda?
 - O que vc teria a ver com isso?
 - Me conte mais sobre isso.
 - Não saberia dizer... se vc diz...
@@ -269,17 +325,16 @@
 + (ola|oi|ei|hey|olar|hola|yo) [*]
 - Olá! Estou aqui ainda!
 - Diga!
-- Fala.
+- Fale.
 - O que há?
 - Sim?
-- Prossiga.
 
 + *
 - Não sei se te entendi direito... mas não importa agora!\n
 ^ Preciso saber se vc pode ajudar a gente, pfvr!{weight=24}
 - Desculpe, mas nao temos mto mais tempo...\n
 ^ Vc pode ajudar, sim ou não?{weight=24}
-- Olha, não temos tempo para isso agora. Vc pode nos ajudar?{weight=24}
+- Olha, não temos tempo pra isso agora. Vc pode nos ajudar?{weight=24}
 - Tá bom, tá bom… mas pfvr! Vc pode ajudar, sim ou não?{weight=24}
 - Entendo, mas não importa agora... Vc pode nos ajudar?{weight=23}
 - [@lol]{weight=1}

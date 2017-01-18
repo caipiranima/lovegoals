@@ -10,8 +10,8 @@
 > topic new_user
   + *
   - Oi!\n
-	^ Não se assuste, mas estava rastreando sua conexão e percebi que vc tentou acessar nosso site.\n
-	^ Pfvr não saia ainda… não ligue para o aviso estúpido de segurança desse governo golpista. Ele podem ter derrubado o conteúdo geral do site, mas ainda conseguimos identificar quem tentou acessá-lo em cache para conversar à parte, em um canal seguro.\n
+	^ Não se assuste, mas estava rastreando sua conexão pelo IP <env REMOTE_ADDR> e percebi que vc tentou acessar nosso site.\n
+	^ Pfvr não saia ainda… não ligue pro aviso estúpido de segurança desse governo golpista. Ele podem ter derrubado o conteúdo geral do site, mas ainda conseguimos identificar quem tentou acessá-lo em cache pra conversar à parte, em um canal seguro.\n
 	^ Precisamos de toda a ajuda possível.\n
 	^ Vc pode colaborar? :){topic=random}
 < topic
@@ -24,7 +24,7 @@
 ! var fullname = Somente Anita
 ! var age      = Não interessa agora...
 ! var birthday = Não importa!
-! var sex      = Por que isso é importante para você?! Não temos tempo para ficar discutindo isso...
+! var sex      = Por que isso é importante pra você?! Não temos tempo pra ficar discutindo isso...
 ! var location = Mais perto de onde você imagina ;)
 ! var city     = Em todas as cidades brasileiras, ao mesmo tempo... ou não!
 ! var eyes     = castanhos-escuros
