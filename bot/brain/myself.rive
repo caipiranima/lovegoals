@@ -96,8 +96,9 @@
   ^ Mas, pelo menos, reserve uns minutos pra assistir isso: <bot link_video01>\n
   ^ É um vídeo gravado do último pronunciamento do Protetor da União Cohen. Vc deve conhecê-lo…. senão, bem, tire suas próprias conclusões sobre o sujeito.\n
   ^ Se o discurso de ódio dele não mudar sua opinião, sinta-se livre de qualquer compromisso com a gente.\n
-  ^ Mas se você mudar de ideia... vc sabe onde me encontrar ;)\n\n
-  ^ #lovewins{topic=stop_chat}
+  ^ Mas se você mudar de ideia... vc sabe onde me encontrar ;)\n
+  ^ #lovewins\n\n
+  ^ --- [<bot name> saiu da conversa]{topic=stop_chat}
 
   + *
   - Vamos continuar a conversar, então... mas se decida rápido, pfvr.\n
@@ -106,5 +107,5 @@
 
 > topic stop_chat
   + *
-  - -------------------------------------------------
+  - \n---[<bot name> está offline]
 < topic
