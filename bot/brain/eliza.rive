@@ -1,6 +1,6 @@
 // A generic set of chatting responses. This set mimicks the classic Eliza bot.
-+ <reply>
-- Não fique repetindo o que te digo, pfvr! É importante que vc preste atenção!
+//+ <reply>
+//- Não fique repetindo o que te digo, pfvr! É importante que vc preste atenção!
 
 // If the user keeps repeating themselves over and over.
 + <input1>
