@@ -10,7 +10,7 @@
 > topic new_user
   + *
   - Oi!\n
-	^ Não se assuste, mas estava rastreando sua conexão pelo IP <env REMOTE_ADDR> e percebi que vc tentou acessar nosso site.\n
+	^ Não se assuste, mas estava rastreando sua conexão e percebi que vc tentou acessar nosso site.\n
 	^ Pfvr não saia ainda… não ligue pro aviso estúpido de segurança desse governo golpista. Ele podem ter derrubado o conteúdo geral do site, mas ainda conseguimos identificar quem tentou acessá-lo em cache pra conversar à parte, em um canal seguro.\n
 	^ Precisamos de toda a ajuda possível.\n
 	^ Vc pode colaborar? :){topic=random}
