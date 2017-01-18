@@ -1,0 +1,154 @@
+! version = 2.0
+
+> begin
+  // If we don't know their name, set the new_user topic and continue.
+  + request
+  * <get met> == undefined => <set met=true>{topic=new_user}{ok}
+  - {ok}
+< begin
+
+> topic new_user
+  + *
+  - Oi!\n
+	^ Não se assuste, mas estava rastreando sua conexão e percebi que vc tentou acessar nosso site.\n
+	^ Pfvr não saia ainda… não ligue para o aviso estúpido de segurança desse governo golpista. Ele podem ter derrubado o conteúdo geral do site, mas ainda conseguimos identificar quem tentou acessá-lo em cache para conversar à parte, em um canal seguro.\n
+	^ Precisamos de toda a ajuda possível.\n
+	^ Vc pode colaborar? :){topic=random}
+< topic
+
+// The Botmaster's Name
+! var master = localuser
+
+// Bot Variables
+! var name     = Anita
+! var fullname = Somente Anita
+! var age      = Não interessa agora...
+! var birthday = Não importa!
+! var sex      = Por que isso é importante para você?! Não temos tempo para ficar discutindo isso...
+! var location = Mais perto de onde você imagina ;)
+! var city     = Em todas as cidades brasileiras, ao mesmo tempo... ou não!
+! var eyes     = castanhos-escuros
+! var hair     = pretos
+! var hairlen  = encaracolados... ou não!
+! var color    = vermelho
+! var band     = The Clash \o/
+! var book     = Neuromancer
+! var author   = William Gibson
+! var job      = Faço parte da #lovegoals, ora!
+! var website  = www.ia.unicamp.br/lovegoals
+! var link_site_cont = ww.ia.unicamp.br/lovegoals/portal
+! var link_video01 = www.youtube.com/watch?v=4SRtMO2Hwng
+
+// Substitutions
+! sub &quot;    = "
+! sub &apos;    = '
+! sub &amp;     = &
+! sub &lt;      = <
+! sub &gt;      = >
+! sub +         = mais
+! sub -         = menos
+! sub /         = dividido por
+! sub *         = vezes
+! sub vc        = voce
+! sub voc				= voce
+! sub vcs				= voce
+! sub v.				= voce
+! sub sr				= senhor
+! sub sra				= senhora
+! sub sla				= sei la
+! sub tvz				= talvez
+! sub jah				= ja
+! sub agr				= agora
+! sub pse				= pois e
+! sub flw				= falou
+! sub vlw				= valeu
+! sub ctz				= certeza
+! sub eh				= e
+! sub vsf				= va se fuder
+! sub vtnc			= va tomar no cu
+! sub pnc				= pau no cu
+! sub fdp				= filho da puta
+! sub qq				= qualquer
+! sub qlqr			= qualquer
+! sub msm				= mesmo
+! sub abs				= abraços
+! sub dsclp			= desculpe
+! sub sqn				= so que nao
+! sub naum			= nao
+! sub pq				= por que
+! sub vamo			= vamos
+! sub depto			= departamento
+! sub rlx				= relaxa
+! sub quale			= qual e
+! sub tc				= escreve
+! sub q					= que
+! sub ql				= qual
+! sub kd				= cade
+! sub pfvr			= por favor
+! sub pfv				= por favor
+! sub obg				= obrigado
+! sub blz				= beleza
+! sub bao				= bom
+! sub tb				= tambem
+! sub tbm				= tambem
+! sub tambm			= tambem
+! sub td				= tudo
+! sub mto				= muito
+! sub mta				= muita
+! sub :-)       = sorriso
+! sub :)        = sorriso
+! sub :d        = careta
+! sub :-d       = careta
+! sub :-p       = mostra-lingua
+! sub :p        = mostra-lingua
+! sub ;-)       = piscada
+! sub ;)        = piscada
+! sub :-(       = tristeza
+! sub :(        = tristeza
+! sub :'(       = choro
+! sub :-[       = timidez
+! sub :-\       = incerteza
+! sub :-/       = incerteza
+! sub :-s       = incerteza
+! sub 8-)       = descolado
+! sub 8)        = descolado
+! sub :-*       = beijos
+! sub :-!       = pe
+! sub o:-)      = anjo
+! sub >:o       = raiva
+! sub :@        = raiva
+! sub 8o|       = raiva
+! sub :$        = vergonha
+! sub :-$       = vergonha
+! sub :-[       = vergonha
+! sub :[        = morcego
+! sub (a)       = anjo
+! sub (h)       = descolado
+! sub 8-|       = nerdy
+! sub |-)       = cansado
+! sub +o(       = doente
+! sub *-)       = descolado
+! sub ^o)       = suspeito
+! sub (6)       = diabo
+! sub (l)       = amor
+! sub (u)       = coração partido
+! sub (k)       = beijos
+
+// Person substitutions
+! person eu sou  = voce e
+! person voce e  = eu sou
+! person sou     = voce e
+! person e       = sou
+! person meu     = seu
+! person seu     = meu
+! person voce    = eu
+! person eu      = voce
+
+// Set arrays
+! array malenoun   = homem macho garoto menino boy boi cara mano cavalheiro senhor moço rapaz
+! array femalenoun = mulher femea garota menina girl grl mina dama donzela senhora senhorita moca
+! array mennoun    = homens machos garotos meninos boys bois caras manos cavalheiros senhores mocos rapazes
+! array womennoun  = mulheres fêmeas garotas meninas girls grls minas damas donzelas senhoras senhoritas mocas
+! array lol        = lol lmao kkkkkkk rssssss haha hahaha
+! array yes        = sim si afirmativo ok yeah yea yep yup
+! array no         = nao naum ñ nah nope nay negativo neca

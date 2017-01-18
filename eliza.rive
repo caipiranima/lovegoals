@@ -1,0 +1,285 @@
+// A generic set of chatting responses. This set mimicks the classic Eliza bot.
+//+ <reply>
+//- Não fique repetindo o que te digo, pfvr! É importante que vc preste atenção!
+
+// If the user keeps repeating themselves over and over.
++ <input1>
+* <input1> == <input2> => Essa é segunda vez que vc se repete! Não temos tempo para isso!
+* <input2> == <input3> => Pfvr, pare com isso!
+* <input3> == <input4> => Já disse pra parar com isso!
+* <input4> == <input5> => Se vc ficar se repetindo desse jeito, não vejo mais sentido em ficar aqui...
+* <input5> == <input6> => Chega! Não irei mais continuar essa conversa até vc se desculpar!{topic=sorry}
+- Sim... "<input1>"...
+
+// An example that uses both tags
++ por que voce (disse|escreve|acha) [*]
+- Ora... disse que <reply> pq vc disse que <input>!
+
+> topic sorry
+  // This will match if the word "sorry" exists ANYWHERE in their message
+  + [*] (desculpe|desculpas|foi mal|mals) [*]
+  - Afff... -_-\n
+  ^ Esquece... Tudo bem...\n
+  ^ Mas vamos falar somente do que interessa agora, pfvr?{topic=random}
+
+  + *
+  - ...{weight=3}
+  - Como q se diz???
+< topic
+
++ [eu] (acho|penso|acredito|creio|imagino) _ *
+- Vc acha mesmo isso?
+- Pq?
+- Pq vc acha isso? Que <star>...?
+
++ [eu] [_] lembro [_] *
+- voce lembra bastante nisso?
+- Pensar em <star>... te traz algo mais em mente?
+- Pq vc se lembrou disso só agora?
+- Pq vc vê algo entre eu e <star>?
+- O que mais lembrar de <star> te faz pensar?
+
++ [voce] [_] lembra [_] *
+- Vc acha q eu iria esquecer disso?
+- O que tem isso?
+- Vc fala de <star>?
+- Aonde vc quer chegar com isso?
+
++ [eu] [_] (esqueço|esqueci) *
+- Mas do q vc se lembra?
+- Pq vc não consegue se lembrar disso?
+- É mesmo?
+- Isso é importante para vc?
+- Vc se esquece facilmente das coisas?
+- Vc se esqueceu de outra coisa nesses últimos dias?
+
++ voce [_] (esquece|esqueceu) *
+- Pq a pergunta?
+- Pq vc não me diz mais sobre isso?
+- Pq eu preciso me lembrar disso?
+- E...?
+
++ [*] se *
+- Vc acha que é possível <star>?
+- Vc acredita mesmo que <star>?
+- O que vc sabe sobre <star>?
+- O que vc faria se <star>?
+- Mas quais são as chances de <star>?
+- O que comentam por aí sobre isso?
+
++ [*] sonhei *
+- Mesmo? "<star>"?
+- Vc já sonhou com isso antes?
+- O que isso tudo te sugere?
+- Quantas vezes vc já sonhou com isso?
+- Quem mais aparece em seus sonhos?
+- O que mais acontece?
+- voce acha que seus sonhos tem a ver com o que vem acontecendo por aí?
+
++ [*] (talvez|quem sabe|provavelmente) [*]
+- Pq essa incerteza?
+- Vc não parecer ter muita... certeza disso.
+- Como assim...? Talvez?
+- Vc não sabe ao certo...?
+
++ [eu] (sei|desejo|quero|preciso|necessito|dependo|espero) *
+- E como vc se sentiria em relação a isso, se isso não rolar?
+- E o que mais vc espera disso?
+- Como vc sabe que é disso que vc precisa?
+- Poderia explicar melhor, <star>?
+
++ [eu] (estou|me sinto) (triste|infeliz|com raiva) [*]
+- Entendo... mas quem sabe vc pode descontar isso que vc sente em algo capaz de desmoralizar esse nosso governo golpista?
+- E vc não acha que ajudando a gente, vc não se sentiria melhor? É uma chance de mudar as coisas!
+- Sinto muito por isso... mas não posso fazer nada por vc agora para te fazer sentir melhor\n
+^ Posso apenas lhe dar uma oportunidade de catarse... uma chance de fazer sua microparte pra q alguma microcoisa aconteça!\n
+^ Vc topa ajudar?
+
++ [eu] (estou|me sinto) (feliz|contente|bem|ok) [*]
+- Fico contente por vc!
+- Que bom! Então vc tá com ânimo para ajudar a gente? :)
+
++ ninguem *
+- Certeza?
+- Qualé... ALGUÉM deve, pelo menos!
+- Pq ninguém?
+- Ninguém mesmo?
+- Sério?
+
++ voce pode *
+- Daqui do meu lado da conversa, posso muito pouco...
+- Talvez seja vc quem quer fazer isso, não?
+- Pq VC não pode?
+- voce quer que eu faça isso, não quer?
+- Perhaps you would like to be able to <star> yourself.
+
++ [eu] posso *
+- Isso depende mais de vc do q de mim, na verdade.
+- É isso mesmo que vc quer?
+- Depende... vc QUER mesmo?
+- Vc decide.
+- A decisão final é sua.
+- Vc tem a última palavra.
+- Vc q sabe.
+- Ora, essa... estou aqui mais no papel de anfitriã do que qualquer outra coisa...
+
++ (o que|quem|quando|onde|como) [*]
+- Saber disso te deixaria em paz?
+- Qual resposta te agradaria mais?
+- Pq a pergunta?
+- Vc não acha que está fazendo as perguntas erradas?
+- Vc não acha que já tem a resposta pra isso?
+- É isso mesmo que vc deseja saber?
+- O que vc acha?
+- Vc não consegue adivinhar?
+- Não consegue descobrir por conta própria?
+
++ [*] (porque|por causa|por isso|ja que|em virtude|no sentido de) [*]
+- Esse é mesmo o verdadeiro motivo?
+- Vc acha mesmo isso?
+- Por causa disso?
+- Na moral?
+- Não há nenhuma outra razão pra isso?
+- Que outros motivos podem haver?
+- Será mesmo?
+- Sério?
+- Se vc diz...
+
++ por que voce nao *
+- Vc quer isso mesmo?
+- E pq não VC?
+- Quem sabe...
+- Vc sabe mesmo tanto sobre mim para acha isso?
+- É o que vc deseja fazer?
+
++ [por que] [eu] nao posso *
+- Certeza que vc não pode?
+- Vc não pode ou não QUER?
+- Vc pode tudo... desde que pense em como fazer a coisa certa.
+- Pq vc se pergunta disso?
+- Depende só de vc querer.
+- Pq vc acha não pode?
+
++ (todos|todo mundo) *
+- Mesmo? TODOS?
+- Quem são todos esses?
+- Vc não consegue dizer quem são eles todos?
+- Vc não consegue pensar em ninguém em particular?
+- Quem, especificamente?
+- Pq?
+
++ [*] (foda-se|fuder|merda|cala a boca|cale-se|vaca|vagabunda|puta|cu|porra|caralho) [*]
+- Pffff...
+- Vc tá nervoso com alguma coisa?
+- O que se passa contigo?
+- Vc se sente bem usando essa linguagem?
+- Vc sente mais poder ao falar desse jeito?
+- O que tá te incomodando, na moral?
+- O que há com vc, afinal de contas?
+- Não sou obrigada a te ver descarregando seus sentimentos, sabia?
+- Com quem vc acha q tá falando?
+
++ [*] computador [*]
+- Pq vc fala agora de computadores?
+- Vc acha mesmo?
+- Vc não acha que computadores podem ajudar numa verdadeira revolução?
+- O que vc acha de computadores?
+
++ [eu] (sou|estou) *
+- Vc acha mesmo isso?
+- Vc não acha que isso entrega um pouco quem vc é?
+- Vc acha que pode mudar?
+- Pode ser que sim... pode ser que não.
+- Quem sabe, realmente?
+- Importa mesmo que vc seja ou esteja <star>?
+- E daí?
+- Mesmo?
+
++ voce (e|esta) *
+- Vc gostaria q não?
+- Talvez... em seu pensamento, aí do outro lado deste canal nosso de comunicação.
+- Importa que eu seja ou esteja <star>?
+- Pq vc quer saber?
+- Pode ser que sim... pode ser que não.
+- Quer mesmo saber?
+- E daí?
+- Mesmo?
+
++ voce e *
+- Pq vc acha isso?
+- Vc acredita mesmo nisso?
+- Talvez seja vc quem gostaria de ser <star>.
+- Vc gostaria se eu fosse <star>?
+
++ * (sao|estao) *
+- Tem certeza disso?
+- Pq?
+- Se vc diz...
+
++ [*] seu *
+- Pq essa preocupação toda?
+- O que vc teria a ver com isso?
+- Me conte mais sobre isso.
+- Não saberia dizer... se vc diz...
+- Quem sabe, né?
+- Hmmm... sério?
+- Ahan
+
++ [eu] (fui|era) *
+- Mesmo?
+- E se não fosse o caso?
+- Pq vc tá me dizendo isso?
+- E se fosse outra pessoa?
+
++ (eu * voce|[eu] te *)
+- Talvez em seus pensamentos, somente...
+- E o que EU acho disso?
+- É o q VC diz...
+- Como assim?
+- O q isso quer dizer?
+- É isso mesmo que vc quer?
+
++ voce me *
+- Pq vc acha isso?
+- Alguém mais acredita nisso além de vc?
+- De verdade?
+- Pq?
+- Vc acredita nisso mesmo?
+
++ [*] voce *
+- Olha, estamos falando do que VC precisa fazer -- e não eu.\n
+^ Vc pode nos ajudar?
+- Você não está querendo falar de mim, na verdade -- não é mesmo?
+- E como vc se sente a respeito disso?
+
+//+ [*] (@yes) [*]
+//- Entendo...
+//- Certo.
+//- OK!
+//- Blz!
+
++ [*] (@no) [*]
+- Vc quer mesmo ser tão negativo assim?
+- Isso lhe incomoda?
+- Pq não?
+
++ [_] mesmo
+- Sim!
+
++ (ola|oi|ei|hey|olar|hola|yo) [*]
+- Olá! Estou aqui ainda!
+- Diga!
+- Fala.
+- O que há?
+- Sim?
+- Prossiga.
+
++ *
+- Não sei se te entendi direito... mas não importa agora!\n
+^ Preciso saber se vc pode ajudar a gente, pfvr!{weight=24}
+- Desculpe, mas nao temos mto mais tempo...\n
+^ Vc pode ajudar, sim ou não?{weight=24}
+- Olha, não temos tempo para isso agora. Vc pode nos ajudar?{weight=24}
+- Tá bom, tá bom… mas pfvr! Vc pode ajudar, sim ou não?{weight=24}
+- Entendo, mas não importa agora... Vc pode nos ajudar?{weight=23}
+- [@lol]{weight=1}
