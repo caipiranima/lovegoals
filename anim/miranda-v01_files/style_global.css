@@ -1,0 +1,691 @@
+/*------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+				GLOBAL CSS
+--------------------------------------------------------------
+--------------------------------------------------------------
+------------------------------------------------------------*/
+
+*
+{
+	margin				: 0;
+	padding				: 0;
+}
+
+div#tvp_header
+{
+	min-height			: 100px;
+}
+
+div#tvp_body
+{
+	white-space			: nowrap;
+}
+
+div#tvp_footer
+{
+	text-align			: center;
+	background-color	: rgb( 233, 233, 233 );
+	padding				: 5px;
+}
+
+/*============================================================
+				HEADER
+============================================================*/
+
+div#tvp_header h1.tvpaint
+{
+	float				: right;
+	min-height			: 75px;
+	
+	margin				: 3px 10px;
+}
+
+div#tvp_header h1 a
+{
+	text-decoration		: none;
+}
+div#tvp_header h1 img,
+div#tvp_header h1 a img
+{
+	border				: none;
+}
+
+div#tvp_header ul.properties
+{
+	margin				: 10px;
+	text-align			: center;
+}
+
+div#tvp_header ul.properties li 
+{
+	list-style-type		: none;
+}
+
+
+/*============================================================
+				HEADER > PROPERTIES
+============================================================*/
+
+div#tvp_header ul.properties li.name,
+div#tvp_header ul.properties li.info,
+div#tvp_header ul.properties li.author,
+div#tvp_header ul.properties li.creation,
+div#tvp_header ul.properties li.last_change,
+div#tvp_header ul.properties li.notes,
+div#tvp_header ul.properties li.copyright
+{
+	margin-bottom		: 5px;
+}
+
+div#tvp_header ul.properties li.name h4,
+div#tvp_header ul.properties li.info h4,
+div#tvp_header ul.properties li.author h4,
+div#tvp_header ul.properties li.creation h4,
+div#tvp_header ul.properties li.last_change h4,
+div#tvp_header ul.properties li.notes h4,
+div#tvp_header ul.properties li.copyright h4
+{
+	float				: left;
+	font-weight			: bold;
+	
+	display				: none;
+}
+
+div#tvp_header ul.properties li.name div.value,
+div#tvp_header ul.properties li.info div.value,
+div#tvp_header ul.properties li.author div.value,
+div#tvp_header ul.properties li.creation div.value,
+div#tvp_header ul.properties li.last_change div.value,
+div#tvp_header ul.properties li.notes div.value,
+div#tvp_header ul.properties li.copyright div.value
+{
+	text-align			: center;
+}
+div#tvp_header ul.properties li.info div.value
+{
+	font-style			: italic;
+}
+
+/*============================================================
+				BODY
+============================================================*/
+
+div#tvp_body div.scene
+{
+	white-space			: normal;
+	
+	margin				: 5px;
+}
+div#tvp_body div.clip
+{
+	white-space			: normal;
+	border				: solid black;
+}
+div#tvp_body div.clip_scene_pair
+{
+	background-color	: rgb(200, 233, 255);
+}
+div#tvp_body div.clip_scene_impair
+{
+	background-color	: rgb(255, 233, 200);
+}
+
+/*============================================================
+				BODY > SCENE
+============================================================*/
+
+div#tvp_body div.scene h3
+{
+}
+div#tvp_body div.scene h3 img,
+div#tvp_body div.scene h3 a img
+{
+	border				: none;
+	vertical-align		: middle;
+}
+
+/*==================================================*/
+
+div#tvp_body div.scene-layout-no-separation
+{
+	display				: none;
+}
+div#tvp_body div.scene-layout-separation
+{
+}
+
+/*==================================================*/
+
+div#tvp_body div.clip-layout-no-separation
+{
+	display				: -moz-inline-stack;
+	display				: inline-block;
+	zoom				: 1;
+	*display			: inline;
+	vertical-align		: top;
+}
+
+div#tvp_body div.clip-layout-separation
+{
+}
+
+/*==================================================*/
+
+div#tvp_body div.clip-inner-layout-header-left
+{
+}
+div#tvp_body div.clip-inner-layout-header-left div.header
+{
+}
+div#tvp_body div.clip-inner-layout-header-left div.header div.empty,
+div#tvp_body div.clip-inner-layout-header-left div.header div.title,
+div#tvp_body div.clip-inner-layout-header-left div.header div.no_scene,
+div#tvp_body div.clip-inner-layout-header-left div.header div.no_clip,
+div#tvp_body div.clip-inner-layout-header-left div.header div.duration
+{
+	text-align			: center;
+}
+div#tvp_body div.clip-inner-layout-header-left div.header div.empty
+{
+	font-weight			: bold;
+	display				: none;
+}
+div#tvp_body div.clip-inner-layout-header-left div.header div.title
+{
+	font-weight			: bold;
+}
+div#tvp_body div.clip-inner-layout-header-left div.header div.title span.label
+{
+	display				: none;
+}
+
+/*---*/
+
+div#tvp_body div.clip-inner-layout-header-left div.header-empty-clip
+{
+}
+div#tvp_body div.clip-inner-layout-header-left div.header-empty-clip div.empty
+{
+	display				: block;
+}
+div#tvp_body div.clip-inner-layout-header-left div.header-empty-clip div.title,
+div#tvp_body div.clip-inner-layout-header-left div.header-empty-clip div.no_scene,
+div#tvp_body div.clip-inner-layout-header-left div.header-empty-clip div.no_clip,
+div#tvp_body div.clip-inner-layout-header-left div.header-empty-clip div.duration
+{
+	display				: none;
+}
+
+/*--------------------------------------------------*/
+
+div#tvp_body div.clip-inner-layout-header-top
+{
+}
+div#tvp_body div.clip-inner-layout-header-top div.header
+{
+	text-align			: center;
+	height				: 68px;
+}
+div#tvp_body div.clip-inner-layout-header-top div.header div.empty
+{
+	text-align			: center;
+	font-weight			: bold;
+	margin				: /*24px*/2px 0;	/* ( title:height + 2 * title:margin + no_scene:height + 2 * no_scene:margin - empty:height ) / 2 */
+	height				: 20px;		/*fix*/
+	
+	display				: none;
+}
+div#tvp_body div.clip-inner-layout-header-top div.header div.title
+{
+	text-align			: center;
+	font-weight			: bold;
+	margin				: 2px 0;	/*fix*/
+	height				: 20px;		/*fix*/
+}
+div#tvp_body div.clip-inner-layout-header-top div.header div.title span.label
+{
+	display				: none;
+}
+div#tvp_body div.clip-inner-layout-header-top div.header div.no_scene,
+div#tvp_body div.clip-inner-layout-header-top div.header div.no_clip,
+div#tvp_body div.clip-inner-layout-header-top div.header div.duration
+{
+	display				: -moz-inline-stack;
+	display				: inline-block;
+	zoom				: 1;
+	*display			: inline;
+	vertical-align		: middle;
+
+	width				: 31%;
+	text-align			: center;
+	margin				: 2px 0;	/*fix*/
+	height				: 40px;		/*fix*/
+}
+
+div#tvp_body div.clip-inner-layout-header-top div.header div.no_scene span.label,
+div#tvp_body div.clip-inner-layout-header-top div.header div.no_clip span.label,
+div#tvp_body div.clip-inner-layout-header-top div.header div.duration span.label
+{
+	display				: block;
+}
+div#tvp_body div.clip-inner-layout-header-top div.header div.no_scene span.sep,
+div#tvp_body div.clip-inner-layout-header-top div.header div.no_clip span.sep,
+div#tvp_body div.clip-inner-layout-header-top div.header div.duration span.sep
+{
+	display				: none;
+}
+div#tvp_body div.clip-inner-layout-header-top div.header div.no_scene span.value,
+div#tvp_body div.clip-inner-layout-header-top div.header div.no_clip span.value,
+div#tvp_body div.clip-inner-layout-header-top div.header div.duration span.value
+{
+	display				: block;
+}
+
+/*---*/
+
+div#tvp_body div.clip-inner-layout-header-top div.header-empty-clip
+{
+}
+div#tvp_body div.clip-inner-layout-header-top div.header-empty-clip div.empty
+{
+	display				: block;
+}
+div#tvp_body div.clip-inner-layout-header-top div.header-empty-clip div.title,
+div#tvp_body div.clip-inner-layout-header-top div.header-empty-clip div.no_scene,
+div#tvp_body div.clip-inner-layout-header-top div.header-empty-clip div.no_clip,
+div#tvp_body div.clip-inner-layout-header-top div.header-empty-clip div.duration
+{
+	display				: none;
+}
+
+/*==================================================*/
+/*==================================================*/
+/*==================================================*/
+
+div#tvp_body div.clip-inner-layout-vertical-1-1
+{
+}
+
+div#tvp_body div.clip-inner-layout-vertical-1-2
+{
+}
+
+div#tvp_body div.clip-inner-layout-vertical-1-1 div.preview,
+div#tvp_body div.clip-inner-layout-vertical-1-2 div.preview
+{
+}
+
+div#tvp_body div.clip-inner-layout-vertical-1-1 div.comments,
+div#tvp_body div.clip-inner-layout-vertical-1-2 div.comments
+{
+}
+
+/*--------------------------------------------------*/
+
+div#tvp_body div.clip-inner-layout-vertical-2-2
+{
+}
+div#tvp_body div.clip-inner-layout-vertical-2-1
+{
+}
+div#tvp_body div.clip-inner-layout-vertical-2-2 div.preview,
+div#tvp_body div.clip-inner-layout-vertical-2-1 div.preview
+{
+	display				: -moz-inline-stack;
+	display				: inline-block;
+	zoom				: 1;
+	*display			: inline;
+	vertical-align		: middle;
+}
+div#tvp_body div.clip-inner-layout-vertical-2-2 div.comments,
+div#tvp_body div.clip-inner-layout-vertical-2-1 div.comments
+{
+	display				: -moz-inline-stack;
+	display				: inline-block;
+	zoom				: 1;
+	*display			: inline;
+	vertical-align		: middle;
+}
+
+/*--------------------------------------------------*/
+
+div#tvp_body div.clip-inner-layout-horizontal-1-1,
+div#tvp_body div.clip-inner-layout-horizontal-2-1
+{
+	white-space			: nowrap;
+}
+div#tvp_body div.clip-inner-layout-horizontal-1-1 div.header,
+div#tvp_body div.clip-inner-layout-horizontal-1-1 div.preview,
+div#tvp_body div.clip-inner-layout-horizontal-1-1 div.comments,
+div#tvp_body div.clip-inner-layout-horizontal-2-1 div.header,
+div#tvp_body div.clip-inner-layout-horizontal-2-1 div.preview,
+div#tvp_body div.clip-inner-layout-horizontal-2-1 div.comments
+{
+	display				: -moz-inline-stack;
+	display				: inline-block;
+	zoom				: 1;
+	*display			: inline;
+	vertical-align		: middle;
+	
+	white-space			: normal;
+}
+div#tvp_body div.clip-inner-layout-horizontal-1-1 div.header,
+div#tvp_body div.clip-inner-layout-horizontal-2-1 div.header
+{
+}
+div#tvp_body div.clip-inner-layout-horizontal-1-1 div.preview,
+div#tvp_body div.clip-inner-layout-horizontal-2-1 div.preview
+{
+}
+div#tvp_body div.clip-inner-layout-horizontal-1-1 div.comments,
+div#tvp_body div.clip-inner-layout-horizontal-2-1 div.comments
+{
+	white-space			: nowrap;
+}
+div#tvp_body div.clip-inner-layout-horizontal-1-1 div.comments div.action,
+div#tvp_body div.clip-inner-layout-horizontal-1-1 div.comments div.dialog,
+div#tvp_body div.clip-inner-layout-horizontal-1-1 div.comments div.notes,
+div#tvp_body div.clip-inner-layout-horizontal-2-1 div.comments div.action,
+div#tvp_body div.clip-inner-layout-horizontal-2-1 div.comments div.dialog,
+div#tvp_body div.clip-inner-layout-horizontal-2-1 div.comments div.notes
+{
+	white-space			: normal;
+}
+
+/*--------------------------------------------------*/
+
+div#tvp_body div.clip-inner-layout-horizontal-1-2,
+div#tvp_body div.clip-inner-layout-horizontal-2-2
+{
+	white-space			: nowrap;
+}
+div#tvp_body div.clip-inner-layout-horizontal-1-2 div.header,/*
+div#tvp_body div.clip-inner-layout-horizontal-1-2 div.preview,
+div#tvp_body div.clip-inner-layout-horizontal-1-2 div.comments*/
+div#tvp_body div.clip-inner-layout-horizontal-2-2 div.header/*,
+div#tvp_body div.clip-inner-layout-horizontal-2-2 div.preview,
+div#tvp_body div.clip-inner-layout-horizontal-2-2 div.comments*/
+{
+/*
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	vertical-align: middle;
+*/
+	float				: left;
+	white-space			: normal;
+}
+div#tvp_body div.clip-inner-layout-horizontal-1-2 div.header,
+div#tvp_body div.clip-inner-layout-horizontal-2-2 div.header
+{
+}
+div#tvp_body div.clip-inner-layout-horizontal-1-2 div.preview,
+div#tvp_body div.clip-inner-layout-horizontal-2-2 div.preview
+{
+}
+div#tvp_body div.clip-inner-layout-horizontal-1-2 div.comments,
+div#tvp_body div.clip-inner-layout-horizontal-2-2 div.comments
+{
+	white-space			: nowrap;
+}
+div#tvp_body div.clip-inner-layout-horizontal-1-2 div.comments div.action,
+div#tvp_body div.clip-inner-layout-horizontal-1-2 div.comments div.dialog,
+div#tvp_body div.clip-inner-layout-horizontal-1-2 div.comments div.notes,
+div#tvp_body div.clip-inner-layout-horizontal-2-2 div.comments div.action,
+div#tvp_body div.clip-inner-layout-horizontal-2-2 div.comments div.dialog,
+div#tvp_body div.clip-inner-layout-horizontal-2-2 div.comments div.notes
+{
+	white-space			: normal;
+}
+
+/*==================================================*/
+/*==================================================*/
+/*==================================================*/
+
+div#tvp_body div.clip-inner-layout-comments-vertical
+{
+}
+div#tvp_body div.clip-inner-layout-comments-vertical div.comments div.action,
+div#tvp_body div.clip-inner-layout-comments-vertical div.comments div.dialog,
+div#tvp_body div.clip-inner-layout-comments-vertical div.comments div.notes
+{
+}
+div#tvp_body div.clip-inner-layout-comments-vertical div.comments /*action/dialog/notes*/ h5
+{
+}
+div#tvp_body div.clip-inner-layout-comments-vertical div.comments /*action/dialog/notes*/  div.value
+{
+	overflow			: auto;
+}
+
+/*--------------------------------------------------*/
+
+div#tvp_body div.clip-inner-layout-comments-horizontal
+{
+}
+div#tvp_body div.clip-inner-layout-comments-horizontal div.comments div.action,
+div#tvp_body div.clip-inner-layout-comments-horizontal div.comments div.dialog,
+div#tvp_body div.clip-inner-layout-comments-horizontal div.comments div.notes
+{
+	display				: -moz-inline-stack;
+	display				: inline-block;
+	zoom				: 1;
+	*display			: inline;
+	vertical-align		: top;
+}
+
+div#tvp_body div.clip-inner-layout-comments-horizontal div.comments /*action/dialog/notes*/ h5
+{
+}
+div#tvp_body div.clip-inner-layout-comments-horizontal div.comments /*action/dialog/notes*/  div.value
+{
+	overflow			: auto;
+}
+
+/*============================================================
+				BODY > CLIP
+============================================================*/
+
+div#tvp_body div.clip div.header,
+div#tvp_body div.clip div.preview,
+div#tvp_body div.clip div.comments
+{
+}
+div#tvp_body div.clip div.header
+{
+	border				: solid black;
+}
+div#tvp_body div.clip div.preview
+{
+	text-align			: center;
+	line-height			: 0;		/*enleve l'espace juste en dessous de l'image ...*/
+
+	border				: solid black;
+}
+div#tvp_body div.clip div.comments
+{
+	border				: solid black;
+}
+
+/*============================================================
+				BODY > CLIP > HEADER
+============================================================*/
+
+div#tvp_body div.clip div.header div.no_scene,
+div#tvp_body div.clip div.header div.no_clip,
+div#tvp_body div.clip div.header div.duration
+{
+}
+div#tvp_body div.clip div.header div.no_scene
+{
+}
+div#tvp_body div.clip div.header div.no_clip
+{
+}
+div#tvp_body div.clip div.header div.duration
+{
+}
+
+/*============================================================
+				BODY > CLIP > HEADER > SCENE
+============================================================*/
+
+div#tvp_body div.clip div.header div.no_scene span.label
+{
+}
+div#tvp_body div.clip div.header div.no_scene span.sep
+{
+}
+div#tvp_body div.clip div.header div.no_scene span.value
+{
+}
+
+/*============================================================
+				BODY > CLIP > HEADER > CLIP
+============================================================*/
+
+div#tvp_body div.clip div.header div.no_clip span.label
+{
+}
+div#tvp_body div.clip div.header div.no_clip span.sep
+{
+}
+div#tvp_body div.clip div.header div.no_clip span.value
+{
+}
+
+/*============================================================
+				BODY > CLIP > HEADER > DURATION
+============================================================*/
+
+div#tvp_body div.clip div.header div.duration span.label
+{
+}
+div#tvp_body div.clip div.header div.duration span.sep
+{
+}
+div#tvp_body div.clip div.header div.duration span.value
+{
+}
+
+/*============================================================
+				BODY > CLIP > PREVIEW
+============================================================*/
+
+div#tvp_body div.clip div.preview img
+{
+	border				: solid black;
+}
+
+/*============================================================
+				BODY > CLIP > COMMENT
+============================================================*/
+
+div#tvp_body div.clip div.comments div.action,
+div#tvp_body div.clip div.comments div.dialog,
+div#tvp_body div.clip div.comments div.notes
+{
+	border				: solid black;
+}
+
+/*============================================================
+				BODY > CLIP > COMMENT > ACTION
+============================================================*/
+
+div#tvp_body div.clip div.comments div.action h5
+{
+	text-decoration		: underline;
+}
+
+div#tvp_body div.clip div.comments div.action div.value
+{
+	font-size			: smaller;
+}
+
+/*============================================================
+				BODY > CLIP > COMMENT > DIALOG
+============================================================*/
+
+div#tvp_body div.clip div.comments div.dialog h5
+{
+	text-decoration		: underline;
+}
+
+div#tvp_body div.clip div.comments div.dialog div.value
+{
+	font-size			: smaller;
+}
+
+/*============================================================
+				BODY > CLIP > COMMENT > NOTES
+============================================================*/
+
+div#tvp_body div.clip div.comments div.notes h5
+{
+	text-decoration		: underline;
+}
+
+div#tvp_body div.clip div.comments div.notes div.value
+{
+	font-size			: smaller;
+}
+
+/*============================================================
+				FOOTER
+============================================================*/
+
+div#tvp_footer span.generated
+{
+	font-size			: 0.75em;
+	font-style			: italic;
+	text-align			: center;
+	
+	margin				: 5px;
+}
+
+div#tvp_footer span.company
+{
+	font-size			: 0.75em;
+	font-style			: italic;
+	text-align			: center;
+	
+	margin				: 5px;
+}
+
+/*============================================================
+				FOOTER > GENERATED
+============================================================*/
+
+div#tvp_footer span.generated span.name
+{
+	font-weight			: bold;
+}
+
+/*============================================================
+				FOOTER > COMPANY
+============================================================*/
+
+div#tvp_footer span.company span.name,
+div#tvp_footer span.company span.address,
+div#tvp_footer span.company span.email,
+div#tvp_footer span.company span.website
+{
+	margin				: 5px 0;
+}
+
+div#tvp_footer span.company span.name
+{
+	font-weight			: bold;
+}
+div#tvp_footer span.company span.address
+{
+}
+div#tvp_footer span.company span.email
+{
+}
+div#tvp_footer span.company span.website
+{
+}
+
