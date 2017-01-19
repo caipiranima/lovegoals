@@ -1,4 +1,5 @@
 ! version = 2.0
+! global depth = 10
 
 > begin
   // If we don't know their name, set the new_user topic and continue.
@@ -37,7 +38,7 @@
 ! var job      = Faço parte da #lovegoals, ora!
 ! var website  = www.ia.unicamp.br/lovegoals
 ! var link_site_cont = ww.ia.unicamp.br/lovegoals/portal
-! var link_video01 = www.youtube.com/watch?v=4SRtMO2Hwng
+! var link_video01 = www.youtube.com/watch?v=iubUodkBvvI
 
 // Substitutions
 ! sub &quot;    = "
@@ -59,6 +60,8 @@
 ! sub tvz				= talvez
 ! sub jah				= ja
 ! sub ta        = esta
+! sub chau      = tchau
+! sub sds       = saudacoes
 ! sub tah       = esta
 ! sub agr				= agora
 ! sub pse				= pois e

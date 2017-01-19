@@ -87,12 +87,18 @@
 + (@yes) [*]
 @tudo bem
 
-+ [*] (chega disso|nao [me] interessa|nao quero|nao topo|me tire daqui|quero sair) [*]
-- Tem certeza que não pode fazer nada?{topic=want_out}
++ [*] quero sair [*]
+- Tem certeza que não pode fazer nada para dar um help mesmo?{topic=want_out}
+
++ [*] (chega disso|pare|tchau|ciao|adeus|ate mais|saudacoes|bye|[me] tire daqui) [*]
+@quero sair
+
++ (@no) [*]
+@quero sair
 
 > topic want_out
   // This will match if the word "sorry" exists ANYWHERE in their message
-  + (sim|tenho) [*]
+  + (@yes|@no|tenho) [*]
   - Entendi...\n
   ^ Mas, pelo menos, reserve uns minutos pra assistir isso: <bot link_video01>\n
   ^ É um vídeo gravado do último pronunciamento do Protetor da União Cohen. Vc deve conhecê-lo…. senão, bem, tire suas próprias conclusões sobre o sujeito.\n
