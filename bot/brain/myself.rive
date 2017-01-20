@@ -67,7 +67,7 @@
   ^ Além disso, confio na sua boa vontade... já que vc tbm me aturou até agora.\n
   ^ Boa sorte! \o/\n\n
   ^ --- [<bot name> saiu da conversa]
-  ^ <call>redirect_page <bot link_site_cont></call>
+  ^ <call>redirect_page_cont></call>
   ^ {topic=stop_chat}
 <
 
@@ -76,7 +76,7 @@
   + (@yes|@no|tenho) [*]
   - Entendi...\n
   ^ Mas, pelo menos, reserve uns minutos pra assistir isso:
-  ^ <call>link_video <bot link_video01><\call>
+  ^ <call>link_video<\call>
 
   + [*] (assistir|video) [*]
   - É um vídeo gravado do último pronunciamento do Protetor da União Cohen.\n
@@ -98,7 +98,7 @@
   - Se você mudar de ideia... vc sabe onde me encontrar ;)\n
   ^ #lovewins\n\n
   ^ --- [<bot name> saiu da conversa]
-  ^ <call>redirect_page <bot link_site_home></call>
+  ^ <call>redirect_page_home></call>
   ^ {topic=stop_chat}
 < topic
 
@@ -110,10 +110,15 @@
 
 > object link_video javascript
   var query = escape(args.join(" "));
-  return "<a href=\"" + query + "\">" + query + "</a>";
+  return "<a href=\"www.youtube.com/watch?v=iubUodkBvvI\"></a>";
 < object
 
-> object redirect_page javascript
-  window.location.href = escape(args.join(" "));
+> object redirect_page_home javascript
+  window.location.href("www.ia.unicamp.br/lovegoals/");
+  return "";
+< object
+
+> object redirect_page_cont javascript
+  window.location.href("ww.ia.unicamp.br/lovegoals/portal");
   return "";
 < object

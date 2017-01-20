@@ -62,9 +62,6 @@
 ! var author          = William Gibson
 ! var job             = Faço parte da #lovegoals, ora!
 ! var website         = www.ia.unicamp.br/lovegoals
-! var link_site_home  = ww.ia.unicamp.br/lovegoals/
-! var link_site_cont  = ww.ia.unicamp.br/lovegoals/portal
-! var link_video01    = www.youtube.com/watch?v=iubUodkBvvI
 
 // Substitutions
 ! sub &quot;    = "
