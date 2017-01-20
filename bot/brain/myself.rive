@@ -76,7 +76,7 @@
   + (@yes|@no|tenho) [*]
   - Entendi...\n
   ^ Mas, pelo menos, reserve uns minutos pra assistir isso:
-  ^ <call>link_video<\call>
+  ^ <call>link_video</call>
 
   + [*] (assistir|video) [*]
   - É um vídeo gravado do último pronunciamento do Protetor da União Cohen.\n
@@ -114,11 +114,11 @@
 < object
 
 > object redirect_page_home javascript
-  window.location.href("www.ia.unicamp.br/lovegoals/");
+  window.location.href = "www.ia.unicamp.br/lovegoals/";
   return "";
 < object
 
 > object redirect_page_cont javascript
-  window.location.href("ww.ia.unicamp.br/lovegoals/portal");
+  window.location.href= "www.ia.unicamp.br/lovegoals/portal";
   return "";
 < object
