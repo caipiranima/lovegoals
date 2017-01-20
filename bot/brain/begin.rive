@@ -5,20 +5,40 @@
   // If we don't know their name, set the new_user topic and continue.
   + request
   * <get met> == undefined => <set met=true>{topic=new_user}{ok}
-  - {ok}
+  - <call>typing <input></call>
+  ^ {ok}
 < begin
 
+// novo interator
 > topic new_user
   + *
   - Oi!\n
 	^ Não se assuste, mas estava rastreando sua conexão e percebi que vc tentou acessar nosso site.\n
-  ^ Mas, pfvr, não saia do chat ainda...{topic=welcome}
+  ^ Mas, pfvr, não saia do chat ainda...
+  ^ Como vc se chama ou gostaria de se chamar?{topic=asked_name}
 <
 
+// pega e verifica nome do interator
+> topic asked_name
+  + #
+  - Seu nome é um número?!
+
+  + *
+  - Só preciso de seu primeiro nome... ou de um apelido, nickname, whatever...\n
+  ^ É mais seguro.
+
+  + _
+  * <formal>   == <bot name> => Que coincidência! Esse é meu nome tbm!\n<set name=<formal>>
+  * <get name> == undefined  => <set name=<formal>>Olá, <get name>!\n
+  - Não posso comprometer minha identidade dizendo aqui quem sou ou tudo q faço...\n
+  ^ Mas vc pode me chamar de <bot name> ;){topic=welcome}
+< topic
+
+// boas-vindas - introdução à conversa
 > topic welcome
   + *
   - Apenas ignore o aviso estúpido de segurança desse governo golpista.\n
-  ^ Ele podem ter derrubado o conteúdo geral do site, mas ainda conseguimos identificar quem tentou acessá-lo em cache pra conversar à parte, em um canal seguro.\n
+  ^ Ele podem ter derrubado o conteúdo geral do site, mas ainda conseguimos identificar quem tentou acessá-lo em cache pra conversar neste canal protegido.\n
 	^ Precisamos de toda a ajuda possível.\n
 	^ Vc pode colaborar? :){topic=random}
 < topic
@@ -43,6 +63,7 @@
 ! var author   = William Gibson
 ! var job      = Faço parte da #lovegoals, ora!
 ! var website  = www.ia.unicamp.br/lovegoals
+! var link_site_home = ww.ia.unicamp.br/lovegoals/
 ! var link_site_cont = ww.ia.unicamp.br/lovegoals/portal
 ! var link_video01 = www.youtube.com/watch?v=iubUodkBvvI
 
@@ -191,3 +212,9 @@
 ! array yes        = sim si afirmativo ok yeah yea yep yup oui
 ! array no         = nao naum ñ nah nope nop nyet nay negativo neca
 ! array ofensas    = foda-se fuder merda cala a boca cale-se vaca vagabunda puta cu porra caralho
+
+> object typing javascript
+  var query = escape(args.join(" "));
+  var ms = query.length * 100;
+  return new Promise(resolve => setTimeout(resolve, ms));
+< object

@@ -1,9 +1,8 @@
 // Learn stuff about our users.
 + (meu nome e|me chamo) *
-* <formal>   == <bot name> => Que coincidência! Esse é meu nome tbm!<set name=<formal>>
-* <get name> == undefined  => <set name=<formal>>Olá, <get name>!
+* <get name> == undefined  => <set name=<formal>>Olá, <get name>! :)
 - <set oldname=<get name>><set name=<formal>>
-^ Achava que seu nome era <get oldname>! Não entendi...
+^ Ué... Achava que seu nome era <get oldname>! Não entendi.
 
 + [voce] pode me chamar *
 - <set name=<formal>>OK, <get name>!

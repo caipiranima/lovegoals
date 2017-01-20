@@ -8,8 +8,7 @@
 - Oi...?\n {@<star>}
 
 + qual [*] seu nome
-- Não posso comprometer minha identidade dizendo quem sou ou tudo q faço...\n
-^ Mas vc pode me chamar de <bot name> ;)
+- Como já disse, <bot name> ;)
 
 + (como voce se chama|quem e voce)
 @qual seu nome
@@ -56,7 +55,7 @@
   + (o que|por que|do que voce|que ajuda|como assim) [*]
   - Parece ser um espaço virtual ainda em fase de testes... parte do novo sistema de vigilância que a uForge vem desenvolvendo em parceria com o Depto de Cibersegurança.
 
-  + [o] que e [*] (espaco|virtual|fase|testes|sistema|vigilancia|parceria) [*]
+  + [*] (espaco|virtual|fase|testes|sistema|vigilancia|parceria) [*]
   - Eles tem deixado “migalhas” na rede toda vez que bloqueiam um site suspeito de infringir a lei anti-LGBT.\n
   ^ Consegui acessar essa brecha, mas há algo que eles estão escondendo nessa plataforma...\n
   ^ Por isso estou pedindo a ajuda de cada pessoa que vem procurar saber o que é #lovegoals.\n
@@ -80,8 +79,8 @@
   ^ Eles conseguiram derrubar nosso site… mas será por pouco tempo.
 
   + (tudo bem|esta bem|esta bom) [*]
-  - Acesse esse link: <bot link_site_cont>\n
-  ^ Se vc tiver qualquer dúvida... ou se sentir perdido... infelizmente, não tenho como lhe orientar uma vez que você entrar :({topic=mission_accepted}
+  - Vou direcionar vc diretamente para o ponto de partida.\n
+  ^ Se vc tiver qualquer dúvida, infelizmente, não terei como te orientar uma vez que vc entrar :({topic=mission_accepted}
 
   + (posso|quero|topo|aceito|consigo) ajudar [*]
   @tudo bem
@@ -90,7 +89,7 @@
   @tudo bem
 
   + [*] quero sair [*]
-  - Tem certeza que não pode fazer nada para dar um help mesmo?{topic=want_out}
+  - Tem certeza que não pode fazer nada?{topic=want_out}
 
   + [*] (chega|pare|tchau|adeus|ate mais|saudacoes|[me] tire daqui) [*]
   @quero sair
@@ -113,19 +112,21 @@
 // para depois de quando o interator  aceitar cumprir a missão
 > topic mission_accepted
   + *
-  - Deixei lá algumas pistas que poderão te ajudar na sua "investigação".\n
-  ^ Além disso, confio na sua boa vontade, já que vc tbm me aturou até agora.\n
+  - Deixei lá algumas pistas que poderão te ajudar na sua investigação.\n
+  ^ Além disso, confio na sua boa vontade... já que vc tbm me aturou até agora.\n
   ^ Boa sorte! \o/\n\n
-  ^ --- [<bot name> saiu da conversa]{topic=stop_chat}
+  ^ --- [<bot name> saiu da conversa]
+  ^ <call>redirect_page <bot link_site_cont></call>{topic=stop_chat}
 <
 
 // quando o usuário quer sair da conversa
 > topic want_out
   + (@yes|@no|tenho) [*]
   - Entendi...\n
-  ^ Mas, pelo menos, reserve uns minutos pra assistir isso: <bot link_video01>\n
+  ^ Mas, pelo menos, reserve uns minutos pra assistir isso:
+  ^ <call>link_video <bot link_video01><\call>
 
-  + [*] video [*]
+  + [*] (assistir|video) [*]
   - É um vídeo gravado do último pronunciamento do Protetor da União Cohen.\n
   ^ Vc deve conhecê-lo... senão, bem, tire suas próprias conclusões sobre o sujeito.\n
   ^ Se o discurso de ódio dele não mudar sua opinião, sinta-se livre de qualquer compromisso com a gente.\n
@@ -137,7 +138,8 @@
   - Até mais.\n
   - Se você mudar de ideia... vc sabe onde me encontrar ;)\n
   ^ #lovewins\n\n
-  ^ --- [<bot name> saiu da conversa]{topic=stop_chat}
+  ^ --- [<bot name> saiu da conversa]
+  ^ <call>redirect_page <bot link_site_home></call>{topic=stop_chat}
 
   + *
   - Vamos continuar a conversar, então...\n
@@ -149,3 +151,14 @@
   + *
   - \n---[<bot name> está offline]
 < topic
+
+> object link_video javascript
+  var query = escape(args.join(" "));
+  return "<a href=\"" + query + "\">" + query + "</a>";
+< object
+
+> object redirect_page javascript
+  var query = escape(args.join(" "));
+  await sleep(3000);
+  window.location.replace("\" + query +"\");
+< object
