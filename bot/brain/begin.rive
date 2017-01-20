@@ -5,8 +5,7 @@
   // If we don't know their name, set the new_user topic and continue.
   + request
   * <get met> == undefined => <set met=true>{topic=new_user}{ok}
-  - <call>typing_time {ok}</call>
-  ^ {ok}
+  - {ok}
 < begin
 
 // novo interator
@@ -14,7 +13,7 @@
   + *
   - Oi!\n
 	^ Não se assuste, mas estava rastreando sua conexão e percebi que vc tentou acessar nosso site.\n
-  ^ Mas, pfvr, não saia do chat ainda...
+  ^ Mas, pfvr, não saia do chat ainda...\n
   ^ Como vc se chama ou gostaria de se chamar?{topic=asked_name}
 <
 
@@ -28,7 +27,7 @@
   ^ É mais seguro.
 
   + _
-  * <formal>   == <bot name> => Que coincidência! Esse é meu nome tbm!\n<set name=<formal>>
+  * <formal> == <bot name> => Que coincidência! Esse é meu nome tbm!\n<set name=<formal>>
   ^ Mas saiba desde já que não posso comprometer minha identidade dizendo aqui mais sobre quem sou ou tudo q faço, ok?{topic=welcome}
   * <get name> == undefined  => <set name=<formal>>Olá, <get name>!\n
   ^ Não posso comprometer minha identidade dizendo aqui quem sou ou tudo q faço...\n
@@ -212,9 +211,3 @@
 ! array yes        = sim si afirmativo ok yeah yea yep yup oui
 ! array no         = nao naum ñ nah nope nop nyet nay negativo neca
 ! array ofensas    = foda-se fuder merda cala a boca cale-se vaca vagabunda puta cu porra caralho
-
-> object typing_time javascript
-  var query = escape(args.join(" "));
-  var sleep = new Promise(resolve => setTimeout(resolve, query.length * 100000));
-  return "";
-< object
