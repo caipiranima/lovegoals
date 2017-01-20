@@ -5,7 +5,7 @@
   // If we don't know their name, set the new_user topic and continue.
   + request
   * <get met> == undefined => <set met=true>{topic=new_user}{ok}
-  - <call>typing <input></call>
+  - <call>typing_time <input></call>
   ^ {ok}
 < begin
 
@@ -213,7 +213,7 @@
 ! array no         = nao naum ñ nah nope nop nyet nay negativo neca
 ! array ofensas    = foda-se fuder merda cala a boca cale-se vaca vagabunda puta cu porra caralho
 
-> object typing javascript
+> object typing_time javascript
   var query = escape(args.join(" "));
   await sleep(query.length * 100);
 < object
