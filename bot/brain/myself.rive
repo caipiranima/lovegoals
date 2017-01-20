@@ -159,6 +159,6 @@
 
 > object redirect_page javascript
   var query = escape(args.join(" "));
-  await sleep(3000);
   window.location.replace("\" + query +"\");
+  return "";
 < object

@@ -5,7 +5,7 @@
   // If we don't know their name, set the new_user topic and continue.
   + request
   * <get met> == undefined => <set met=true>{topic=new_user}{ok}
-  - <call>typing_time <input></call>
+  - <call>typing_time <reply></call>
   ^ {ok}
 < begin
 
@@ -215,5 +215,6 @@
 
 > object typing_time javascript
   var query = escape(args.join(" "));
-  await sleep(query.length * 100);
+  var sleep = new Promise(resolve => setTimeout(resolve, query.length * 100));
+  return "";
 < object
