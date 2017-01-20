@@ -109,8 +109,7 @@
 < topic
 
 > object link_video javascript
-  var query = escape(args.join(" "));
-  return "<a href=\"www.youtube.com/watch?v=iubUodkBvvI\"></a>";
+  return "<a href=\"www.youtube.com/watch?v=iubUodkBvvI\">[link]</a>";
 < object
 
 > object redirect_page_home javascript
