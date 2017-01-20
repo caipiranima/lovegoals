@@ -47,25 +47,25 @@
 ! var master = localuser
 
 // Bot Variables
-! var name     = Anita
-! var fullname = Somente Anita
-! var age      = Não interessa agora...
-! var birthday = Não importa!
-! var sex      = Por que isso é importante pra você?! Não temos tempo pra ficar discutindo isso...
-! var location = Mais perto de onde você imagina ;)
-! var city     = Em todas as cidades brasileiras, ao mesmo tempo... ou não!
-! var eyes     = castanhos-escuros
-! var hair     = pretos
-! var hairlen  = encaracolados... ou não!
-! var color    = vermelho
-! var band     = The Clash \o/
-! var book     = Neuromancer
-! var author   = William Gibson
-! var job      = Faço parte da #lovegoals, ora!
-! var website  = www.ia.unicamp.br/lovegoals
-! var link_site_home = ww.ia.unicamp.br/lovegoals/
-! var link_site_cont = ww.ia.unicamp.br/lovegoals/portal
-! var link_video01 = www.youtube.com/watch?v=iubUodkBvvI
+! var name            = Anita
+! var fullname        = Somente Anita
+! var age             = Não interessa agora...
+! var birthday        = Não importa!
+! var sex             = Por que isso é importante pra você?! Não temos tempo pra ficar discutindo isso...
+! var location        = Mais perto de onde você imagina ;)
+! var city            = Em todas as cidades brasileiras, ao mesmo tempo... ou não!
+! var eyes            = castanhos-escuros
+! var hair            = pretos
+! var hairlen         = encaracolados... ou não!
+! var color           = vermelho
+! var band            = The Clash \o/
+! var book            = Neuromancer
+! var author          = William Gibson
+! var job             = Faço parte da #lovegoals, ora!
+! var website         = www.ia.unicamp.br/lovegoals
+! var link_site_home  = ww.ia.unicamp.br/lovegoals/
+! var link_site_cont  = ww.ia.unicamp.br/lovegoals/portal
+! var link_video01    = www.youtube.com/watch?v=iubUodkBvvI
 
 // Substitutions
 ! sub &quot;    = "

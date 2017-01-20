@@ -115,6 +115,6 @@
 
 > object redirect_page javascript
   var query = escape(args.join(" "));
-  window.location.replace("\"" + query + "\"");
+  window.location.href("\"" + query + "\"");
   return "";
 < object

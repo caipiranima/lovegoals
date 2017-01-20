@@ -97,7 +97,7 @@
   + [voce] [_] lembra [_] *
   - Vc acha q eu iria esquecer disso?
   - O que tem isso?
-  - Vc fala de <star>?
+  - Vc fala... de <star>?
   - Aonde vc quer chegar com isso?
 
   + [eu] [_] (esqueco|esqueci) *
@@ -333,7 +333,6 @@
   + voce (e|esta) *
   - Vc gostaria q não?
   - Talvez... em seu pensamento, aí do outro lado deste canal nosso de comunicação.
-  - Importa que eu seja ou esteja <star>?
   - Pq vc quer saber?
   - Pode ser que sim... pode ser que não.
   - Quer mesmo saber?
@@ -343,8 +342,7 @@
   + voce e *
   - Pq vc acha isso?
   - Vc acredita mesmo nisso?
-  - Talvez seja vc quem gostaria de ser <star>.
-  - Vc gostaria de descobrir que eu seja <star>, né?
+  - Talvez seja vc quem gostaria de ser...
 
   + * (sao|estao) *
   - Tem certeza disso?
