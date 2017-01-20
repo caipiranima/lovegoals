@@ -2,24 +2,25 @@
 //+ <reply>
 //- Não fique repetindo o que te digo, pfvr! É importante que vc preste atenção!
 
-// If the user keeps repeating themselves over and over.
+// se o interator ficar se repetindo
 + <input1>
 * <input1> == <input5> => Chega! Não irei mais continuar essa conversa até vc se desculpar!{topic=sorry}
 * <input1> == <input4> => Se vc ficar se repetindo desse jeito, não vejo mais sentido em ficar aqui...
 * <input1> == <input3> => Pfvr, pare com isso!
 * <input1> == <input2> => Essa é segunda vez que vc se repete! Não temos tempo pra isso!
-- Sim... "<input1>"...
+- Vc já não disse isso antes?
 
-// An example that uses both tags
 + por que voce (disse|escreve|acha) [*]
 - Ora... disse que <reply> pq vc disse que <input>!
 
+// para quando o interator precisar pedir desculpas ao bot
 > topic sorry
-  // This will match if the word "sorry" exists ANYWHERE in their message
   + [*] (desculpe|desculpas|foi mal|mals) [*]
   - Afff... -_-\n
   ^ Esquece... Tudo bem...\n
   ^ Mas vamos falar somente do que interessa agora, pfvr?{topic=random}
+  - Deixa queito, vai... Tudo bem.{topic=random}
+  - Pfvr, não faça isso de novo...{topic=random}
 
   + *
   - ...{weight=3}
@@ -340,13 +341,22 @@
 - O que há?
 - Sim?
 
++ [*] (@yes) [*]
+- Me fala um pouco mais sobre isso, pfvr.
+- Vc acha mesmo isso?
+- Entendi.
+- Pq?
+
++ [*] (@no) [*]
+- Vc não acha que tá sendo um pouco negativo?
+- E pq vc acha isso?
+- Isso te incomoda de algum modo?
+- Pq não?
+
 + *
-- Por mais que vc queira continuar conversando, não importa agora!\n
-^ Preciso saber se vc pode ajudar a gente agora, pfvr!{weight=20}
-- Desculpe, mas não posso ficar aqui mto tempo... precisamos agir!\n
-^ Vc pode ajudar, sim ou não?{weight=20}
-- Olha... não temos muito tempo pra ficar conversando agora. Vc pode nos ajudar?{weight=20}
-- Não posso explicar mto mais agora... pfvr! Vc pode ajudar, sim ou não?{weight=20}
-- Sei que vc tem ainda dúvidas, mas o tempo é curto... Vc pode nos ajudar?{weight=20}
-- OK, mas não temos mto tempo! Vc tem como nos ajudar???{weight=19}
+- Não sei se te entendi bem...
+- O q vc quer dizer com isso?
+- Fale mais sobre isso...
+- E o q isso tem a ver com o que estamos discutindo?
+- ?
 - [@lol]{weight=1}
