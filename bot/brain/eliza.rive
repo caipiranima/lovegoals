@@ -1,17 +1,3 @@
-// para quando o interator precisar pedir desculpas ao bot
-> topic sorry
-  + [*] (desculpe|desculpas|foi mal|mals) [*]
-  - Afff... -_-\n
-  ^ Esquece... Tudo bem...\n
-  ^ Mas vamos falar somente do que interessa agora, pfvr?{topic=about_mission}
-  - Deixa queito, vai... Tudo bem.{topic=about_mission}
-  - Pfvr, não faça isso de novo...{topic=about_mission}
-
-  + *
-  - ...{weight=3}
-  - Como q se diz???
-< topic
-
 // tópico global - contém as requests e respostas básicas, fora do escopo temático principal
 > topic global
   // verificando por repetições nas respostas do interator
@@ -410,9 +396,6 @@
   - O que há?
   - Sim?
 
-  + (@yes|@no)
-  - <input1> o q?
-
   + *
   - Por mais que vc queira continuar conversando, não importa agora!\n
   ^ Preciso saber se vc pode ajudar a gente agora, pfvr!
@@ -423,4 +406,18 @@
   - Sei que vc tem ainda dúvidas, mas o tempo é curto... Vc pode nos ajudar?
   - OK, mas não temos mto tempo! Vc tem como nos ajudar???
   - Não sei se te entendi bem... Vc pode nos ajudar?
-<
+< topic
+
+// para quando o interator precisar pedir desculpas ao bot
+> topic sorry
+  + [*] (desculpe|desculpas|foi mal|mals) [*]
+  - Afff... -_-\n
+  ^ Esquece... Tudo bem...\n
+  ^ Mas vamos falar somente do que interessa agora, pfvr?{topic=about_mission}
+  - Deixa queito, vai... Tudo bem.{topic=about_mission}
+  - Pfvr, não faça isso de novo...{topic=about_mission}
+
+  + *
+  - ...{weight=3}
+  - Como q se diz???
+< topic

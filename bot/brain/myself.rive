@@ -1,19 +1,23 @@
 // perguntas e respostas sobre características básicas do bot
 // introduzindo a missão
-> topic explain_mission
+> topic start_mission
   + *
   - Não tenho muito tempo pra explicar tudo em detalhes. Importa dizer o q vc precisa fazer agora.\n
-  ^ Vc precisa continuar navegando.{topic=about_mission}
+  ^ Vc precisa continuar navegando.{topic=explain_mission}
+< topic
+
+// continua...
+> topic explain_mission
+  + *
+  - Há um segredo que precisa ser encontrado... e não consigo encontrá-lo sozinha.\n
+  ^ Se vc topar nos ajudar, vc será redirecionado pra um ambiente que ainda não tenho certeza do q é exatamente...
+  ^ Parece ser um espaço virtual ainda em fase de testes...
+  ^ parte do novo sistema de vigilância que a uForge vem desenvolvendo em parceria com o Depto de Cibersegurança.{topic=about_mission}
 < topic
 
 // descrevendo a missão que o interator precisa realizar
 > topic about_mission includes global
-  + (o que|por que|do que voce|que ajuda|como assim) [*]
-  - Há um segredo que precisa ser encontrado... e não consigo encontrá-lo sozinha.\n
-  ^ Se vc topar nos ajudar, vc será redirecionado pra um ambiente que ainda não tenho certeza do q é exatamente...
-  ^ Parece ser um espaço virtual ainda em fase de testes... parte do novo sistema de vigilância que a uForge vem desenvolvendo em parceria com o Depto de Cibersegurança.
-
-  + [*] (espaco|virtual|fase|testes|sistema|vigilancia|parceria) [*]
+    + [*] (espaco|virtual|fase|testes|sistema|vigilancia|parceria) [*]
   - Eles tem deixado “migalhas” na rede toda vez que bloqueiam um site suspeito de infringir a lei anti-LGBT.\n
   ^ Consegui acessar essa brecha, mas há algo que eles estão escondendo nessa plataforma...\n
   ^ Por isso estou pedindo a ajuda de cada pessoa que vem procurar saber o que é #lovegoals.\n
@@ -43,7 +47,7 @@
   + (posso|quero|topo|aceito|consigo) ajudar [*]
   @tudo bem
 
-  + (@yes) *
+  + (@yes) [*]
   @tudo bem
 
   + [*] quero sair [*]
@@ -52,7 +56,7 @@
   + [*] (chega|pare|tchau|adeus|ate mais|saudacoes|[me] tire daqui) [*]
   @quero sair
 
-  + (@no) *
+  + (@no) [*]
   @quero sair
 <
 
@@ -82,17 +86,20 @@
   + ([o] que|por que) [*]
   @video
 
-  + [*] (quero sair|chega|pare|tchau|adeus|ate mais|saudacoes|[me] tire daqui) [*]
+  + [eu] (mudei [de]|reconsiderei|ideia|opiniao) [*]
+  - Vamos continuar a conversar, então...\n
+  ^ Não quero te pressionar ou nada do tipo, mas uma força sua seria mto importante pra nós!{topic=about_mission}
+
+  + [eu] (posso|quero|topo|aceito|consigo) (voltar|ajudar) [*]
+  @mudei de ideia
+
+  + *
   - Até mais.\n
   - Se você mudar de ideia... vc sabe onde me encontrar ;)\n
   ^ #lovewins\n\n
   ^ --- [<bot name> saiu da conversa]
   ^ <call>redirect_page <bot link_site_home></call>
   ^ {topic=stop_chat}
-
-  + *
-  - Vamos continuar a conversar, então...\n
-  ^ Não quero te pressionar ou nada do tipo, mas uma força sua seria mto importante pra nós!{topic=about_mission}
 < topic
 
 // encerra o bate-papo (o bot para de responder)
