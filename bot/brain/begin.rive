@@ -5,7 +5,7 @@
   // If we don't know their name, set the new_user topic and continue.
   + request
   * <get met> == undefined => <set met=true>{topic=new_user}{ok}
-  - <call>typing_time <reply></call>
+  - <call>typing_time {ok}</call>
   ^ {ok}
 < begin
 
@@ -29,6 +29,7 @@
 
   + _
   * <formal>   == <bot name> => Que coincidência! Esse é meu nome tbm!\n<set name=<formal>>
+  ^ Mas saiba desde já que não posso comprometer minha identidade dizendo aqui mais sobre quem sou ou tudo q faço, ok?{topic=welcome}
   * <get name> == undefined  => <set name=<formal>>Olá, <get name>!\n
   ^ Não posso comprometer minha identidade dizendo aqui quem sou ou tudo q faço...\n
   ^ Mas vc pode me chamar de <bot name> ;){topic=welcome}
