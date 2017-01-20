@@ -30,7 +30,7 @@
   + _
   * <formal>   == <bot name> => Que coincidência! Esse é meu nome tbm!\n<set name=<formal>>
   * <get name> == undefined  => <set name=<formal>>Olá, <get name>!\n
-  - Não posso comprometer minha identidade dizendo aqui quem sou ou tudo q faço...\n
+  ^ Não posso comprometer minha identidade dizendo aqui quem sou ou tudo q faço...\n
   ^ Mas vc pode me chamar de <bot name> ;){topic=welcome}
 < topic
 
@@ -215,6 +215,5 @@
 
 > object typing javascript
   var query = escape(args.join(" "));
-  var ms = query.length * 100;
-  return new Promise(resolve => setTimeout(resolve, ms));
+  await sleep(query.length * 100);
 < object
