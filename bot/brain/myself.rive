@@ -1,59 +1,17 @@
 // perguntas e respostas sobre características básicas do bot
-+ <bot name>
-- Sim?
-- O q foi?
-- Oi?
-
-+ <bot name> *
-- Oi...?\n {@<star>}
-
-+ qual [*] seu nome
-- Como já disse, <bot name> ;)
-
-+ (como voce se chama|quem e voce)
-@qual seu nome
-
-+ qual [*] sua idade
-- <bot age>\n
-^ O que precisamos discutir é o q está acontecendo agora com a #lovegoals!
-
-+ quantos anos voce tem
-@qual sua idade
-
-+ voce [*] (@malenoun) [*] (@femalenoun)
-- <bot sex>
-
-+ [de] onde [voce] (fala|vive|escreve|vive|mora)
-- <bot location>
-
-+ (de|em) qual cidade [voce] (fala|escreve|atua)
-- <bot city>
-
-+ [o] que [voce] faz
-- <bot job>{topic=about_mission}
-
-+ qual * (sua funcao|seu trabalho|suas responsabilidades|suas tarefas|sua atividade) [*]
-@o que voce faz
-
-+ voce * responsabilidade[s] [*]
-@o que voce faz
-
-+ qual e [o] seu (website|web site|site)
-- <bot website>\n
-^ Você já sabe disso! XD
-
-+ [o] (que aconteceu|que houve|que e isso|onde estou)
-- Não tenho muito tempo pra explicar tudo em detalhes. Importa dizer o q vc precisa fazer agora.\n
-^ Vc precisa continuar navegando.
-
-+ (o que|por que|do que voce|que ajuda|como assim) [*]
-- Há um segredo que precisa ser encontrado... e não consigo encontrá-lo sozinha.\n
-^ Se vc topar nos ajudar, vc será redirecionado pra um ambiente que ainda não tenho certeza do q é exatamente.{topic=about_mission}
+// introduzindo a missão
+> topic explain_mission
+  + *
+  - Não tenho muito tempo pra explicar tudo em detalhes. Importa dizer o q vc precisa fazer agora.\n
+  ^ Vc precisa continuar navegando.{topic=about_mission}
+< topic
 
 // descrevendo a missão que o interator precisa realizar
-> topic about_mission
+> topic about_mission includes global
   + (o que|por que|do que voce|que ajuda|como assim) [*]
-  - Parece ser um espaço virtual ainda em fase de testes... parte do novo sistema de vigilância que a uForge vem desenvolvendo em parceria com o Depto de Cibersegurança.
+  - Há um segredo que precisa ser encontrado... e não consigo encontrá-lo sozinha.\n
+  ^ Se vc topar nos ajudar, vc será redirecionado pra um ambiente que ainda não tenho certeza do q é exatamente...
+  ^ Parece ser um espaço virtual ainda em fase de testes... parte do novo sistema de vigilância que a uForge vem desenvolvendo em parceria com o Depto de Cibersegurança.
 
   + [*] (espaco|virtual|fase|testes|sistema|vigilancia|parceria) [*]
   - Eles tem deixado “migalhas” na rede toda vez que bloqueiam um site suspeito de infringir a lei anti-LGBT.\n
@@ -85,7 +43,7 @@
   + (posso|quero|topo|aceito|consigo) ajudar [*]
   @tudo bem
 
-  + (@yes) [*]
+  + (@yes) *
   @tudo bem
 
   + [*] quero sair [*]
@@ -94,19 +52,8 @@
   + [*] (chega|pare|tchau|adeus|ate mais|saudacoes|[me] tire daqui) [*]
   @quero sair
 
-  + (@no) [*]
+  + (@no) *
   @quero sair
-
-  + *
-  - Por mais que vc queira continuar conversando, não importa agora!\n
-  ^ Preciso saber se vc pode ajudar a gente agora, pfvr!
-  - Desculpe, mas não posso ficar aqui mto tempo... precisamos agir!\n
-  ^ Vc pode ajudar, sim ou não?
-  - Olha... não temos muito tempo pra ficar conversando agora. Vc pode nos ajudar?
-  - Não posso explicar mto mais agora... pfvr! Vc pode ajudar, sim ou não?
-  - Sei que vc tem ainda dúvidas, mas o tempo é curto... Vc pode nos ajudar?
-  - OK, mas não temos mto tempo! Vc tem como nos ajudar???
-  - Não sei se te entendi bem... Vc pode nos ajudar?
 <
 
 // para depois de quando o interator  aceitar cumprir a missão
@@ -116,7 +63,8 @@
   ^ Além disso, confio na sua boa vontade... já que vc tbm me aturou até agora.\n
   ^ Boa sorte! \o/\n\n
   ^ --- [<bot name> saiu da conversa]
-  ^ <call>redirect_page <bot link_site_cont></call>{topic=stop_chat}
+  ^ <call>redirect_page <bot link_site_cont></call>
+  ^ {topic=stop_chat}
 <
 
 // quando o usuário quer sair da conversa
@@ -139,7 +87,8 @@
   - Se você mudar de ideia... vc sabe onde me encontrar ;)\n
   ^ #lovewins\n\n
   ^ --- [<bot name> saiu da conversa]
-  ^ <call>redirect_page <bot link_site_home></call>{topic=stop_chat}
+  ^ <call>redirect_page <bot link_site_home></call>
+  ^ {topic=stop_chat}
 
   + *
   - Vamos continuar a conversar, então...\n
@@ -159,6 +108,6 @@
 
 > object redirect_page javascript
   var query = escape(args.join(" "));
-  window.location.replace("\" + query +"\");
+  window.location.replace("\"" + query + "\"");
   return "";
 < object

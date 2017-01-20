@@ -40,8 +40,7 @@
   + *
   - Apenas ignore o aviso estúpido de segurança desse governo golpista.\n
   ^ Ele podem ter derrubado o conteúdo geral do site, mas ainda conseguimos identificar quem tentou acessá-lo em cache pra conversar neste canal protegido.\n
-	^ Precisamos de toda a ajuda possível.\n
-	^ Vc pode colaborar? :){topic=random}
+	^ Precisamos de toda a ajuda possível.{topic=explain_mission}
 < topic
 
 // The Botmaster's Name
@@ -216,6 +215,6 @@
 
 > object typing_time javascript
   var query = escape(args.join(" "));
-  var sleep = new Promise(resolve => setTimeout(resolve, query.length * 100));
+  var sleep = new Promise(resolve => setTimeout(resolve, query.length * 100000));
   return "";
 < object
