@@ -50,14 +50,14 @@
   + (@yes) [*]
   @tudo bem
 
-  + [*] quero sair [*]
+  + [*] sair [*]
   - Tem certeza que não pode fazer nada?{topic=want_out}
 
-  + [*] (chega|pare|tchau|adeus|ate mais|saudacoes|[me] tire daqui) [*]
-  @quero sair
+  + [*] (chega|pare|tchau|adeus|ate mais|saudacoes|[me] tire daqui|) [*]
+  @sair
 
   + (@no) [*]
-  @quero sair
+  @sair
 <
 
 // para depois de quando o interator  aceitar cumprir a missão
@@ -67,7 +67,7 @@
   ^ Além disso, confio na sua boa vontade... já que vc tbm me aturou até agora.\n
   ^ Boa sorte! \o/\n\n
   ^ --- [<bot name> saiu da conversa]
-  ^ <call>redirect_page_cont></call>
+  ^ <call>redirect_page_cont</call>
   ^ {topic=stop_chat}
 <
 
@@ -98,7 +98,7 @@
   - Se você mudar de ideia... vc sabe onde me encontrar ;)\n
   ^ #lovewins\n\n
   ^ --- [<bot name> saiu da conversa]
-  ^ <call>redirect_page_home></call>
+  ^ <call>redirect_page_home</call>
   ^ {topic=stop_chat}
 < topic
 
