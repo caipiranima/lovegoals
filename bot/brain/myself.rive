@@ -53,7 +53,7 @@
   + [*] sair [*]
   - Tem certeza que não pode fazer nada?{topic=want_out}
 
-  + [*] (chega|pare|tchau|adeus|ate mais|saudacoes|[me] tire daqui|) [*]
+  + [*] (chega|pare|tchau|adeus|ate mais|saudacoes|[me] tire daqui|ir embora) [*]
   @sair
 
   + (@no) [*]
