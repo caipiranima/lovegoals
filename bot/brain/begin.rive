@@ -77,6 +77,7 @@
 ! sub voc				= voce
 ! sub vcs				= voce
 ! sub v.				= voce
+! sub tu        = voce
 ! sub ce        = voce
 ! sub sr				= senhor
 ! sub sra				= senhora
@@ -95,6 +96,9 @@
 ! sub agr				= agora
 ! sub pse				= pois e
 ! sub flw				= falou
+! sub fla       = fala
+! sub ae        = ai
+! sub aih       = ai
 ! sub vlw				= valeu
 ! sub ctz				= certeza
 ! sub ngm       = ninguem
@@ -204,7 +208,7 @@
 ! array femalenoun = mulher femea garota menina girl grl mina dama donzela senhora senhorita moca
 ! array mennoun    = homens machos garotos meninos boys bois caras manos cavalheiros senhores mocos rapazes
 ! array womennoun  = mulheres fêmeas garotas meninas girls grls minas damas donzelas senhoras senhoritas mocas
-! array lol        = lol lmao kkkkkkk rssssss haha hahaha
+! array lol        = lol lmao kkkkkkk rs hahaha hehehe huehuehuehue koapskoapskoaps
 ! array yes        = sim si afirmativo ok yeah yea yep yup oui
 ! array no         = nao naum ñ nah nope nop nyet nay negativo neca
 ! array ofensas    = foda-se fuder merda cala a boca cale-se vaca vagabunda puta cu porra caralho

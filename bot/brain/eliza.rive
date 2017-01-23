@@ -38,8 +38,21 @@
   + (de|em) qual cidade [voce] (fala|escreve|atua)
   - <bot city>
 
+  + como vai [a] [sua] vida
+  - Tentando sobreviver. Uma ajuda tornaria as coisas bem mais faceis...
+  - Levando... as coisas podiam ser menos sofridas para #lovegoals neste momento, mas sem luta, a gente não chega a lugar nenhum, correto?
+  - Lutando e sobrevivendo... resistindo sempre!\n
+  ^ E vc?
+  - Tentando a todo custo expor Cohen e seu séquito de calhordas pelo o q eles realmente são!
+  - Não sei bem dizer... acho que preciso de ajuda!
+  - Pensando em novas formas de resistência contra esse conservadorismo malicios...\n
+  ^ O que vc sugere?
+
+  + como (vai [voce]vao as coisas|voce esta|voce [se] sente) [*]
+  @como vai a vida
+
   + [o] que [voce] faz
-  - <bot job>{topic=about_mission}
+  - <bot job>
 
   + qual * (sua funcao|seu trabalho|suas responsabilidades|suas tarefas|sua atividade) [*]
   @o que voce faz
@@ -139,7 +152,7 @@
   - Vc não sabe ao certo...?
 
   + [eu] (sei|desejo|dependo|espero) *
-  - E como vc se sentiria em relação a isso, se isso não rolar?
+  - E como vc se sentiria em relação a isso, se esse não for o caso?
   - E o que mais vc espera disso?
   - Como vc sabe que é disso que vc precisa?
   - Poderia explicar melhor, <star>?

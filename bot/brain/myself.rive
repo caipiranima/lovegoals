@@ -22,29 +22,54 @@
   ^ Consegui acessar essa brecha, mas há algo que eles estão escondendo nessa plataforma...\n
   ^ Por isso estou pedindo a ajuda de cada pessoa que vem procurar saber o que é #lovegoals.\n
 
-  + [o] que e [a] lovegoals
+  + [*] que (e|tem) [a] lovegoals [*]
   - Somos uma organização preocupada em lutar e resistir contra as práticas do governo de repressão a LGBTs Brasil afora,\s
   ^ não só na rede, mas no mundo real também.\n
   ^ Somos poucxs, e, por isso, mais do que nunca, precisamos de sua ajuda!
 
-  + [o] que (e|tem) [a] uforge
+  + [*] que (e|tem) [a] uforge [*]
   - É uma multinacional que vem atuando em diferentes frentes de vigilância e monitoramento, fornecendo equipamentos e serviços pra países do mundo todo há pelo menos uma década.\n
   ^ Dizem até que ela literalmente comprou alguns governos pra operar livre, coletando e armazenando todo o tipo de dados da população pra vender depois às entidades interessadas.\n
   ^ Sabe o canal da webTV, a UTV? É propriedade deles.
 
-  + [o] que (e|tem) [a] utv
+  + [*] que (e|tem) [a] utv [*]
   - Como já disse, é um canal na internet que surgiu após a aquisição da estrutura das antigas emissoras de televisão pela uForge.\n
   ^ Basicamente, são eles quem controlam as informações da grande mídia brasileira nos dias de hoje.
 
-  + [o] que (e|tem) [o] departamento de ciberseguranca
+  + [*] que (e|tem) [o] departamento de ciberseguranca [*]
   - É um braço da Polícia Federal criando pra monitorar atividades “suspeitas” na rede, contando com o apoio técnico da uForge e outros investidores privados.\n
   ^ Eles conseguiram derrubar nosso site… mas será por pouco tempo.
 
+  + [eu] entendi [*]
+  - Bom, mas isso quer dizer que vc vai nos ajudar?
+  - OK, então... mas vc irá nos ajudar?
+  - Mas que tal vc provar agora que pode nos ajudar? Vc topa?
+
+  + [eu] nao entendi [*]
+  - Sei que vc tem muitas questoes em mente... mas a verdade é que estamos lutando contra verdadeiros gigantes do pensamento reacionário!\n
+  ^ Por isso, não temos muito tempo para agir.
+  - Olha, não podemos marcar bobeira aqui... mas vc poderia me explicar melhor o que não entendeu?
+  - Sinto mesmo que suas dúvidas serão melhor respondidas quando vc entrar no ambiente que falei pra vc
+  - Como assim?
+
+  + [eu] (nao sei|sei la|talvez|quem sabe|provavelmente|tenho medo) [*]
+  - Vc não tem nada a temer. Essa interacao sua será toda virtual, e me certifiquei da segurança dela em todos níveis.
+  - Hesitar desse jeito não irá levar vc a lugar nenhum...\n
+  ^ vc não quer aproveitar essa oportunidade para superar as dúvidas que vc tem de sua própria pessoa?
+  - Vamos lá! O que é preciso pra te convencer?
+  - Veja bem... vc não tem nada a perder. Garanto que sua ajuda será algo pontual!
+  - Pq essa hesitação?
+
+  + [o] que [*] (vai|ira|pode|podera|deve|devera|quer) (acontecer|suceder|ocorrer|dizer) [*]
+  - Daqui, vc será diretamente conectado a esse espaço virtual através de um túnel criptografado que eu mesma programei.\n
+  ^ A ideia é que vc interaja com tudo o que vc ver ou ouvir lá somente por meio dessa conexão.\n
+  ^ Como já disse, estamos segurxs.
+
   + (tudo bem|esta bem|esta bom) [*]
-  - Vou direcionar vc diretamente para o ponto de partida.\n
+  - Vou direcionar vc para o ponto de partida.\n
   ^ Se vc tiver qualquer dúvida, infelizmente, não terei como te orientar uma vez que vc entrar :({topic=mission_accepted}
 
-  + (posso|quero|topo|aceito|consigo) ajudar [*]
+  + (posso|quero|topo|aceito) [ajudar] [*]
   @tudo bem
 
   + (@yes) [*]
@@ -73,17 +98,28 @@
 
 // quando o usuário quer sair da conversa
 > topic want_out
-  + *
-  - Entendi...\n
-  ^ Mas, pelo menos, reserve uns minutos pra assistir isso:\s
+  + [eu] (tenho|nao quero|nao posso) [*]
+  - Reserve uns minutos pra assistir isso, então:\s
   ^ <call>link_video</call>{topic=end_chat}
+
+  + (@yes) [*]
+  @tenho
+
+  + (@no) [*]
+  - Se vc ainda tem dúvidas, podemos continuar conversando um pouco mais sobre isso...{topic=about_mission}
+
+  + [eu] (talvez|quem sabe) [*]
+  @nao sei
+
+  + [o] que (pode|podera|deve|devera) (acontecer|suceder|ocorrer) [*]
+  @nao sei
 < topic
 
 > topic end_chat
   + [*] (assistir|video) [*]
   - É um vídeo gravado do último pronunciamento do Protetor da União Cohen.\n
   ^ Vc deve conhecê-lo... senão, bem, tire suas próprias conclusões sobre o sujeito.\n
-  ^ Se o discurso de ódio dele não mudar sua opinião, sinta-se livre de qualquer compromisso com a gente.\n
+  ^ Se o discurso de ódio dele não mudar sua opinião, sinta-se livre de assumir qualquer compromisso com a gente.\n
 
   + ([o] que|por que|tudo bem|esta bem|esta bom|@yes) [*]
   @video
@@ -111,7 +147,7 @@
 < topic
 
 > object link_video javascript
-  return "<a href=\"www.youtube.com/watch?v=iubUodkBvvI\">[link]</a>";
+  return "<a href=\"www.youtube.com/watch?v=iubUodkBvvI\">&gt;&gt;&gt;&gt;link&lt;&lt;&lt;&lt;</a>";
 < object
 
 > object redirect_page_home javascript
