@@ -68,7 +68,7 @@
   - Ora... disse que <reply> pq vc disse que <input>!
 
   // Learn stuff about our users.
-  + (meu nome e|me chamo) *
+  + (meu nome e|me chamo|me chamam) *
   * <get name> == undefined  => <set name=<formal>>Olá, <get name>! :)
   - <set oldname=<get name>><set name=<formal>>
   ^ Ué... Achava que seu nome era <get oldname>! Não entendi.
@@ -421,7 +421,7 @@
 
 // para quando o interator precisar pedir desculpas ao bot
 > topic sorry
-  + [*] (desculpe|desculpas|foi mal|mals) [*]
+  + [*] (desculpe|desculpas|dsclp|foi mal|mals|sorry|sry|vacilei) [*]
   - Afff... -_-\n
   ^ Esquece... Tudo bem...\n
   ^ Mas vamos falar somente do que interessa agora, pfvr?{topic=about_mission}

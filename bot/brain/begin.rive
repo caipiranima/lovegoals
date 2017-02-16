@@ -14,7 +14,9 @@
   - Oi!\n
 	^ Não se assuste, mas estava rastreando sua conexão e percebi que vc tentou acessar nosso site.\n
   ^ Mas, pfvr, não saia do chat ainda...\n
-  ^ Como vc se chama ou gostaria de se chamar?{topic=asked_name}
+  ^ Como vc se chama ou gostaria de se chamar?\n
+  ^ Só preciso de seu primeiro nome... ou de um apelido, nickname, whatever...\n
+  ^ É mais seguro.{topic=asked_name}
 <
 
 // pega e verifica nome do interator
@@ -22,11 +24,7 @@
   + #
   - Seu nome é um número?!
 
-  + *
-  - Só preciso de seu primeiro nome... ou de um apelido, nickname, whatever...\n
-  ^ É mais seguro.
-
-  + _
+  + [meu nome e|me chamo|me chamam] *
   * <formal> == <bot name> => Que coincidência! Esse é meu nome tbm!\n<set name=<formal>>
   ^ Mas saiba desde já que não posso comprometer minha identidade dizendo aqui mais sobre quem sou ou tudo q faço, ok?{topic=welcome}
   * <get name> == undefined  => <set name=<formal>>Olá, <get name>!\n
@@ -37,9 +35,10 @@
 // boas-vindas - introdução à conversa
 > topic welcome
   + *
-  - Apenas ignore o aviso estúpido de segurança desse governo golpista.\n
-  ^ Ele podem ter derrubado o conteúdo geral do site, mas ainda conseguimos identificar quem tentou acessá-lo em cache pra conversar neste canal protegido.\n
-	^ Precisamos de toda a ajuda possível.{topic=start_mission}
+  - Apenas ignore o aviso estúpido de segurança desse governo GOLPISTA que vc viu antes.\n
+  ^ Eles podem ter derrubado o conteúdo geral do site, mas ainda conseguimos identificar quem tentou acessá-lo em cache pra conversar neste canal protegido.\n
+	^ Afinal, a gente precisa de toda a ajuda possível.\n
+  ^ E a gente precisa de SUA ajuda também.{topic=start_mission}
 < topic
 
 // The Botmaster's Name
