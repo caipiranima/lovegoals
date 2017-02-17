@@ -92,7 +92,7 @@
   ^ Além disso, confio na sua boa vontade... já que vc tbm me aturou até agora.\n
   ^ Boa sorte! \o/\n\n
   ^ --- [<bot name> saiu da conversa]
-  ^ <call>redirect_page_cont</call>
+  ^ <call>link_page_cont</call>
   ^ {topic=stop_chat}
 <
 
@@ -136,7 +136,7 @@
   - Se você mudar de ideia... vc sabe onde me encontrar ;)\n
   ^ #lovewins\n\n
   ^ --- [<bot name> saiu da conversa]
-  ^ <call>redirect_page_home</call>
+  ^ <call>int_page_home</call>
   ^ {topic=stop_chat}
 < topic
 
@@ -147,15 +147,13 @@
 < topic
 
 > object link_video javascript
-  return "<a href=\"www.youtube.com/watch?v=iubUodkBvvI\">&gt;&gt;&gt;&gt;link&lt;&lt;&lt;&lt;</a>";
+  return "<a href=\"www.youtube.com/watch?v=iubUodkBvvI\">&gt;&gt;&gt;&gt;VIDEO&lt;&lt;&lt;&lt;</a>";
 < object
 
-> object redirect_page_home javascript
-  window.location.href = "www.ia.unicamp.br/lovegoals/";
-  return "";
+> object link_page_home javascript
+  return "<a href=\"www.ia.unicamp.br/lovegoals\">&gt;&gt;&gt;&gt;ENTRAR&lt;&lt;&lt;&lt;</a>";
 < object
 
-> object redirect_page_cont javascript
-  window.location.href= "www.ia.unicamp.br/lovegoals/portal";
-  return "";
+> object link_page_cont javascript
+  return "<a href=\"www.ia.unicamp.br/lovegoals/portal\">&gt;&gt;&gt;&gt;VOLTAR&lt;&lt;&lt;&lt;</a>";
 < object
