@@ -17,7 +17,7 @@
 	<div id="dialogue"></div>
 </fieldset>
 
-//<form onSubmit="return sendMessage()">
+<form>
 	<fieldset>
 		<legend>Send a Message</legend>
 
@@ -32,7 +32,7 @@
 			</tr>
 		</table>
 	</fieldset>
-//</form>
+</form>
 
 <fieldset>
 	<legend>Debugger</legend>
@@ -133,7 +133,7 @@ function stoppedTyping(){
 }
 
 function verifyTextLength(){
-	if ($("#send_button").val().length <= 0) {
+	if ($("#message").val().length <= 0) {
 	    alert "Vc não tem nada a dizer mesmo?";
 	    return;
 	}
@@ -142,7 +142,6 @@ function verifyTextLength(){
 	}
 }
 	
-</script>
 // Button that turns debugging on and off.
 function toggleDebug () {
 	if (debugMode) {
@@ -161,8 +160,6 @@ function onDebug(message) {
 function escapeHtml(text) {
 	return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
-
 </script>
-
 </body>
 </html>
