@@ -17,6 +17,7 @@
 	<div id="dialogue"></div>
 </fieldset>
 
+<form>
 	<fieldset>
 		<legend>Send a Message</legend>
 
@@ -26,12 +27,13 @@
 					<input type="text" size="40" id="message" autocomplete="off" disabled placeholder="Please wait... loading..." onkeyup="stoppedTyping()" />
 				</td>
 				<td class="send-button">
-					<input type="button" value="Send" id="send_button" onclick="verifyTextLength()" disabled />
+					<input type="submit" value="Send" id="send_button" onclick="verifyTextLength()" disabled />
 				</td>
 			</tr>
 		</table>
 	</fieldset>
-
+</form>
+	
 <fieldset>
 	<legend>Debugger</legend>
 
