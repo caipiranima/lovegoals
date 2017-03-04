@@ -36,9 +36,12 @@
   - Como já disse, é um canal na internet que surgiu após a aquisição da estrutura das antigas emissoras de televisão pela uForge.\n
   ^ Basicamente, são eles quem controlam as informações da grande mídia brasileira nos dias de hoje.
 
-  + [*] que (e|tem) [o] departamento de ciberseguranca [*]
+  + [*] que (e|tem) [a] ciberseguranca [*]
   - É um braço da Polícia Federal criando pra monitorar atividades “suspeitas” na rede, contando com o apoio técnico da uForge e outros investidores privados.\n
-  ^ Eles conseguiram derrubar nosso site… mas será por pouco tempo.
+  ^ Eles conseguiram derrubar nosso site... mas será por pouco tempo.
+
+  + [*] que (e|tem) [o] departamento [*]
+  @o que e ciberseguranca
 
   + [eu] entendi [*]
   - Bom, mas isso quer dizer que vc vai nos ajudar?
@@ -55,7 +58,7 @@
   + [eu] (nao sei|sei la|talvez|quem sabe|provavelmente|tenho medo) [*]
   - Vc não tem nada a temer. Essa interacao sua será toda virtual, e me certifiquei da segurança dela em todos níveis.
   - Hesitar assim não irá levar vc a lugar nenhum...\n
-  ^ vc não quer aproveitar essa oportunidade pra superar de vez as dúvidas que vc tem de sua própria pessoa?
+  ^ Vc não quer aproveitar essa oportunidade pra superar de vez as dúvidas que vc tem de si?
   - Vamos lá! O que é preciso pra te convencer?
   - Veja bem... vc não tem nada a perder. Garanto que sua ajuda será algo pontual!
   - Pq essa hesitação?
@@ -63,13 +66,13 @@
   + [o] que [*] (vai|ira|pode|podera|deve|devera|quer) (acontecer|suceder|ocorrer|dizer) [*]
   - Daqui, vc será diretamente conectado a esse espaço virtual através de um túnel criptografado que eu mesma programei.\n
   ^ A ideia é que vc interaja com tudo o que vc ver ou ouvir lá somente por meio dessa conexão.\n
-  ^ Como já disse, estamos segurxs.
+  ^ Como já disse, estamos bem.
 
   + (tudo bem|esta bem|esta bom) [*]
   - Vou direcionar vc para o ponto de partida.\n
-  ^ Se vc tiver qualquer dúvida, infelizmente, não terei como te orientar uma vez que vc entrar :({topic=mission_accepted}
+  ^ Se vc tiver qualquer dúvida, infelizmente, não terei como te orientar uma vez que vc entrar...{topic=mission_accepted}
 
-  + [eu] (posso|quero|topo|aceito) [*]
+  + [eu] (posso|topo|aceito) [*]
   @tudo bem
 
   + (@yes) [*]
@@ -90,8 +93,8 @@
   + *
   - Deixei lá algumas pistas que poderão te ajudar na sua investigação.\n
   ^ Além disso, confio na sua boa vontade... já que vc tbm me aturou até agora.\n
-  ^ Boa sorte!\n\n
-  ^ --- [<bot name> saiu da conversa]
+  ^ Boa sorte!\n
+  ^ --- [<bot name> saiu da conversa]\n\n
   ^ <call>link_page_cont</call>
   ^ {topic=stop_chat}
 <
@@ -102,15 +105,21 @@
   - Reserve uns minutos pra assistir isso, então:\s
   ^ <call>link_video</call>{topic=end_chat}
 
-  + (@yes) [*]
+  + [eu] (@yes) [*]
   @tenho
 
-  + (@no) [*]
+  + [*] (@ofensas) [*]
+  @tenho
+
+  + [eu] (@no) [*]
   - Se vc ainda tem dúvidas, podemos continuar conversando um pouco mais sobre isso...{topic=about_mission}
 
   + [eu] (talvez|quem sabe) [*]
   @nao sei
 
+  + [eu] (nao tenho|quero|posso) [*]
+  @nao sei
+  
   + [o] que (pode|podera|deve|devera) (acontecer|suceder|ocorrer) [*]
   @nao sei
 < topic
@@ -134,16 +143,16 @@
   + *
   - Até mais.\n
   - Se você mudar de ideia... vc sabe onde me encontrar.\n
-  ^ #lovewins\n\n
-  ^ --- [<bot name> saiu da conversa]
-  ^ <call>int_page_home</call>
+  ^ #lovewins\n
+  ^ --- [<bot name> saiu da conversa]\n\n
+  ^ <call>link_page_home</call>
   ^ {topic=stop_chat}
 < topic
 
 // encerra o bate-papo (o bot para de responder)
 > topic stop_chat
   + *
-  - \n---[<bot name> está offline]
+  - \n\n---[<bot name> está offline]
 < topic
 
 > object link_video javascript
@@ -151,9 +160,9 @@
 < object
 
 > object link_page_home javascript
-  return "<a href=\"www.ia.unicamp.br/lovegoals\">&gt;&gt;&gt;&gt;ENTRAR&lt;&lt;&lt;&lt;</a>";
+  return "<a href=\"www.ia.unicamp.br/lovegoals\">&gt;&gt;&gt;&gt;VOLTAR&lt;&lt;&lt;&lt;</a>";
 < object
 
 > object link_page_cont javascript
-  return "<a href=\"www.ia.unicamp.br/lovegoals/portal\">&gt;&gt;&gt;&gt;VOLTAR&lt;&lt;&lt;&lt;</a>";
+  return "<a href=\"www.ia.unicamp.br/lovegoals/portal\">&gt;&gt;&gt;&gt;ENTRAR&lt;&lt;&lt;&lt;</a>";
 < object

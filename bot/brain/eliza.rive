@@ -68,12 +68,12 @@
   - Ora... disse que <reply> pq vc disse que <input>!
 
   // Learn stuff about our users.
-  + (meu nome e|me chamo|me chamam) *
+  + (meu nome e|me chamo|me chamam) [de] *
   * <get name> == undefined  => <set name=<formal>>Olá, <get name>! :)
   - <set oldname=<get name>><set name=<formal>>
   ^ Ué... Achava que seu nome era <get oldname>! Não entendi.
 
-  + [voce] pode me chamar *
+  + [voce] pode me chamar [de] *
   - <set name=<formal>>OK, <get name>!
 
   + (como me chamo|qual e meu nome)
@@ -175,13 +175,13 @@
   - Ninguém mesmo?
   - Sério?
 
-  + voce pode *
+  + voce quer *
   - Daqui do meu lado da conversa, posso muito pouco...
   - Talvez seja vc quem quer fazer isso, não?
   - Pq VC não pode?
   - voce quer que eu faça isso, não quer?
 
-  + [eu] posso *
+  + [eu] quero *
   - Isso depende mais de vc do q de mim, na verdade.
   - É isso mesmo que vc quer?
   - Depende... vc QUER mesmo?
@@ -412,6 +412,7 @@
   ^ Preciso saber se vc pode ajudar a gente agora, pfvr!
   - Desculpe, mas não posso ficar aqui mto tempo... precisamos agir!\n
   ^ Vc pode ajudar, sim ou não?
+  - Como assim?
   - Olha... não temos muito tempo pra ficar conversando agora. Vc pode nos ajudar?
   - Não posso explicar mto mais agora... pfvr! Vc pode ajudar, sim ou não?
   - Sei que vc tem ainda dúvidas, mas o tempo é curto... Vc pode nos ajudar?
