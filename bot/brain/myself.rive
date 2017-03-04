@@ -9,7 +9,7 @@
 // continua...
 > topic explain_mission
   + *
-  - Veja... Há um segredo que precisa ser encontrado... e não consigo encontrá-lo sozinha.\n
+  - Veja... Há um segredo que precisa ser encontrado... e que não consigo encontrar sozinha.\n
   ^ Se vc topar nos ajudar, vc será redirecionado pra um ambiente que ainda não tenho certeza do q é exatamente...\n
   ^ Parece ser um espaço virtual ainda em fase de testes...\s
   ^ parte do novo sistema de vigilância que a uForge vem desenvolvendo em parceria com o Depto de Cibersegurança.{topic=about_mission}
@@ -49,13 +49,13 @@
   - Sei que vc tem muitas questoes em mente... mas a verdade é que estamos lutando contra verdadeiros gigantes do pensamento reacionário!\n
   ^ Por isso, não temos muito tempo para agir.
   - Olha, não podemos marcar bobeira aqui... mas vc poderia me explicar melhor o que não entendeu?
-  - Sinto mesmo que suas dúvidas serão melhor respondidas quando vc entrar no ambiente que falei pra vc
+  - Sinto mesmo que suas dúvidas serão melhor respondidas quando vc entrar no ambiente que falei pra vc.
   - Como assim?
 
   + [eu] (nao sei|sei la|talvez|quem sabe|provavelmente|tenho medo) [*]
   - Vc não tem nada a temer. Essa interacao sua será toda virtual, e me certifiquei da segurança dela em todos níveis.
-  - Hesitar desse jeito não irá levar vc a lugar nenhum...\n
-  ^ vc não quer aproveitar essa oportunidade para superar as dúvidas que vc tem de sua própria pessoa?
+  - Hesitar assim não irá levar vc a lugar nenhum...\n
+  ^ vc não quer aproveitar essa oportunidade pra superar de vez as dúvidas que vc tem de sua própria pessoa?
   - Vamos lá! O que é preciso pra te convencer?
   - Veja bem... vc não tem nada a perder. Garanto que sua ajuda será algo pontual!
   - Pq essa hesitação?
@@ -90,7 +90,7 @@
   + *
   - Deixei lá algumas pistas que poderão te ajudar na sua investigação.\n
   ^ Além disso, confio na sua boa vontade... já que vc tbm me aturou até agora.\n
-  ^ Boa sorte! \o/\n\n
+  ^ Boa sorte!\n\n
   ^ --- [<bot name> saiu da conversa]
   ^ <call>link_page_cont</call>
   ^ {topic=stop_chat}
@@ -133,7 +133,7 @@
 
   + *
   - Até mais.\n
-  - Se você mudar de ideia... vc sabe onde me encontrar ;)\n
+  - Se você mudar de ideia... vc sabe onde me encontrar.\n
   ^ #lovewins\n\n
   ^ --- [<bot name> saiu da conversa]
   ^ <call>int_page_home</call>

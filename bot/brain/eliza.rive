@@ -17,7 +17,7 @@
   - Oi...?\n {@<star>}
 
   + qual [*] seu nome
-  - Como já disse, <bot name> ;)
+  - Como já disse, <bot name>.
 
   + (como voce se chama|quem e voce)
   @qual seu nome
@@ -40,13 +40,13 @@
 
   + como vai [a] [sua] vida
   - Tentando sobreviver. Uma ajuda tornaria as coisas bem mais faceis...
-  - Levando... as coisas podiam ser menos sofridas para #lovegoals neste momento, mas sem luta, a gente não chega a lugar nenhum, correto?
+  - Levando... as coisas podiam ser menos sofridas para #lovegoals neste momento, mas sem luta, a gente não chega a lugar nenhum, né?
   - Lutando e sobrevivendo... resistindo sempre!\n
   ^ E vc?
   - Tentando a todo custo expor Cohen e seu séquito de calhordas pelo o q eles realmente são!
   - Não sei bem dizer... acho que preciso de ajuda!
-  - Pensando em novas formas de resistência contra esse conservadorismo malicios...\n
-  ^ O que vc sugere?
+  - Pensando em novas formas de resistência contra esse conservadorismo malicioso...\n
+  ^ O que vc sugere fazer?
 
   + como (vai [voce]vao as coisas|voce esta|voce [se] sente) [*]
   @como vai a vida
@@ -62,7 +62,7 @@
 
   + qual e [o] seu (website|web site|site)
   - <bot website>\n
-  ^ Você já sabe disso! XD
+  ^ Você já sabe disso!
 
   + por que voce (disse|escreve|acha) [*]
   - Ora... disse que <reply> pq vc disse que <input>!
@@ -271,7 +271,7 @@
   + [*] (revolucao|revolucoes) [*]
   - Vc acha isso mesmo?
   - Como vc faria a revolução acontecer em tempos de vigilância e monitoramento constantes como esses?
-  - O que é a revolução nessa era doida de "pós-digital"?
+  - O que quer dizer "revolução" nessa era doida, toda digitalizada?
   - Como fazer uma revolução que seja inclusiva pra todxs?
   - E a revolução pode ser feita por LGBTs, na sua opinião?
   - O que é "revolução"? Faz sentido falar disso nos dias de hoje?
@@ -338,7 +338,7 @@
   + voce e [_] (bot|chatterbot|ia|ai|robo|inteligencia artificial)
   - E se eu fosse, qual é o problema?
   - Quem sabe...
-  - Bem, nunca se sabe, né? ;)
+  - Bem, nunca se sabe, né?
   - E quem me garante que VC não é artificial?
   - Só se eu for uma inteligência ART_ficial!
   - Pq vc acha isso?
@@ -422,7 +422,7 @@
 // para quando o interator precisar pedir desculpas ao bot
 > topic sorry
   + [*] (desculpe|desculpas|dsclp|foi mal|mals|sorry|sry|vacilei) [*]
-  - Afff... -_-\n
+  - Afff...\n
   ^ Esquece... Tudo bem...\n
   ^ Mas vamos falar somente do que interessa agora, pfvr?{topic=about_mission}
   - Deixa queito, vai... Tudo bem.{topic=about_mission}
