@@ -17,7 +17,6 @@
 	<div id="dialogue"></div>
 </fieldset>
 
-<form>
 	<fieldset>
 		<legend>Send a Message</legend>
 
@@ -32,7 +31,6 @@
 			</tr>
 		</table>
 	</fieldset>
-</form>
 
 <fieldset>
 	<legend>Debugger</legend>
@@ -134,7 +132,7 @@ function stoppedTyping(){
 
 function verifyTextLength(){
 	if ($("#message").val().length <= 0) {
-	    alert "Vc não tem nada a dizer mesmo?";
+	    window.alert("Vc não tem nada a dizer mesmo?");
 	    return;
 	}
 	else {
