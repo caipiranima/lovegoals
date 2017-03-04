@@ -17,7 +17,7 @@
 	<div id="dialogue"></div>
 </fieldset>
 
-<form onsubmit="sendMessage()">
+<form onSubmit="return sendMessage()">
 	<fieldset>
 		<legend>Send a Message</legend>
 
@@ -103,10 +103,10 @@ function sendMessage () {
 		text = removeAccents(text);
 
 		try {
-		var reply = rs.reply("soandso", text);
-		reply = reply.replace(/\n/g, "<br>");
-		$("#dialogue").append("<div><span class='bot'>Bot:</span> " + reply + "</div>");
-		$("#dialogue").animate({ scrollTop: $("#dialogue").height() }, 1000);
+			var reply = rs.reply("soandso", text);
+			reply = reply.replace(/\n/g, "<br>");
+			$("#dialogue").append("<div><span class='bot'>Bot:</span> " + reply + "</div>");
+			$("#dialogue").animate({ scrollTop: $("#dialogue").height() }, 1000);
 		} catch(e) {
 			window.alert(e.message + "\n" + e.line);
 			console.log(e);
