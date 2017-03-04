@@ -124,10 +124,10 @@ function removeAccents(text) {
 
 function stoppedTyping(){
 	var text = $("#message").val();
-	if ($("#message").val().length > 0) {
-    		$("#send_button").disabled = false; 
+	if (text.length > 0) {
+    		$("#send_button").removeAttr("disabled");
 	} else { 
-	   	$("#send_button").disabled = true;
+	   	$("#send_button").attr("disabled");
 	}
 }
 
