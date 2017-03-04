@@ -17,22 +17,22 @@
 	<div id="dialogue"></div>
 </fieldset>
 
-<form onSubmit="return sendMessage()">
+//<form onSubmit="return sendMessage()">
 	<fieldset>
 		<legend>Send a Message</legend>
 
 		<table class="input-table">
 			<tr>
 				<td class="text-box">
-					<input type="text" size="40" name="message" id="message" autocomplete="off" disabled placeholder="Please wait... loading...">
+					<input type="text" size="40" name="message" id="message" autocomplete="off" onkeyup="stoppedTyping()" disabled placeholder="Please wait... loading...">
 				</td>
 				<td class="send-button">
-					<input type="submit" value="Send">
+					<input type="button" value="Send" id="send_button" onclick="verifyTextLength()" disabled/>
 				</td>
 			</tr>
 		</table>
 	</fieldset>
-</form>
+//</form>
 
 <fieldset>
 	<legend>Debugger</legend>
@@ -124,6 +124,25 @@ function removeAccents(text) {
     return text;
 }
 
+function stoppedTyping(){
+	if (this.value.length > 0) { 
+    		$("#send_button").disabled = false; 
+	} else { 
+	   	$("#send_button").disabled = true;
+	}
+}
+
+function verifyTextLength(){
+	if ($("#send_button").val().length <= 0) {
+	    alert "Vc não tem nada a dizer mesmo?";
+	    return;
+	}
+	else {
+	    return sendMessage();
+	}
+}
+	
+</script>
 // Button that turns debugging on and off.
 function toggleDebug () {
 	if (debugMode) {
