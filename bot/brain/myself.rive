@@ -55,18 +55,29 @@
   - Sinto mesmo que suas dúvidas serão melhor respondidas quando vc entrar no ambiente que falei pra vc.
   - Como assim?
 
-  + [eu] (nao sei|sei la|talvez|quem sabe|provavelmente|tenho medo) [*]
-  - Vc não tem nada a temer. Essa interacao sua será toda virtual, e me certifiquei da segurança dela em todos níveis.
+  + [eu] (nao sei|sei la|talvez|quem sabe|provavelmente) [*]
   - Hesitar assim não irá levar vc a lugar nenhum...\n
   ^ Vc não quer aproveitar essa oportunidade pra superar de vez as dúvidas que vc tem de si?
   - Vamos lá! O que é preciso pra te convencer?
   - Veja bem... vc não tem nada a perder. Garanto que sua ajuda será algo pontual!
   - Pq essa hesitação?
 
-  + [o] que [*] (vai|ira|pode|podera|deve|devera|quer) (acontecer|suceder|ocorrer|dizer) [*]
+  + [*] (mentira) [*]
+  - Não tenho como provar nada pra vc agora, a não ser direcionando para esse espaço virtual que mencionei.\n
+  ^ Ele existe... mas não sabemos bem como explora-lo totalmente.
+  - Prove os fatos por conta própria, então... Aceita ajudar a gente?
+
+  + [*] nao [*] (confio|acredito|pode ser|e possivel|e verdade) [*]
+  @mentira
+
+  + [*] (tenho medo|perigoso|arriscado)
+  - Vc não tem nada a temer.\n
+  ^ Essa interacao sua será toda virtual, e me certifiquei da segurança dela em todos níveis.
+
+  + [*] que [*] (vai|ira|pode|podera|deve|devera|quer) (acontecer|suceder|ocorrer|dizer) [*]
   - Daqui, vc será diretamente conectado a esse espaço virtual através de um túnel criptografado que eu mesma programei.\n
   ^ A ideia é que vc interaja com tudo o que vc ver ou ouvir lá somente por meio dessa conexão.\n
-  ^ Como já disse, estamos bem.
+  ^ A gente vai ficar bem, pode acreditar.
 
   + (tudo bem|esta bem|esta bom) [*]
   - Vou direcionar vc para o ponto de partida.\n
@@ -75,16 +86,18 @@
   + [eu] (posso|topo|aceito) [*]
   @tudo bem
 
-  + (@yes) [*]
+  + [_] (@yes) [*]
   @tudo bem
 
   + [*] sair [*]
   - Tem certeza que não pode fazer nada?{topic=want_out}
+  - Não quer mesmo nos dar uma força?{topic=want_out}
+  - Mesmo?{topic=want_out}
 
   + [*] (chega|pare|tchau|adeus|ate mais|saudacoes|[me] tire daqui|ir embora) [*]
   @sair
 
-  + (@no) [*]
+  + [_] (@no) [*]
   @sair
 <
 
@@ -101,7 +114,7 @@
 
 // quando o usuário quer sair da conversa
 > topic want_out
-  + [eu] (tenho|nao quero|nao posso) [*]
+  + [eu] (tenho|nao quero|nao posso|melhor nao) [*]
   - Reserve uns minutos pra assistir isso, então:\s
   ^ <call>link_video</call>{topic=end_chat}
 
@@ -113,14 +126,20 @@
 
   + [eu] (@no) [*]
   - Se vc ainda tem dúvidas, podemos continuar conversando um pouco mais sobre isso...{topic=about_mission}
+  - Vamos continuar conversando... como posso convencê-lo a ajudar?{topic=about_mission}
+  - Bom, quem sabe vc mesmo de ideia pra valer agora, né?{topic=about_mission}
+  - Talvez vc precisa ainda de um tempo pra pensar melhor sobre tudo isso.{topic=about_mission}
 
-  + [eu] (talvez|quem sabe) [*]
-  @nao sei
+  //+ [eu] (talvez|quem sabe) [*]
+  //@nao sei
 
-  + [eu] (nao tenho|quero|posso) [*]
-  @nao sei
-  
-  + [o] que (pode|podera|deve|devera) (acontecer|suceder|ocorrer) [*]
+  //+ [eu] (nao tenho|quero|posso) [*]
+  //@nao sei
+
+  //+ [o] que (pode|podera|deve|devera) (acontecer|suceder|ocorrer) [*]
+  //@nao sei
+
+  + *
   @nao sei
 < topic
 
@@ -142,7 +161,7 @@
 
   + *
   - Até mais.\n
-  - Se você mudar de ideia... vc sabe onde me encontrar.\n
+  ^ Se você mudar de ideia... vc sabe onde me encontrar.\n
   ^ #lovewins\n
   ^ --- [<bot name> saiu da conversa]\n\n
   ^ <call>link_page_home</call>
@@ -152,7 +171,7 @@
 // encerra o bate-papo (o bot para de responder)
 > topic stop_chat
   + *
-  - \n\n---[<bot name> está offline]
+  - ---[<bot name> está offline]
 < topic
 
 > object link_video javascript

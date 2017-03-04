@@ -12,6 +12,7 @@
   - Sim?
   - O q foi?
   - Oi?
+  - Diga.
 
   + <bot name> *
   - Oi...?\n {@<star>}
@@ -91,11 +92,11 @@
   + [eu] sou (@femalenoun)
   - <set sex=female>Tá certo, <star>. Topa nos ajudar? :P
 
-  + [eu] (moro em|vivo em|nasci em) *
+  + [eu] (moro|vivo|nasci) [_] *
   - <set location={formal}<star2>{/formal}>Já falei com pessoas de <get location> antes!\n
-  ^ Elas nos ajudaram bastante... embora ainda não foi o bastante.
+  ^ Elas nos ajudaram muito... embora ainda não foi o bastante.
 
-  + [eu] (acho|penso|acredito|creio|imagino) _ *
+  + [eu] (acho|penso|acredito|creio|imagino) [_] *
   - Vc acha mesmo isso?
   - Pq?
   - Pq vc acha isso? Que <star>...?
@@ -413,10 +414,11 @@
   - Desculpe, mas não posso ficar aqui mto tempo... precisamos agir!\n
   ^ Vc pode ajudar, sim ou não?
   - Como assim?
+  - Me explica melhor isso?
   - Olha... não temos muito tempo pra ficar conversando agora. Vc pode nos ajudar?
   - Não posso explicar mto mais agora... pfvr! Vc pode ajudar, sim ou não?
   - Sei que vc tem ainda dúvidas, mas o tempo é curto... Vc pode nos ajudar?
-  - OK, mas não temos mto tempo! Vc tem como nos ajudar???
+  - Não temos mto tempo! Vc tem como nos ajudar???
   - Não sei se te entendi bem... Vc pode nos ajudar?
 < topic
 

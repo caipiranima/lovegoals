@@ -15,7 +15,7 @@
 	^ Não se assuste, mas estava rastreando sua conexão e percebi que vc tentou acessar nosso site.\n
   ^ Mas, pfvr, não saia do chat ainda...\n
   ^ Como vc se chama ou gostaria de se chamar?\n
-  ^ Só preciso de seu primeiro nome... ou de um apelido, nickname, qualquer coisa do tipo...\n
+  ^ Só preciso de seu primeiro nome... ou de um apelido, codinome, qualquer coisa do tipo...\n
   ^ É mais seguro.{topic=asked_name}
 <
 
@@ -24,7 +24,12 @@
   + #
   - Seu nome é um número?!
 
-  + [meu nome e|me chamo|me chamam] *
+  + [*] (que|como|quando|onde|aonde|porque) [*]
+  - Só preciso de um nome a princípio, nada mais...
+  - Vamos lá... só me diga como quer se chamar.
+  - Não tô te pedindo muita coisa, só um nome.
+
+  + [meu nome e|me chamo|me chamam] [de] *
   * <formal> == <bot name> => Que coincidência! Esse é meu nome tbm!\n<set name=<formal>>
   ^ Mas saiba desde já que não posso comprometer minha identidade dizendo aqui mais sobre quem sou ou tudo q faço, ok?{topic=welcome}
   * <get name> == undefined  => <set name=<formal>>Olá, <get name>!\n
@@ -146,6 +151,9 @@
 ! sub bjao      = beijao
 ! sub blz				= beleza
 ! sub bao				= bom
+! sub bro       = brother
+! sub bros      = brothers
+! sub sis       = sister
 ! sub baum      = bom
 ! sub tb				= tambem
 ! sub tbm				= tambem
@@ -203,11 +211,11 @@
 ! person eu      = voce
 
 // Set arrays
-! array malenoun   = homem macho garoto menino boy boi cara mano cavalheiro senhor moço rapaz
-! array femalenoun = mulher femea garota menina girl grl mina dama donzela senhora senhorita moca
-! array mennoun    = homens machos garotos meninos boys bois caras manos cavalheiros senhores mocos rapazes
-! array womennoun  = mulheres fêmeas garotas meninas girls grls minas damas donzelas senhoras senhoritas mocas
+! array malenoun   = homem macho garoto menino boy boi cara mano cavalheiro senhor moço rapaz brother
+! array femalenoun = mulher femea garota menina girl grl mina mona dama donzela senhora senhorita moca sister
+! array mennoun    = homens machos garotos meninos boys bois caras manos cavalheiros senhores mocos rapazes brothers
+! array womennoun  = mulheres fêmeas garotas meninas girls grls minas damas donzelas senhoras senhoritas mocas sisters
 ! array lol        = lol lmao kkkkkkk rs hahaha hehehe huehuehuehue koapskoapskoaps
-! array yes        = sim si afirmativo ok yeah yea yep yup oui
-! array no         = nao naum ñ nah nope nop nyet nay negativo neca
+! array yes        = yes sim si afirmativo ok yeah yea yep yup oui
+! array no         = no nao naum ñ nah nope nop nyet nay negativo neca
 ! array ofensas    = foda-se fuder merda cala a boca cale-se vaca vagabunda puta cu porra caralho
