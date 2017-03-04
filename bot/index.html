@@ -131,6 +131,8 @@ function removeAccents(text) {
 
 function stoppedTyping(){
 	var text = $("#message").val();
+	text = text.replace(/\s/g,'');
+	
 	if (text.length > 1) {
     		$("#send_button").removeAttr("disabled");
 	} else { 
