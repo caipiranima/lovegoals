@@ -123,7 +123,7 @@ function removeAccents(text) {
 }
 
 function stoppedTyping(){
-	if (this.value.length > 0) { 
+	if ($("#message").val().length > 0) {
     		$("#send_button").disabled = false; 
 	} else { 
 	   	$("#send_button").disabled = true;
