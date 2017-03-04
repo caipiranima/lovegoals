@@ -237,7 +237,7 @@
   - Quem, especificamente?
   - Pq?
 
-  + [*] (@ofensas) [*]
+    + [*] (@ofensas) [*]
   - Pffff...
   - Vc tá nervoso com alguma coisa?
   - O que se passa contigo?
@@ -248,7 +248,7 @@
   - Não sou obrigada a te ver descarregando seus sentimentos, sabia?
   - Com quem vc acha q tá falando?
 
-  + [*] (midia|tv|televisao|radio|jornal|jornais|revista[s]) [*]
+  + [*] (midia|tv|televisao|radio|jornal|jornais|revista|revistas) [*]
   - Vc acha isso mesmo?
   - Vc não acha que uma midia descompromissada de interesses políticos e econômicos pode contribuir pra uma verdadeira revolução?
   - E como a mídia tem sido manipulada atualmente?
@@ -259,7 +259,7 @@
   - Vc acha que a mídia é socialmente inclusiva?
   - E como vc acha que a mídia vem retratando LGBTs?
 
-  + [*] (internet|net|rede|web|www) [*]
+  + [*] (internet|net|rede|web|www|site|blog) [*]
   - Vc acha isso mesmo?
   - Vc acha que a internet pode causar transformações na sociedade?
   - E como vc utiliza a internet atualmente?
@@ -277,7 +277,7 @@
   - E a revolução pode ser feita por LGBTs, na sua opinião?
   - O que é "revolução"? Faz sentido falar disso nos dias de hoje?
 
-  + [*] (politica[s]|politico[s]) [*]
+  + [*] (politica|politico|politicas|politicos) [*]
   - Vc acha isso mesmo?
   - Como a politica influencia sua vida atualmente?
   - Vc nao pode fazer nada pra mudar isso?
@@ -288,7 +288,7 @@
   - Vc não acha que políticas públicas ainda excluem LGBTs de seus direitos básicos?
   - E o que seus amigos acham disso?
 
-  + [*] (arte|artistico[s]|artistica[s]) [*]
+  + [*] (arte|artistico|artistica|artisticos|artisticas) [*]
   - Vc acha isso mesmo?
   - E o que vc acha da arte contemporânea?
   - Vc não acha que a arte deve ter relação com o contexto político e social do país?
@@ -296,7 +296,7 @@
   - E o que é arte pra vc, então?
   - A arte pode falar de política tbm?
 
-  + [*] (economia|economico[s]|economica[s]) [*]
+  + [*] (economia|economico|economica|economicos|economicas) [*]
   - Vc acha isso mesmo?
   - Pq vc se preocupa com isso?
   - E o que é "economia" pra vc?
@@ -320,11 +320,24 @@
   - Como vc vê o Brasil nesse quesito?
   - E como podemos usar a net pra ajudar na defesa de causas ambientais, então?
 
-  + [*] computador[es] [*]
+  + [*] (computador|computadores) [*]
   - E o q mais vc acha disso?
   - Computadores não são úteis pra se mudar algo efetivo na sociedade?
   - E todxs são incluídos nas possibilidades de coisas que os computadores fazem?
   - E vc não acha que isso tem a ver com o fato de estarmos aqui, agora?
+
+  + [*] (hacker|hackers|cracker|crackers) [*]
+  - Talvez hackers e crackers sejam as únicas pessoas capazes de lutar pra valer contra o sistema...
+  - Você gostaria de ser um hacker?
+  - E você gostaria de hackear alguém?
+
+  + [*] (tecnologico|tecnologica|tecnologia|tecnologias) [*]
+  - Tecnologias tem mesmo grandes vantagens... mas impõem grandes abismos na sociedade.
+  - Nem sempre a técnica pode resolver todos os problemas da humanidade, concorda?
+  - E que uso vc faz da tecnologia no seu cotidiano?
+  - Como vc pode fazer uso das novas tecnologias de um jeito transformador?
+  - Como as tecnologias e as políticas contemporâneas se relacionam?
+  - E o que mais vc acha disso?
 
   + [eu] (sou|estou) *
   - Vc acha mesmo isso?
