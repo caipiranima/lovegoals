@@ -17,7 +17,7 @@
 	<div id="dialogue"></div>
 </fieldset>
 
-<form>
+<form onsubmit="sendMessage()">
 	<fieldset>
 		<legend>Send a Message</legend>
 
@@ -27,7 +27,7 @@
 					<input type="text" size="40" id="message" autocomplete="off" disabled placeholder="Please wait... loading..." onkeyup="stoppedTyping()" />
 				</td>
 				<td class="send-button">
-					<input type="submit" value="Send" id="send_button" onclick="verifyTextLength()" disabled />
+					<input type="submit" value="Send" id="send_button" disabled />
 				</td>
 			</tr>
 		</table>
@@ -92,21 +92,26 @@ function on_load_error (err) {
 // Handle sending a message to the bot.
 function sendMessage () {
 	var text = $("#message").val();
-	$("#message").val("");
-	$("#dialogue").append("<div><span class='user'>You:</span> " + text + "</div>");
-
-	text = removeAccents(text);
-
-	try {
-	var reply = rs.reply("soandso", text);
-	reply = reply.replace(/\n/g, "<br>");
-	$("#dialogue").append("<div><span class='bot'>Bot:</span> " + reply + "</div>");
-	$("#dialogue").animate({ scrollTop: $("#dialogue").height() }, 1000);
-	} catch(e) {
-		window.alert(e.message + "\n" + e.line);
-		console.log(e);
+	
+	if (text.length <= 0) {
+	    	window.alert("Vc não tem NADA a dizer mesmo? :O");
 	}
+	else {
+		$("#message").val("");
+		$("#dialogue").append("<div><span class='user'>You:</span> " + text + "</div>");
 
+		text = removeAccents(text);
+
+		try {
+		var reply = rs.reply("soandso", text);
+		reply = reply.replace(/\n/g, "<br>");
+		$("#dialogue").append("<div><span class='bot'>Bot:</span> " + reply + "</div>");
+		$("#dialogue").animate({ scrollTop: $("#dialogue").height() }, 1000);
+		} catch(e) {
+			window.alert(e.message + "\n" + e.line);
+			console.log(e);
+		}
+	}
 	return false;
 }
 
@@ -130,17 +135,6 @@ function stoppedTyping(){
     		$("#send_button").removeAttr("disabled");
 	} else { 
 	   	$("#send_button").attr("disabled", "disabled");
-	}
-}
-
-function verifyTextLength(){
-	var text = $("#message").val();
-	if (text.length <= 0) {
-	    window.alert("Vc não tem nada a dizer mesmo?");
-	    return;
-	}
-	else {
-	    return sendMessage();
 	}
 }
 	
