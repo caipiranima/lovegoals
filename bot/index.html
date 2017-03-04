@@ -123,6 +123,7 @@ function removeAccents(text) {
 }
 
 function stoppedTyping(){
+	var text = $("#message").val();
 	if ($("#message").val().length > 0) {
     		$("#send_button").disabled = false; 
 	} else { 
@@ -131,7 +132,8 @@ function stoppedTyping(){
 }
 
 function verifyTextLength(){
-	if ($("#message").val().length <= 0) {
+	var text = $("#message").val();
+	if (text.length <= 0) {
 	    window.alert("Vc não tem nada a dizer mesmo?");
 	    return;
 	}
