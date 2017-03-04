@@ -93,7 +93,7 @@ function on_load_error (err) {
 function sendMessage () {
 	var text = $("#message").val();
 	
-	if (text.length <= 0) {
+	if (text.replace(/\s/g,'').length <= 1) {
 	    	window.alert("Vc não tem NADA a dizer mesmo? :O");
 	}
 	else {
@@ -131,7 +131,7 @@ function removeAccents(text) {
 
 function stoppedTyping(){
 	var text = $("#message").val();
-	if (text.length > 0) {
+	if (text.length > 1) {
     		$("#send_button").removeAttr("disabled");
 	} else { 
 	   	$("#send_button").attr("disabled", "disabled");
