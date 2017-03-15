@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/floresta.css">
+        <script src="js/phaser.min.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var game = new Phaser.Game(8100, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+            var resizeGame = function () {
+
+                var height = window.innerHeight;
+                var width = height * 7.5;
+
+                game.width = width;
+                game.height = height;
+                //game.stage.bounds.width = width;
+                game.stage.bounds.height = height;
+
+                if (game.renderType === 1) {
+                    game.renderer.resize(width, height);
+                    Phaser.Canvas.setSmoothingEnabled(game.context, false);
+                }
+            }
+            window.onresize = resizeGame;
+
+            function preload() {
+                for (i = 1; i < 25; i++) {
+                    game.load.image('f'+i, 'img/f'+i+'.jpg');
+                }
+            }
+
+            function create() {
+                for (i = 1; i < 25; i++) {
+                    game.add.sprite(0 + (i-1)*400, 0, 'f'+i);
+                }
+
+                game.scale.pageAlignHorizontally = true;
+                game.scale.pageAlignVertically = true;
+                resizeGame();
+            }
+
+            function update() { }
+        </script>
+    </body>
+</html>
