@@ -2,30 +2,38 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Floresta</title>
         <link rel="stylesheet" href="/css/floresta.css">
         <script src="js/phaser.min.js" charset="utf-8"></script>
     </head>
     <body>
         <script type="text/javascript">
-            var game = new Phaser.Game(8100, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+            var gameWidth = window.innerWidth;
+            var gameHeight = window.innerHeight;
+            var tileWidth = (gameHeight*400)/1080;
+            var nTiles = Math.ceil(gameWidth/tileWidth);
+
+            var game = new Phaser.Game(nTiles*400, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
             var resizeGame = function () {
 
-                var height = window.innerHeight;
-                var width = height * 7.5;
+                gameWidth = window.innerWidth;
+                gameHeight = window.innerHeight;
+                tileWidth = (gameHeight*400)/1080;
+                nTiles = Math.ceil(gameWidth/tileWidth);
 
-                game.width = width;
-                game.height = height;
-                //game.stage.bounds.width = width;
-                game.stage.bounds.height = height;
+                game.width = gameWidth;
+                game.height = gameHeight;
+
+                //game.stage.bounds.height = gameHeight;
 
                 if (game.renderType === 1) {
-                    game.renderer.resize(width, height);
+                    game.renderer.resize(gameWidth, gameHeight);
                     Phaser.Canvas.setSmoothingEnabled(game.context, false);
                 }
             }
-            window.onresize = resizeGame;
+            // window.onresize = resizeGame
 
             function preload() {
                 for (i = 1; i < 25; i++) {
@@ -34,7 +42,7 @@
             }
 
             function create() {
-                for (i = 1; i < 25; i++) {
+                for (i = 1; i <= nTiles; i++) {
                     game.add.sprite(0 + (i-1)*400, 0, 'f'+i);
                 }
 
@@ -43,7 +51,9 @@
                 resizeGame();
             }
 
-            function update() { }
+            function update() {
+
+            }
         </script>
     </body>
 </html>
