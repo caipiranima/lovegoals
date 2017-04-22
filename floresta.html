@@ -16,6 +16,8 @@
 
             var game = new Phaser.Game(nTiles*400, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
+            var cursors, firstTile, lastTile, tiles;
+
             var resizeGame = function () {
 
                 gameWidth = window.innerWidth;
@@ -42,17 +44,52 @@
             }
 
             function create() {
+                tiles = game.add.group();
+
                 for (i = 1; i <= nTiles; i++) {
-                    game.add.sprite(0 + (i-1)*400, 0, 'f'+i);
+                    tiles.create(0 + (i-1)*400, 0, 'f'+i);
                 }
+                firstTile = 1;
+                lastTile = nTiles;
 
                 game.scale.pageAlignHorizontally = true;
                 game.scale.pageAlignVertically = true;
                 resizeGame();
+
+                cursors = game.input.keyboard.createCursorKeys();
             }
 
             function update() {
+                if (cursors.right.isDown) {
+                    if (tiles.getChildAt(tiles.length-1).x < (nTiles-1)*400) {
+                        if (lastTile == 24)
+                            return;
+                        lastTile++;
+                        tiles.create(nTiles*400-5, 0, 'f'+lastTile);
+                    }
 
+                    if (tiles.getChildAt(0).x < -400) {
+                        tiles.removeChildAt(0);
+                        firstTile++;
+                    }
+
+                    tiles.setAll('x', 5, false, false, 2, false);
+                } else if (cursors.left.isDown) {
+                    if (tiles.getChildAt(0).x > 0) {
+                        if (firstTile == 1)
+                            return;
+                        firstTile--;
+                        var tile = game.add.sprite(-395, 0, 'f'+firstTile);
+                        tiles.addAt(tile, 0);
+                    }
+
+                    if (tiles.getChildAt(tiles.length-1).x > (nTiles)*400) {
+                        lastTile--;
+                        tiles.removeChildAt(tiles.length-1);
+                    }
+
+                    tiles.setAll('x', 5, false, false, 1, false);
+                }
             }
         </script>
     </body>
