@@ -187,7 +187,7 @@
             'https://www.youtube.com/watch?v=RDfjXj5EGqI',
             'https://www.youtube.com/watch?v=RDfjXj5EGqI',
             'https://www.youtube.com/watch?v=RDfjXj5EGqI',
-            'https://www.youtube.com/watch?v=RDfjXj5EGqI',
+            'https://www.youtube.com/watch?v=E0rv-eeBUpI',
             'https://www.youtube.com/watch?v=RDfjXj5EGqI',
             'https://www.youtube.com/watch?v=RDfjXj5EGqI',
             'https://www.youtube.com/watch?v=RDfjXj5EGqI',
@@ -219,6 +219,25 @@
             'https://www.youtube.com/watch?v=RDfjXj5EGqI',
         ]
 
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
         var screens = [];
 
         var game = new Phaser.Game(1920, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
@@ -231,6 +250,8 @@
                 nArray.push(i);
                 game.load.image('m'+i, 'img/miniaturas-videos/'+i+'.png');
             }
+
+            nArray = shuffle(nArray);
 
             for (i = 0; i < 33; i++) {
                 screens.push({
