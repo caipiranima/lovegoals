@@ -283,6 +283,8 @@
         }
 
         function onClick() {
+            screens[this.nScreen].watched = true;
+
             var modal = new Custombox.modal({
               content: {
                 effect: 'fadein',
