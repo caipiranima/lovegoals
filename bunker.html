@@ -239,6 +239,7 @@
         }
 
         var screens = [];
+        var screensSprites = [];
 
         var game = new Phaser.Game(1920, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
@@ -251,19 +252,25 @@
                 game.load.image('m'+i, 'img/miniaturas-videos/'+i+'.png');
             }
 
-            nArray = shuffle(nArray);
+            if (localStorage.getItem('screens') == null) {
+                nArray = shuffle(nArray);
 
-            for (i = 0; i < 33; i++) {
-                screens.push({
-                    x: POSITION_DEFS[i].x,
-                    y: POSITION_DEFS[i].y,
-                    w: POSITION_DEFS[i].w,
-                    h: POSITION_DEFS[i].h,
-                    s: POSITION_DEFS[i].s,
-                    nImage: nArray[i],
-                    video: VIDEO_DEFS[nArray[i]-1],
-                    watched: false
-                })
+                for (i = 0; i < 33; i++) {
+                    screens.push({
+                        x: POSITION_DEFS[i].x,
+                        y: POSITION_DEFS[i].y,
+                        w: POSITION_DEFS[i].w,
+                        h: POSITION_DEFS[i].h,
+                        s: POSITION_DEFS[i].s,
+                        nImage: nArray[i],
+                        video: VIDEO_DEFS[nArray[i]-1],
+                        watched: false
+                    })
+                }
+
+                localStorage.setItem('screens', JSON.stringify(screens));
+            } else {
+                screens = JSON.parse(localStorage.getItem('screens'));
             }
         }
 
@@ -277,6 +284,10 @@
                 s.inputEnabled = true;
                 s.events.onInputDown.add(onClick, { nScreen: i });
                 s.input.useHandCursor = true;
+                if (screens[i].watched) {
+                    s.alpha = 0.3;
+                }
+                screensSprites.push(s);
             }
 
             var bunker = game.add.sprite(0, 0, 'bunker');
@@ -284,6 +295,8 @@
 
         function onClick() {
             screens[this.nScreen].watched = true;
+            localStorage.setItem('screens', JSON.stringify(screens));
+            screensSprites[this.nScreen].alpha = 0.3;
 
             var modal = new Custombox.modal({
               content: {

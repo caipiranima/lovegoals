@@ -47,7 +47,11 @@
                 tiles = game.add.group();
 
                 for (i = 1; i <= nTiles; i++) {
-                    tiles.create(0 + (i-1)*400, 0, 'f'+i);
+                    var s = tiles.create(0 + (i-1)*400, 0, 'f'+i);
+                    s.inputEnabled = true;
+                    s.input.enableDrag();
+                    s.input.allowVerticalDrag = false;
+                    s.events.onDragUpdate.add(dragUpdate);
                 }
                 firstTile = 1;
                 lastTile = nTiles;
@@ -75,7 +79,7 @@
 
                     tiles.setAll('x', 5, false, false, 2, false);
                 } else if (cursors.left.isDown) {
-                    if (tiles.getChildAt(0).x > 0) {
+                    if (tiles.getChildAt(0).x > -5) {
                         if (firstTile == 1)
                             return;
                         firstTile--;
@@ -89,6 +93,48 @@
                     }
 
                     tiles.setAll('x', 5, false, false, 1, false);
+                }
+            }
+
+            function dragUpdate(sprite, pointer, dragX, dragY, snapPoint) {
+                // puxando pra direita
+                if (sprite.previousPosition.x > dragX) {
+                    if (tiles.getChildAt(tiles.length-1).x < (nTiles-1)*400) {
+                        if (lastTile == 24)
+                            return;
+                        lastTile++;
+                        var s = tiles.create(nTiles*400-sprite.previousPosition.x + dragX, 0, 'f'+lastTile);
+                        s.inputEnabled = true;
+                        s.input.enableDrag();
+                        s.input.allowVerticalDrag = false;
+                        s.events.onDragUpdate.add(dragUpdate);
+                    }
+
+                    if (tiles.getChildAt(0).x < -400) {
+                        tiles.removeChildAt(0);
+                        firstTile++;
+                    }
+
+                    tiles.setAll('x', sprite.previousPosition.x - dragX, false, false, 2, false);
+                } else if (sprite.previousPosition.x < dragX) {
+                    if (tiles.getChildAt(0).x > -5) {
+                        if (firstTile == 1)
+                            return;
+                        firstTile--;
+                        var tile = game.add.sprite(-395, 0, 'f'+firstTile);
+                        var s = tiles.addAt(tile, 0);
+                        s.inputEnabled = true;
+                        s.input.enableDrag();
+                        s.input.allowVerticalDrag = false;
+                        s.events.onDragUpdate.add(dragUpdate);
+                    }
+
+                    if (tiles.getChildAt(tiles.length-1).x > (nTiles)*400) {
+                        lastTile--;
+                        tiles.removeChildAt(tiles.length-1);
+                    }
+
+                    tiles.setAll('x', dragX - sprite.previousPosition.x, false, false, 1, false);
                 }
             }
         </script>
