@@ -38,7 +38,7 @@ function Swipe(game, model) {
     self.swiping = false;
   })
 
-  this.setupKeyboard();
+  //this.setupKeyboard();
 }
 
 Swipe.prototype.setupKeyboard = function() {
