@@ -243,7 +243,35 @@
 
         var game = new Phaser.Game(1920, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
+        var resizeGame = function () {
+
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+
+            var gameWidth = 0;
+            var gameHeight = 0;
+
+            if (screenWidth/screenHeight < 1,7778) {
+                gameHeight = screenHeight;
+                gameWidth = (gameHeight*1920)/1080;
+            } else {
+                gameWidth = screenWidth;
+                gameHeight = (gameWidth*1080)/1920;
+            }
+
+            game.width = gameWidth;
+            game.height = gameHeight;
+
+            //game.stage.bounds.height = gameHeight;
+
+            if (game.renderType === 1) {
+                game.renderer.resize(gameWidth, gameHeight);
+                Phaser.Canvas.setSmoothingEnabled(game.context, false);
+            }
+        }
+
         function preload() {
+            resizeGame();
             game.load.image('bunker', 'img/bunker.png');
 
             var nArray = [];
@@ -293,21 +321,23 @@
             var bunker = game.add.sprite(0, 0, 'bunker');
         }
 
-        function onClick(event) {
-            if (event.wich == 1) {
-                screens[this.nScreen].watched = true;
-                localStorage.setItem('screens', JSON.stringify(screens));
-                screensSprites[this.nScreen].alpha = 0.3;
-
-                var modal = new Custombox.modal({
-                  content: {
-                    effect: 'fadein',
-                    target: screens[this.nScreen].video
-                  }
-                });
-
-                modal.open();
+        function onClick(sprite, pointer) {
+            if (pointer.rightButton.isDown) {
+                return;
             }
+
+            screens[this.nScreen].watched = true;
+            localStorage.setItem('screens', JSON.stringify(screens));
+            screensSprites[this.nScreen].alpha = 0.3;
+
+            var modal = new Custombox.modal({
+              content: {
+                effect: 'fadein',
+                target: screens[this.nScreen].video
+              }
+            });
+
+            modal.open();
         }
 
         function update() {
