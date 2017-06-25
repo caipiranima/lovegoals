@@ -11,6 +11,8 @@
         <script type="text/javascript">
 
             //var Swipe = require('phaser-swipe');
+            //
+            var bunkerEntrance = new Phaser.Rectangle(264,134,354,216);
 
             var gameWidth = window.innerWidth;
             var gameHeight = window.innerHeight;
@@ -66,49 +68,33 @@
             function update() {
                 var direction = this.swipe.check();
                 if (direction!==null) {
-                // direction= { x: x, y: y, direction: direction }
                     switch(direction.direction) {
                         case this.swipe.DIRECTION_LEFT:
-
-                            if (tiles.getChildAt(tiles.length-1).x < (nTiles-1)*400) {
-                                if (lastTile == 24)
-                                    return;
-                                lastTile++;
-                                tiles.create(nTiles*400-5, 0, 'f'+lastTile);
-                            }
-
-                            if (tiles.getChildAt(0).x < -400) {
-                                tiles.removeChildAt(0);
-                                firstTile++;
-                            }
-
-                            tiles.setAll('x', 200, false, false, 2, false);
-
+                            moveTiles(true, 200);
                             break;
                         case this.swipe.DIRECTION_RIGHT:
-                            if (tiles.getChildAt(0).x > -5) {
-                                if (firstTile == 1)
-                                    return;
-                                firstTile--;
-                                var tile = game.add.sprite(-395, 0, 'f'+firstTile);
-                                tiles.addAt(tile, 0);
-                            }
-
-                            if (tiles.getChildAt(tiles.length-1).x > (nTiles)*400) {
-                                lastTile--;
-                                tiles.removeChildAt(tiles.length-1);
-                            }
-
-                            tiles.setAll('x', 200, false, false, 1, false);
+                            moveTiles(false, 200);
                     }
                 }
 
                 if (cursors.right.isDown) {
-                    if (tiles.getChildAt(tiles.length-1).x < (nTiles-1)*400) {
+                    moveTiles(true, 5);
+                } else if (cursors.left.isDown) {
+                    moveTiles(false, 5);
+                }
+            }
+
+            function moveTiles(goRight, step) {
+                if (goRight) {
+                    if (tiles.getChildAt(tiles.length-1).x < (nTiles-1)*400 + step) {
                         if (lastTile == 24)
                             return;
                         lastTile++;
-                        tiles.create(nTiles*400-5, 0, 'f'+lastTile);
+                        var tile = tiles.create(tiles.getChildAt(tiles.length-1).x + 400, 0, 'f'+lastTile);
+                        if (lastTile == 17) {
+                            tile.inputEnabled = true;
+                            tile.events.onInputDown.add(onClick);
+                        }
                     }
 
                     if (tiles.getChildAt(0).x < -400) {
@@ -116,14 +102,19 @@
                         firstTile++;
                     }
 
-                    tiles.setAll('x', 5, false, false, 2, false);
-                } else if (cursors.left.isDown) {
-                    if (tiles.getChildAt(0).x > -5) {
+                    tiles.setAll('x', step, false, false, 2, false);
+                } else {
+                    if (tiles.getChildAt(0).x > -step) {
                         if (firstTile == 1)
                             return;
                         firstTile--;
-                        var tile = game.add.sprite(-395, 0, 'f'+firstTile);
+                        var tile = game.add.sprite(tiles.getChildAt(0).x - 400, 0, 'f'+firstTile);
                         tiles.addAt(tile, 0);
+
+                        if (firstTile == 17) {
+                            tile.inputEnabled = true;
+                            tile.events.onInputDown.add(onClick);
+                        }
                     }
 
                     if (tiles.getChildAt(tiles.length-1).x > (nTiles)*400) {
@@ -131,7 +122,17 @@
                         tiles.removeChildAt(tiles.length-1);
                     }
 
-                    tiles.setAll('x', 5, false, false, 1, false);
+                    tiles.setAll('x', step, false, false, 1, false);
+                }
+            }
+
+            function onClick(sprite, pointer) {
+                if (pointer.rightButton.isDown) {
+                    return;
+                }
+
+                if (bunkerEntrance.contains(pointer.x - sprite.position.x + 400,pointer.y)) {
+                    window.location.href = "/bunker.html";
                 }
             }
         </script>
