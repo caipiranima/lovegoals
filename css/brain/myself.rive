@@ -1,0 +1,205 @@
+// perguntas e respostas sobre características básicas do bot
+// introduzindo a missão
+> topic start_mission
+  + *
+  - Não tenho muito tempo pra explicar tudo em detalhes. Importa dizer o q vc precisa fazer agora.\n
+  ^ Vc precisa continuar navegando.{topic=explain_mission}
+< topic
+
+// continua...
+> topic explain_mission
+  + *
+  - Veja... Há um segredo que precisa ser encontrado... e que não consigo encontrar sozinha.\n
+  ^ Se vc topar nos ajudar, vc será redirecionado pra um ambiente que ainda não tenho certeza do q é exatamente...\n
+  ^ Parece ser um espaço virtual ainda em fase de testes...\s
+  ^ parte do novo sistema de vigilância que a uForge vem desenvolvendo em parceria com o Depto de Cibersegurança.{topic=about_mission}
+< topic
+
+// descrevendo a missão que o interator precisa realizar
+> topic about_mission includes global
+    + [*] (espaco|virtual|fase|testes|sistema|vigilancia|parceria) [*]
+  - Eles tem deixado “migalhas” na rede toda vez que bloqueiam um site suspeito de infringir a lei anti-LGBT.\n
+  ^ Consegui acessar essa brecha, mas há algo que eles estão escondendo nessa plataforma...\n
+  ^ Por isso estou pedindo a ajuda de cada pessoa que vem procurar saber o que é #lovegoals.\n
+
+  + lovegoals
+  - Somos uma organização preocupada em lutar e resistir contra as práticas do governo de repressão a LGBTs Brasil afora,\s
+  ^ não só na rede, mas no mundo real também.\n
+  ^ Somos poucxs, e, por isso, mais do que nunca, precisamos de sua ajuda!
+
+  + [*] que (e|tem) [a] lovegoals [*]
+  @lovegoals
+
+  + uforge
+  - É uma multinacional que vem atuando em diferentes frentes de vigilância e monitoramento, fornecendo equipamentos e serviços pra países do mundo todo há pelo menos uma década.\n
+  ^ Dizem até que ela literalmente comprou alguns governos pra operar livre, coletando e armazenando todo o tipo de dados da população pra vender depois às entidades interessadas.\n
+  ^ Sabe o canal da webTV, a UTV? É propriedade deles.
+
+  + [*] que (e|tem) [a] uforge [*]
+  @uforge
+
+  + utv
+  - Como já disse, é um canal na internet que surgiu após a aquisição da estrutura das antigas emissoras de televisão pela uForge.\n
+  ^ Basicamente, são eles quem controlam as informações da grande mídia brasileira nos dias de hoje.
+
+  + [*] que (e|tem) [a] utv [*]
+  @utv
+
+  + ciberseguranca
+  - É um braço da Polícia Federal criando pra monitorar atividades “suspeitas” na rede, contando com o apoio técnico da uForge e outros investidores privados.\n
+  ^ Eles conseguiram derrubar nosso site... mas será por pouco tempo.
+
+  + [*] que (e|tem) [a] ciberseguranca [*]
+  @ciberseguranca
+
+  + departamento
+  @ciberseguranca
+
+  + [*] que (e|tem) [o] departamento [*]
+  @ciberseguranca
+
+  + [eu] entendi [*]
+  - Bom, mas isso quer dizer que vc vai nos ajudar?
+  - OK, então... mas vc irá nos ajudar?
+  - Mas que tal vc provar agora que pode nos ajudar? Vc topa?
+
+  + [eu] nao entendi [*]
+  - Sei que vc tem muitas questoes em mente... mas a verdade é que estamos lutando contra verdadeiros gigantes do pensamento reacionário!\n
+  ^ Por isso, não temos muito tempo para agir.
+  - Olha, não podemos marcar bobeira aqui... mas vc poderia me explicar melhor o que não entendeu?
+  - Sinto mesmo que suas dúvidas serão melhor respondidas quando vc entrar no ambiente que falei pra vc.
+  - Como assim?
+
+  + [eu] (nao sei|sei nao|sei la|talvez|quem sabe|provavelmente) [*]
+  - Hesitar assim não irá levar vc a lugar nenhum...\n
+  ^ Vc não quer aproveitar essa oportunidade pra superar de vez as dúvidas que vc tem de si?
+  - Vamos lá! O que é preciso pra te convencer?
+  - Veja bem... vc não tem nada a perder. Garanto que sua ajuda será algo pontual!
+  - Pq essa hesitação?
+
+  + mentira
+  - Não tenho como provar nada pra vc agora, a não ser direcionando para esse espaço virtual que mencionei.\n
+  ^ Ele existe... mas não sabemos bem como explora-lo totalmente.
+  - Prove os fatos por conta própria, então... Aceita ajudar a gente?
+
+  + [*] (mentira) [*]
+  @mentira
+
+  + [*] nao [*] (confio|acredito|pode ser|e possivel|e verdade) [*]
+  @mentira
+
+  + [*] (tenho medo|perigoso|arriscado)
+  - Vc não tem nada a temer.\n
+  ^ Essa interacao sua será toda virtual, e me certifiquei da segurança dela em todos níveis.
+
+  + [*] que [*] (vai|ira|pode|podera|deve|devera|quer) (acontecer|suceder|ocorrer|dizer) [*]
+  - Daqui, vc será diretamente conectado a esse espaço virtual através de um túnel criptografado que eu mesma programei.\n
+  ^ A ideia é que vc interaja com tudo o que vc ver ou ouvir lá somente por meio dessa conexão.\n
+  ^ A gente vai ficar bem, pode acreditar.
+
+  + (tudo bem|esta bem|esta bom) [*]
+  - Vou direcionar vc para o ponto de partida.\n
+  ^ Se vc tiver qualquer dúvida, infelizmente, não terei como te orientar uma vez que vc entrar...{topic=mission_accepted}
+
+  + [eu] (posso|topo|aceito) [*]
+  @tudo bem
+
+  + [_] (@yes) [*]
+  @tudo bem
+
+  + [*] sair [*]
+  - Tem certeza que não pode fazer nada?{topic=want_out}
+  - Não quer mesmo nos dar uma força?{topic=want_out}
+  - Mesmo?{topic=want_out}
+
+  + [*] (chega|pare|tchau|adeus|ate mais|saudacoes|[me] tire daqui|ir embora) [*]
+  @sair
+
+  + [_] (@no) [*]
+  @sair
+<
+
+// para depois de quando o interator  aceitar cumprir a missão
+> topic mission_accepted
+  + *
+  - Deixei lá algumas pistas que poderão te ajudar na sua investigação.\n
+  ^ Além disso, confio na sua boa vontade... já que vc tbm me aturou até agora.\n
+  ^ Boa sorte!\n
+  ^ --- [<bot name> saiu da conversa]\n\n
+  ^ <call>link_page_cont</call>
+  ^ {topic=stop_chat}
+<
+
+// quando o usuário quer sair da conversa
+> topic want_out
+  + [eu] (tenho|nao quero|nao posso|melhor nao) [*]
+  - Reserve uns minutos pra assistir isso, então:\s
+  ^ <call>link_video</call>{topic=end_chat}
+
+  + [eu] (@yes) [*]
+  @tenho
+
+  + [*] (@ofensas) [*]
+  @tenho
+
+  + [eu] (@no) [*]
+  - Se vc ainda tem dúvidas, podemos continuar conversando um pouco mais sobre isso...{topic=about_mission}
+  - Vamos continuar conversando... como posso convencê-lo a ajudar?{topic=about_mission}
+  - Bom, quem sabe vc mesmo de ideia pra valer agora, né?{topic=about_mission}
+  - Talvez vc precisa ainda de um tempo pra pensar melhor sobre tudo isso.{topic=about_mission}
+
+  //+ [eu] (talvez|quem sabe) [*]
+  //@nao sei
+
+  //+ [eu] (nao tenho|quero|posso) [*]
+  //@nao sei
+
+  //+ [o] que (pode|podera|deve|devera) (acontecer|suceder|ocorrer) [*]
+  //@nao sei
+
+  + *
+  @nao sei
+< topic
+
+> topic end_chat
+  + [*] (assistir|video) [*]
+  - É um vídeo gravado do último pronunciamento do Protetor da União Cohen.\n
+  ^ Vc deve conhecê-lo... senão, bem, tire suas próprias conclusões sobre o sujeito.\n
+  ^ Se o discurso de ódio dele não mudar sua opinião, sinta-se livre de assumir qualquer compromisso com a gente.\n
+
+  + ([o] que|por que|tudo bem|esta bem|esta bom|@yes) [*]
+  @video
+
+  + [eu] (mudei [de]|reconsiderei|ideia|opiniao) [*]
+  - Vamos continuar a conversar, então...\n
+  ^ Não quero te pressionar ou nada do tipo, mas uma força sua seria mto importante pra nós!{topic=about_mission}
+
+  + [eu] (posso|quero|topo|aceito|consigo) (voltar|ajudar) [*]
+  @mudei de ideia
+
+  + *
+  - Até mais.\n
+  ^ Se você mudar de ideia... vc sabe onde me encontrar.\n
+  ^ #lovewins\n
+  ^ --- [<bot name> saiu da conversa]\n\n
+  ^ <call>link_page_home</call>
+  ^ {topic=stop_chat}
+< topic
+
+// encerra o bate-papo (o bot para de responder)
+> topic stop_chat
+  + *
+  - ---[<bot name> está offline]
+< topic
+
+> object link_video javascript
+  return "<a href=\"www.youtube.com/watch?v=iubUodkBvvI\">&gt;&gt;&gt;&gt;VIDEO&lt;&lt;&lt;&lt;</a>";
+< object
+
+> object link_page_home javascript
+  return "<a href=\"index.html\">&gt;&gt;&gt;&gt;VOLTAR&lt;&lt;&lt;&lt;</a>";
+< object
+
+> object link_page_cont javascript
+  return "<a href=\"floresta.html\">&gt;&gt;&gt;&gt;ENTRAR&lt;&lt;&lt;&lt;</a>";
+< object

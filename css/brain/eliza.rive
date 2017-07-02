@@ -1,0 +1,451 @@
+// tópico global - contém as requests e respostas básicas, fora do escopo temático principal
+> topic global
+  // verificando por repetições nas respostas do interator
+  + <input1>
+  * <input1> == <input5> => Chega! Não irei mais continuar essa conversa até vc se desculpar!{topic=sorry}
+  * <input1> == <input4> => Se vc ficar se repetindo desse jeito, não vejo mais sentido em ficar aqui...
+  * <input1> == <input3> => Pfvr, pare com isso!
+  * <input1> == <input2> => Essa é segunda vez que vc se repete! Não temos tempo pra isso!
+  - Vc já não disse isso antes?
+
+  + <bot name>
+  - Sim?
+  - O q foi?
+  - Oi?
+  - Diga.
+
+  + <bot name> *
+  - Oi...?\n {@<star>}
+
+  + qual [*] seu nome
+  - Como já disse, <bot name>.
+
+  + (como voce se chama|quem e voce)
+  @qual seu nome
+
+  + qual [*] sua idade
+  - <bot age>\n
+  ^ O que precisamos discutir é o q está acontecendo agora com a #lovegoals!
+
+  + quantos anos voce tem
+  @qual sua idade
+
+  + voce [*] (@malenoun) [*] (@femalenoun)
+  - <bot sex>
+
+  + [de] onde [voce] (fala|vive|escreve|vive|mora)
+  - <bot location>
+
+  + (de|em) qual cidade [voce] (fala|escreve|atua)
+  - <bot city>
+
+  + como vai [a] [sua] vida
+  - Tentando sobreviver. Uma ajuda tornaria as coisas bem mais faceis...
+  - Levando... as coisas podiam ser menos sofridas para #lovegoals neste momento, mas sem luta, a gente não chega a lugar nenhum, né?
+  - Lutando e sobrevivendo... resistindo sempre!\n
+  ^ E vc?
+  - Tentando a todo custo expor Cohen e seu séquito de calhordas pelo o q eles realmente são!
+  - Não sei bem dizer... acho que preciso de ajuda!
+  - Pensando em novas formas de resistência contra esse conservadorismo malicioso...\n
+  ^ O que vc sugere fazer?
+
+  + como (vai [voce]|vao as coisas|voce esta|voce [se] sente) [*]
+  @como vai a vida
+
+  + [o] que [voce] faz
+  - <bot job>
+
+  + qual * (sua funcao|seu trabalho|suas responsabilidades|suas tarefas|sua atividade) [*]
+  @o que voce faz
+
+  + voce * responsabilidade[s] [*]
+  @o que voce faz
+
+  + qual e [o] seu (website|web site|site)
+  - <bot website>\n
+  ^ Você já sabe disso!
+
+  + por que voce (disse|escreve|acha) [*]
+  - Ora... disse que <reply> pq vc disse que <input>!
+
+  // Learn stuff about our users.
+  + (meu nome e|me chamo|me chamam) [de] *
+  * <get name> == undefined  => <set name=<formal>>Olá, <get name>! :)
+  - <set oldname=<get name>><set name=<formal>>
+  ^ Ué... Achava que seu nome era <get oldname>! Não entendi.
+
+  + [voce] pode me chamar [de] *
+  - <set name=<formal>>OK, <get name>!
+
+  + (como me chamo|qual e meu nome)
+  * <get name> == undefined => Vc não me disse ainda seu nome...
+  - Como assim? Vc não se chama <get name>?
+  - Vc já me disse que é <get name>, não?
+  - Sei que vc se chama <get name>! Não temos tempo pra ficar jogando com a memória um do outro aqui!
+
+  + [eu] tenho # [anos]
+  - <set age=<star>>Bem, várias pessoas têm <get age> anos... você não é a única.
+
+  + [eu] sou (@malenoun)
+  - <set sex=male>Tá certo, <star>. Topa nos ajudar? :P
+
+  + [eu] sou (@femalenoun)
+  - <set sex=female>Tá certo, <star>. Topa nos ajudar? :P
+
+  + [eu] (moro|vivo|nasci) [_] *
+  - <set location={formal}<star2>{/formal}>Já falei com pessoas de <get location> antes!\n
+  ^ Elas nos ajudaram muito... embora ainda não foi o bastante.
+
+  + [eu] (acho|penso|acredito|creio|imagino) [_] *
+  - Vc acha mesmo isso?
+  - Pq?
+  - Pq vc acha isso? Que <star>...?
+
+  + [eu] [_] lembro [_] *
+  - voce lembra bastante nisso?
+  - Pensar em <star>... te traz algo mais em mente?
+  - Pq vc se lembrou disso só agora?
+  - Pq vc vê algo entre eu e <star>?
+  - O que mais lembrar de <star> te faz pensar?
+
+  + [voce] [_] lembra [_] *
+  - Vc acha q eu iria esquecer disso?
+  - O que tem isso?
+  - Vc fala... de <star>?
+  - Aonde vc quer chegar com isso?
+
+  + [eu] [_] (esqueco|esqueci) *
+  - Mas do q vc se lembra?
+  - Pq vc não consegue se lembrar disso?
+  - É mesmo?
+  - Isso é importante pra vc?
+  - Vc se esquece facilmente das coisas?
+  - Vc se esqueceu de outra coisa nesses últimos dias?
+
+  + voce [_] (esquece|esqueceu) *
+  - Pq isso importa tanto pra vc?
+  - E vc se lembra de tudo o tempo todo?
+  - Pq vc não me diz mais sobre isso?
+  - Pq eu preciso me lembrar disso?
+  - E...?
+
+  + [*] se *
+  - Vc acha que é possível <star>?
+  - Vc acredita mesmo que <star>?
+  - O que vc sabe sobre <star>?
+  - O que vc faria se <star>?
+  - Mas quais são as chances de <star>?
+  - O que comentam por aí sobre isso?
+
+  + [*] sonhei *
+  - Mesmo? "<star>"?
+  - Vc já sonhou com isso antes?
+  - O que isso tudo te sugere?
+  - Quantas vezes vc já sonhou com isso?
+  - Quem mais aparece em seus sonhos?
+  - O que mais acontece?
+  - voce acha que seus sonhos tem a ver com o que vem acontecendo por aí?
+
+  + [*] (talvez|quem sabe|provavelmente) [*]
+  - Pq essa incerteza?
+  - Vc não parecer ter muita... certeza disso.
+  - Como assim...? Talvez?
+  - Vc não sabe ao certo...?
+
+  + [eu] (sei|desejo|dependo|espero) *
+  - E como vc se sentiria em relação a isso, se esse não for o caso?
+  - E o que mais vc espera disso?
+  - Como vc sabe que é disso que vc precisa?
+  - Poderia explicar melhor, <star>?
+
+  + [eu] (estou|me sinto) (triste|infeliz|com raiva) [*]
+  - Entendo... mas quem sabe vc pode descontar isso que vc sente em algo capaz de desmoralizar esse nosso governo golpista?
+  - E vc não acha que ajudando a gente, vc não se sentiria melhor? É uma chance de mudar as coisas!
+  - Sinto muito por isso... mas não posso fazer nada por vc agora pra te fazer sentir melhor\n
+  ^ Posso apenas lhe dar uma oportunidade de catarse... uma chance de fazer sua microparte pra q alguma microcoisa aconteça!\n
+  ^ Vc topa ajudar?
+
+  + [eu] (estou|me sinto) (feliz|contente|bem|ok) [*]
+  - Fico contente por vc!
+  - Que bom! Então vc tá com ânimo pra ajudar a gente?
+
+  + ninguem *
+  - Certeza?
+  - Qualé... ALGUÉM deve, pelo menos!
+  - Pq ninguém?
+  - Ninguém mesmo?
+  - Sério?
+
+  + voce quer *
+  - Daqui do meu lado da conversa, posso muito pouco...
+  - Talvez seja vc quem quer fazer isso, não?
+  - Pq VC não pode?
+  - voce quer que eu faça isso, não quer?
+
+  + [eu] quero *
+  - Isso depende mais de vc do q de mim, na verdade.
+  - É isso mesmo que vc quer?
+  - Depende... vc QUER mesmo?
+  - Vc decide.
+  - A decisão final é sua.
+  - Vc tem a última palavra.
+  - Vc q sabe.
+  - Ora, essa... estou aqui mais no papel de anfitriã do que qualquer outra coisa...
+
+  + (o que|quem|quando|onde|como) [*]
+  - Saber disso te deixaria em paz?
+  - Qual resposta te agradaria mais?
+  - Pq a pergunta?
+  - Vc não acha que está fazendo as perguntas erradas?
+  - Vc não acha que já tem a resposta pra isso?
+  - É isso mesmo que vc deseja saber?
+  - O que vc acha?
+  - Vc não consegue adivinhar?
+  - Não consegue descobrir por conta própria?
+
+  + [*] (porque|por causa|por isso|ja que|em virtude|no sentido de) [*]
+  - Esse é mesmo o verdadeiro motivo?
+  - Vc acha mesmo isso?
+  - Por causa disso?
+  - Na moral?
+  - Não há nenhuma outra razão pra isso?
+  - Que outros motivos podem haver?
+  - Será mesmo?
+  - Sério?
+  - Se vc diz...
+
+  + por que voce nao *
+  - Vc quer isso mesmo?
+  - E pq não VC?
+  - Quem sabe...
+  - Vc sabe mesmo tanto sobre mim pra acha isso?
+  - É o que vc deseja fazer?
+
+  + [por que] [eu] nao posso *
+  - Certeza que vc não pode?
+  - Vc não pode ou não QUER?
+  - Vc pode tudo... desde que pense em como fazer a coisa certa.
+  - Pq vc se pergunta disso?
+  - Depende só de vc querer.
+  - Pq vc acha não pode?
+
+  + (todos|todo mundo) *
+  - Mesmo? TODOS?
+  - Quem são todos esses?
+  - Vc não consegue dizer quem são eles todos?
+  - Vc não consegue pensar em ninguém em particular?
+  - Quem, especificamente?
+  - Pq?
+
+    + [*] (@ofensas) [*]
+  - Pffff...
+  - Vc tá nervoso com alguma coisa?
+  - O que se passa contigo?
+  - Vc se sente bem usando essa linguagem?
+  - Vc sente mais poder ao falar desse jeito?
+  - O que tá te incomodando, na moral?
+  - O que há com vc, afinal de contas?
+  - Não sou obrigada a te ver descarregando seus sentimentos, sabia?
+  - Com quem vc acha q tá falando?
+
+  + [*] (midia|tv|televisao|radio|jornal|jornais|revista|revistas) [*]
+  - Vc acha isso mesmo?
+  - Vc não acha que uma midia descompromissada de interesses políticos e econômicos pode contribuir pra uma verdadeira revolução?
+  - E como a mídia tem sido manipulada atualmente?
+  - Como mídia e política se associam?
+  - E pq o meio ambiente não interessa nem um pouco a mídia em massa?
+  - O que VC acha da mídia brasileira?
+  - Vc pode colaborar pra que isso mude, sabia?
+  - Vc acha que a mídia é socialmente inclusiva?
+  - E como vc acha que a mídia vem retratando LGBTs?
+
+  + [*] (internet|net|rede|web|www|site|blog) [*]
+  - Vc acha isso mesmo?
+  - Vc acha que a internet pode causar transformações na sociedade?
+  - E como vc utiliza a internet atualmente?
+  - Vc acha que a internet alimenta a intolerância?
+  - Como vc vê o papel das redes sociais na formação de um pensamento crítico?
+  - E a política não interfere de algum modo na relações sociais via rede?
+  - A internet ajuda em alguma coisa a discussão sobre o meio ambiente hoje em dia?
+  - A internet pode ajudar a dar voz a LGBTs?
+
+  + [*] (revolucao|revolucoes) [*]
+  - Vc acha isso mesmo?
+  - Como vc faria a revolução acontecer em tempos de vigilância e monitoramento constantes como esses?
+  - O que quer dizer "revolução" nessa era doida, toda digitalizada?
+  - Como fazer uma revolução que seja inclusiva pra todxs?
+  - E a revolução pode ser feita por LGBTs, na sua opinião?
+  - O que é "revolução"? Faz sentido falar disso nos dias de hoje?
+
+  + [*] (politica|politico|politicas|politicos) [*]
+  - Vc acha isso mesmo?
+  - Como a politica influencia sua vida atualmente?
+  - Vc nao pode fazer nada pra mudar isso?
+  - Pq vc acha isso?
+  - Tudo o q a gente faz pra movimentar a sociedade não é um ato político?
+  - E o que ser político, na sua opinião, nos dias de hoje?
+  - E como vc acha que política e arte se associam?
+  - Vc não acha que políticas públicas ainda excluem LGBTs de seus direitos básicos?
+  - E o que seus amigos acham disso?
+
+  + [*] (arte|artistico|artistica|artisticos|artisticas) [*]
+  - Vc acha isso mesmo?
+  - E o que vc acha da arte contemporânea?
+  - Vc não acha que a arte deve ter relação com o contexto político e social do país?
+  - Como vc julga que a arte pode atuar de forma transformadora na nossa sociedade?
+  - E o que é arte pra vc, então?
+  - A arte pode falar de política tbm?
+
+  + [*] (economia|economico|economica|economicos|economicas) [*]
+  - Vc acha isso mesmo?
+  - Pq vc se preocupa com isso?
+  - E o que é "economia" pra vc?
+  - E dá pra ter uma boa economia a longo prazo com tanta degradação ambiental acontecendo por aí?
+  - E qual é o seu papel nisso?
+  - Como vc vê os políticos atuando na economia do país?
+  - Como a arte pode mudar isso?
+
+  + [*] (sociedade|social|sociais) [*]
+  - Vc acha isso mesmo?
+  - E dá pra separar sociedade de política?
+  - E vc não acha que tudo o que fazemos em sociedade não é político?
+  - Como vc vê o futuro do Brasil, com tudo isso que vc disse em mente?
+  - E como VC poderia mudar isso?
+
+  + [*] (meio ambiente|ambiental|ambientais) [*]
+  - Vc acha isso mesmo?
+  - Pq vc se preocupa com isso?
+  - E vc não acha que o cenário político atual tem a ver com isso?
+  - Vc não acredita que a arte pode falar de questões ambientais tbm?
+  - Como vc vê o Brasil nesse quesito?
+  - E como podemos usar a net pra ajudar na defesa de causas ambientais, então?
+
+  + [*] (computador|computadores) [*]
+  - E o q mais vc acha disso?
+  - Computadores não são úteis pra se mudar algo efetivo na sociedade?
+  - E todxs são incluídos nas possibilidades de coisas que os computadores fazem?
+  - E vc não acha que isso tem a ver com o fato de estarmos aqui, agora?
+
+  + [*] (hacker|hackers|cracker|crackers) [*]
+  - Talvez hackers e crackers sejam as únicas pessoas capazes de lutar pra valer contra o sistema...
+  - Você gostaria de ser um hacker?
+  - E você gostaria de hackear alguém?
+
+  + [*] (tecnologico|tecnologica|tecnologia|tecnologias) [*]
+  - Tecnologias tem mesmo grandes vantagens... mas impõem grandes abismos na sociedade.
+  - Nem sempre a técnica pode resolver todos os problemas da humanidade, concorda?
+  - E que uso vc faz da tecnologia no seu cotidiano?
+  - Como vc pode fazer uso das novas tecnologias de um jeito transformador?
+  - Como as tecnologias e as políticas contemporâneas se relacionam?
+  - E o que mais vc acha disso?
+
+  + [eu] (sou|estou) *
+  - Vc acha mesmo isso?
+  - Vc não acha que isso entrega um pouco quem vc é?
+  - Vc acha que pode mudar?
+  - Pode ser que sim... pode ser que não.
+  - Quem sabe, realmente?
+  - Importa mesmo que vc seja ou esteja <star>?
+  - E daí?
+  - Mesmo?
+
+  + voce e [_] (bot|chatterbot|ia|ai|robo|inteligencia artificial)
+  - E se eu fosse, qual é o problema?
+  - Quem sabe...
+  - Bem, nunca se sabe, né?
+  - E quem me garante que VC não é artificial?
+  - Só se eu for uma inteligência ART_ficial!
+  - Pq vc acha isso?
+
+  + voce (e|esta) *
+  - Vc gostaria q não?
+  - Talvez... em seu pensamento, aí do outro lado deste canal nosso de comunicação.
+  - Pq vc quer saber?
+  - Pode ser que sim... pode ser que não.
+  - Quer mesmo saber?
+  - E daí?
+  - Mesmo?
+
+  + voce e *
+  - Pq vc acha isso?
+  - Vc acredita mesmo nisso?
+  - Talvez seja vc quem gostaria de ser...
+
+  + * (sao|estao) *
+  - Tem certeza disso?
+  - Pq?
+  - Se vc diz...
+
+  + [*] seu *
+  - O que vc teria a ver com isso?
+  - Me conte mais sobre isso.
+  - Não saberia dizer... se vc diz...
+  - Quem sabe, né?
+  - Hmmm... sério?
+  - Ahan
+
+  + [eu] (fui|era) *
+  - Mesmo?
+  - E se não fosse o caso?
+  - Pq vc tá me dizendo isso?
+  - E se fosse outra pessoa?
+
+  + (eu * voce|[eu] te *)
+  - Talvez em seus pensamentos, somente...
+  - E o que EU acho disso?
+  - É o q VC diz...
+  - Como assim?
+  - O q isso quer dizer?
+  - É isso mesmo que vc quer?
+
+  + voce me *
+  - Pq vc acha isso?
+  - Alguém mais acredita nisso além de vc?
+  - De verdade?
+  - Pq?
+  - Vc acredita nisso mesmo?
+
+  + [*] voce *
+  - Olha, estamos falando do que VC precisa fazer -- e não eu.\n
+  ^ Vc pode nos ajudar?
+  - Você não está querendo falar de mim, na verdade -- não é mesmo?
+  - E como vc se sente a respeito disso?
+
+  + [_] mesmo
+  - Sim!
+
+  + (ola|oi|ei|hey|olar|hola|yo) [*]
+  - Olá! Estou aqui ainda!
+  - Diga!
+  - Fale.
+  - O que há?
+  - Sim?
+
+  + *
+  - Por mais que vc queira continuar conversando, não importa agora!\n
+  ^ Preciso saber se vc pode ajudar a gente agora, pfvr!
+  - Desculpe, mas não posso ficar aqui mto tempo... precisamos agir!\n
+  ^ Vc pode ajudar, sim ou não?
+  - Como assim?
+  - Me explica melhor isso?
+  - Olha... não temos muito tempo pra ficar conversando agora. Vc pode nos ajudar?
+  - Não posso explicar mto mais agora... pfvr! Vc pode ajudar, sim ou não?
+  - Sei que vc tem ainda dúvidas, mas o tempo é curto... Vc pode nos ajudar?
+  - Não temos mto tempo! Vc tem como nos ajudar???
+  - Talvez não seja o caso de vc saber muito mais agora. Quer nos ajudar?
+  - Não sei se te entendi bem... Vc pode nos ajudar?
+< topic
+
+// para quando o interator precisar pedir desculpas ao bot
+> topic sorry
+  + [*] (desculpe|desculpas|dsclp|foi mal|mals|sorry|sry|vacilei) [*]
+  - Afff...\n
+  ^ Esquece... Tudo bem...\n
+  ^ Mas vamos falar somente do que interessa agora, pfvr?{topic=about_mission}
+  - Deixa queito, vai... Tudo bem.{topic=about_mission}
+  - Pfvr, não faça isso de novo...{topic=about_mission}
+
+  + *
+  - ...{weight=3}
+  - Como q se diz???
+< topic
