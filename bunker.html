@@ -2,14 +2,17 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Bunker</title>
+        <title>~</title>
         <link rel="stylesheet" href="css/floresta.css">
         <link rel="stylesheet" href="css/custombox.min.css">
         <script src="js/phaser.min.js" charset="utf-8"></script>
         <script src="js/custombox.min.js" charset="utf-8"></script>
     </head>
+
     <body>
         <script type="text/javascript">
+        
+        // array of positions
         var POSITION_DEFS = [{
                 x: 242,
                 y: 202,
@@ -183,41 +186,40 @@
             }
         ];
 
-        var VIDEO_DEFS = [
-            'https://youtu.be/AxkuUCPH6D0',
-            'https://youtu.be/F4-R4GavWY8',
-            'https://youtu.be/-ES84W6Bb_s',
-            'https://youtu.be/SAjsnxPw26g',
-            'https://youtu.be/5UvBOJi2_HY',
-            'https://youtu.be/b6wcOfiecvo',
-            'https://youtu.be/GDtufnDYgVM',
-            'https://youtu.be/4DZpqUv6dmg',
-            'https://youtu.be/88W-3bBvMkE',
-            'https://youtu.be/0yaV_y7FcF4',
-            'https://youtu.be/awqcr6I9a_0',
-            'https://youtu.be/1M7AQ2JaQg8',
-            'https://youtu.be/7EcleG_MLv8',
-            'https://youtu.be/vZYh8hk9gSE',
-            'https://youtu.be/KzDHdLFtfHE',
-            'https://youtu.be/DJVCA9803iA',
-            'https://youtu.be/yQuwJca6QLQ',
-            'https://youtu.be/QlgtlhttS24',
-            'https://youtu.be/9Af83ictC_s',
-            'https://youtu.be/wpWqViIPyBw',
-            'https://youtu.be/nCkHQkblNyU',
-            'https://youtu.be/qtu0R75Cvbc',
-            'https://youtu.be/mE2jEZekGLM',
-            'https://youtu.be/dpVIVm2aj4k',
-            'https://youtu.be/NXQ7YJoXQQE',
-            'https://youtu.be/P9jgtHpu_Vw',
-            'https://youtu.be/4uyzr_FdG8A',
-            'https://youtu.be/JbyWk7KNZJo',
-            'https://youtu.be/b8RNNNZQAW0',
-            'https://youtu.be/JeBeuXrEgRI',
-            'https://youtu.be/xHb-6v4d6qw',
-            'https://youtu.be/iAX6H1UE_D4',
-            'https://youtu.be/9PJw1U0_rns',
-        ]
+        // array of video references from YouTube
+        var VIDEO_DEFS = ['AxkuUCPH6D0',
+                          'F4-R4GavWY8',
+                          '-ES84W6Bb_s',
+                          'SAjsnxPw26g',
+                          '5UvBOJi2_HY',
+                          'b6wcOfiecvo',
+                          'GDtufnDYgVM',
+                          '4DZpqUv6dmg',
+                          '88W-3bBvMkE',
+                          '0yaV_y7FcF4',
+                          'awqcr6I9a_0',
+                          '1M7AQ2JaQg8',
+                          '7EcleG_MLv8',
+                          'vZYh8hk9gSE',
+                          'KzDHdLFtfHE',
+                          'DJVCA9803iA',
+                          'yQuwJca6QLQ',
+                          'QlgtlhttS24',
+                          '9Af83ictC_s',
+                          'wpWqViIPyBw',
+                          'nCkHQkblNyU',
+                          'qtu0R75Cvbc',
+                          'mE2jEZekGLM',
+                          'dpVIVm2aj4k',
+                          'NXQ7YJoXQQE',
+                          'P9jgtHpu_Vw',
+                          '4uyzr_FdG8A',
+                          'JbyWk7KNZJo',
+                          'b8RNNNZQAW0',
+                          'JeBeuXrEgRI',
+                          'xHb-6v4d6qw',
+                          'iAX6H1UE_D4',
+                          '9PJw1U0_rns']
 
         function shuffle(array) {
             var currentIndex = array.length, temporaryValue, randomIndex;
@@ -240,38 +242,44 @@
 
         var screens = [];
         var screensSprites = [];
-
         var game = new Phaser.Game(1920, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
         var resizeGame = function () {
-
+           /*
             var screenWidth = window.innerWidth;
             var screenHeight = window.innerHeight;
-
             var gameWidth = 0;
             var gameHeight = 0;
 
-            if (screenWidth/screenHeight < 1,7778) {
+            // check whether screen resolution is NOT widescreen (16 / 9 = 1,7778)
+            if (screenWidth / screenHeight < 1,7778) {
                 gameHeight = screenHeight;
-                gameWidth = (gameHeight*1920)/1080;
+                gameWidth = (gameHeight * 1920) / 1080;
             } else {
+                // if it is widescreen...
                 gameWidth = screenWidth;
-                gameHeight = (gameWidth*1080)/1920;
+                gameHeight = (gameWidth * 1080) / 1920;
             }
 
             game.width = gameWidth;
             game.height = gameHeight;
 
             //game.stage.bounds.height = gameHeight;
-
             if (game.renderType === 1) {
                 game.renderer.resize(gameWidth, gameHeight);
                 Phaser.Canvas.setSmoothingEnabled(game.context, false);
             }
+            */
+            game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+            game.scale.parentIsWindow = true;
+            game.scale.refresh();
         }
 
         function preload() {
+            //verifying screen resolution
             resizeGame();
+
+            //loading background image
             game.load.image('bunker', 'img/bunker.png');
 
             var nArray = [];
@@ -291,9 +299,9 @@
                         h: POSITION_DEFS[i].h,
                         s: POSITION_DEFS[i].s,
                         nImage: nArray[i],
-                        video: VIDEO_DEFS[nArray[i]-1],
+                        video: 'https://www.youtube.com/embed/' + VIDEO_DEFS[nArray[i]-1],
                         watched: false
-                    })
+                    });
                 }
 
                 localStorage.setItem('screens', JSON.stringify(screens));
