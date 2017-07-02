@@ -7,7 +7,7 @@
         <script src="js/phaser.min.js" charset="utf-8"></script>
         <script src="js/swipe.js" charset="utf-8"></script>
     </head>
-    <body>
+    <body style="background-color: #b6814f;">
         <script type="text/javascript">
             var gameWidth = window.innerWidth;
             var gameHeight = window.innerHeight;
@@ -15,7 +15,7 @@
             var nTiles = Math.ceil(gameWidth / tileWidth);
             var game = new Phaser.Game(nTiles * 400, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
             var passageway = new Phaser.Rectangle(264, 134, 354, 216);
-            var cursors, firstTile, lastTile, tiles, tile;
+            var cursors, music, firstTile, lastTile, tiles, tile;
 
             var resizeGame = function () {
                 gameWidth = window.innerWidth;
@@ -35,14 +35,23 @@
             // window.onresize = resizeGame
 
             function preload() {
+                //load forest image strips as separated sprites
                 for (i = 1; i < 25; i++) {
                     game.load.image('f'+i, 'img/f'+i+'.jpg');
                 }
+
+                // load soundtrack
+                game.load.audio('wind', 'audio/112296__nageor__desertwind1final.ogg');
             }
 
             function create() {
                 this.swipe = new Swipe(this.game);
                 tiles = game.add.group();
+
+                // play audio as background sound
+                music = game.add.audio('wind');
+                music.loopFull();
+                //music.play();
 
                 for (i = 1; i <= nTiles; i++) {
                     tiles.create(0 + (i-1)*400, 0, 'f'+i);
@@ -52,6 +61,8 @@
 
                 game.scale.pageAlignHorizontally = true;
                 game.scale.pageAlignVertically = true;
+
+                //verifying screen resolution
                 resizeGame();
 
                 cursors = game.input.keyboard.createCursorKeys();
@@ -139,6 +150,21 @@
                   window.location.href = "entrada.html";
                 }
             }
+
+            function changeVolume(pointer) {
+              if (pointer.y < 100)
+              {
+                  music.mute = false;
+              }
+              else if (pointer.y < 300)
+              {
+                  music.volume += 0.1;
+              }
+              else
+              {
+                  music.volume -= 0.1;
+              }
+          }
         </script>
     </body>
 </html>
