@@ -22,26 +22,41 @@
   ^ Consegui acessar essa brecha, mas há algo que eles estão escondendo nessa plataforma...\n
   ^ Por isso estou pedindo a ajuda de cada pessoa que vem procurar saber o que é #lovegoals.\n
 
-  + [*] que (e|tem) [a] lovegoals [*]
+  + lovegoals
   - Somos uma organização preocupada em lutar e resistir contra as práticas do governo de repressão a LGBTs Brasil afora,\s
   ^ não só na rede, mas no mundo real também.\n
   ^ Somos poucxs, e, por isso, mais do que nunca, precisamos de sua ajuda!
 
-  + [*] que (e|tem) [a] uforge [*]
+  + [*] que (e|tem) [a] lovegoals [*]
+  @lovegoals
+
+  + uforge
   - É uma multinacional que vem atuando em diferentes frentes de vigilância e monitoramento, fornecendo equipamentos e serviços pra países do mundo todo há pelo menos uma década.\n
   ^ Dizem até que ela literalmente comprou alguns governos pra operar livre, coletando e armazenando todo o tipo de dados da população pra vender depois às entidades interessadas.\n
   ^ Sabe o canal da webTV, a UTV? É propriedade deles.
 
-  + [*] que (e|tem) [a] utv [*]
+  + [*] que (e|tem) [a] uforge [*]
+  @uforge
+
+  + utv
   - Como já disse, é um canal na internet que surgiu após a aquisição da estrutura das antigas emissoras de televisão pela uForge.\n
   ^ Basicamente, são eles quem controlam as informações da grande mídia brasileira nos dias de hoje.
 
-  + [*] que (e|tem) [a] ciberseguranca [*]
+  + [*] que (e|tem) [a] utv [*]
+  @utv
+
+  + ciberseguranca
   - É um braço da Polícia Federal criando pra monitorar atividades “suspeitas” na rede, contando com o apoio técnico da uForge e outros investidores privados.\n
   ^ Eles conseguiram derrubar nosso site... mas será por pouco tempo.
 
+  + [*] que (e|tem) [a] ciberseguranca [*]
+  @ciberseguranca
+
+  + departamento
+  @ciberseguranca
+
   + [*] que (e|tem) [o] departamento [*]
-  @o que e ciberseguranca
+  @ciberseguranca
 
   + [eu] entendi [*]
   - Bom, mas isso quer dizer que vc vai nos ajudar?
@@ -55,17 +70,20 @@
   - Sinto mesmo que suas dúvidas serão melhor respondidas quando vc entrar no ambiente que falei pra vc.
   - Como assim?
 
-  + [eu] (nao sei|sei la|talvez|quem sabe|provavelmente) [*]
+  + [eu] (nao sei|sei nao|sei la|talvez|quem sabe|provavelmente) [*]
   - Hesitar assim não irá levar vc a lugar nenhum...\n
   ^ Vc não quer aproveitar essa oportunidade pra superar de vez as dúvidas que vc tem de si?
   - Vamos lá! O que é preciso pra te convencer?
   - Veja bem... vc não tem nada a perder. Garanto que sua ajuda será algo pontual!
   - Pq essa hesitação?
 
-  + [*] (mentira) [*]
+  + mentira
   - Não tenho como provar nada pra vc agora, a não ser direcionando para esse espaço virtual que mencionei.\n
   ^ Ele existe... mas não sabemos bem como explora-lo totalmente.
   - Prove os fatos por conta própria, então... Aceita ajudar a gente?
+
+  + [*] (mentira) [*]
+  @mentira
 
   + [*] nao [*] (confio|acredito|pode ser|e possivel|e verdade) [*]
   @mentira
@@ -179,9 +197,9 @@
 < object
 
 > object link_page_home javascript
-  return "<a href=\"www.ia.unicamp.br/lovegoals\">&gt;&gt;&gt;&gt;VOLTAR&lt;&lt;&lt;&lt;</a>";
+  return "<a href=\"index.html\">&gt;&gt;&gt;&gt;VOLTAR&lt;&lt;&lt;&lt;</a>";
 < object
 
 > object link_page_cont javascript
-  return "<a href=\"www.ia.unicamp.br/lovegoals/portal\">&gt;&gt;&gt;&gt;ENTRAR&lt;&lt;&lt;&lt;</a>";
+  return "<a href=\"floresta.html\">&gt;&gt;&gt;&gt;ENTRAR&lt;&lt;&lt;&lt;</a>";
 < object

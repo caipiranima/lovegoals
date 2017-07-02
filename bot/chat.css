@@ -4,9 +4,8 @@ body {
 	font-size: small;
 	color: #000000;
 }
-h1 {
+h1, h2 {
 	font-weight: bold;
-	font-size: 24pt;
 	color: #0000FF;
 }
 fieldset {
@@ -43,13 +42,13 @@ table.input-table {
 	width: 100%;
 }
 table.input-table td.text-box {
-	padding: 4px; 
+	padding: 4px;
 	text-align: left;
-	vertical-align: middle; 
+	vertical-align: middle;
 }
 table.input-table td.send-button {
-	padding: 4px; 
+	padding: 4px;
 	text-align: center;
-	vertical-align: middle; 
+	vertical-align: middle;
 	width: 10px;
 }

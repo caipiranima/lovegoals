@@ -24,7 +24,7 @@
   + #
   - Seu nome é um número?!
 
-  + [*] (que|como|quando|onde|aonde|porque) [*]
+  + [*] (que|como|quando|onde|aonde|porque|por que) [*]
   - Só preciso de um nome a princípio, nada mais...
   - Vamos lá... só me diga como quer se chamar.
   - Não tô te pedindo muita coisa, só um nome.
@@ -59,7 +59,7 @@
 ! var city            = Em todas as cidades brasileiras, ao mesmo tempo... ou não!
 ! var eyes            = castanhos-escuros
 ! var hair            = pretos
-! var hairlen         = encaracolados... ou não!
+! var hairlen         = Uso dreads... ou não!
 ! var color           = vermelho
 ! var band            = Nenhuma... e todas ao mesmo tempo!
 ! var book            = Porque preferir um livro só ao invés de muitos?
