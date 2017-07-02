@@ -12,7 +12,7 @@
 
 <body>
 
-	<h1>Chat</h1>
+	<h2>Chat</h2>
 
 	<fieldset>
 		<legend>Histórico de conversas</legend>
@@ -49,7 +49,7 @@
 	!-->
 	<br />
 	<br />
-	<small>Servidor Apache ~WEISSHAUPT - status: <span id="currentDate">conectado</span></small>
+	<small>Servidor Apache ~WEISSHAUPT - status: <span id="currentDate"><u>conectado</u></span></small>
 
 	<script type="text/javascript">
 		// Handle the debug mode query string parameter.
@@ -103,9 +103,10 @@
 
 			if (text.replace(/\s/g, '').length <= 1) {
 				window.alert("Vc não tem NADA a dizer mesmo? :O");
-			} else {
+			}
+			else {
 				$("#message").val("");
-				$("#dialogue").append("<div><span class='user'>Você:</span> " + text + "</div>");
+				$("#dialogue").append("<div><span class='user'>&gt;&gt;</span> " + text + "</div>");
 
 				text = removeAccents(text);
 
@@ -113,11 +114,13 @@
 					var reply = rs.reply("soandso", text);
 					reply = reply.replace(/\n/g, "<br>");
 					$("#dialogue").append("<div><span class='bot'>&gt;</span> " + reply + "</div>");
-					$("#dialogue").animate({
-						scrollTop: $("#dialogue").height()
-					}, 1000);
+
+					$("#dialogue").stop().animate({
+  						scrollTop: $("#dialogue")[0].scrollHeight
+							}, 1000);
 					$("#currentDate").html("on-line em: " + new Date().toISOString());
-				} catch (e) {
+				}
+				catch (e) {
 					window.alert(e.message + "\n" + e.line);
 					console.log(e);
 				}
@@ -132,6 +135,7 @@
 			text = text.replace(/[üûùú]/gi, "u");
 			text = text.replace(/[öôó]/gi, "o");
 			text = text.replace(/[ç]/gi, "c");
+			text = text.replace(/[ñ]/gi, "n");
 			text = text.replace(/[']/gi, " ");
 			text = text.replace(/[-]/gi, " ");
 			text = text.replace(/[\s]{2,}/g, " "); // Remove espaços a mais
