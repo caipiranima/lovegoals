@@ -2,39 +2,31 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Floresta</title>
+        <title>~</title>
         <link rel="stylesheet" href="css/floresta.css">
         <script src="js/phaser.min.js" charset="utf-8"></script>
         <script src="js/swipe.js" charset="utf-8"></script>
     </head>
     <body>
         <script type="text/javascript">
-
-            //var Swipe = require('phaser-swipe');
-            //
-            var bunkerEntrance = new Phaser.Rectangle(264,134,354,216);
-
             var gameWidth = window.innerWidth;
             var gameHeight = window.innerHeight;
-            var tileWidth = (gameHeight*400)/1080;
-            var nTiles = Math.ceil(gameWidth/tileWidth);
-
-            var game = new Phaser.Game(nTiles*400, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-
-            var cursors, firstTile, lastTile, tiles;
+            var tileWidth = (gameHeight * 400) / 1080;
+            var nTiles = Math.ceil(gameWidth / tileWidth);
+            var game = new Phaser.Game(nTiles * 400, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+            var passageway = new Phaser.Rectangle(264, 134, 354, 216);
+            var cursors, firstTile, lastTile, tiles, tile;
 
             var resizeGame = function () {
-
                 gameWidth = window.innerWidth;
                 gameHeight = window.innerHeight;
-                tileWidth = (gameHeight*400)/1080;
-                nTiles = Math.ceil(gameWidth/tileWidth);
+                tileWidth = (gameHeight * 400) / 1080;
+                nTiles = Math.ceil(gameWidth / tileWidth);
 
                 game.width = gameWidth;
                 game.height = gameHeight;
 
                 //game.stage.bounds.height = gameHeight;
-
                 if (game.renderType === 1) {
                     game.renderer.resize(gameWidth, gameHeight);
                     Phaser.Canvas.setSmoothingEnabled(game.context, false);
@@ -85,14 +77,21 @@
             }
 
             function moveTiles(goRight, step) {
+                var tilePositionX = 0;
+
                 if (goRight) {
-                    if (tiles.getChildAt(tiles.length-1).x < (nTiles-1)*400 + step) {
+                    tilePositionX = tiles.getChildAt(tiles.length-1).x
+
+                    if (tilePositionX < (nTiles-1)*400 + step) {
                         if (lastTile == 24)
                             return;
                         lastTile++;
-                        var tile = tiles.create(tiles.getChildAt(tiles.length-1).x + 400, 0, 'f'+lastTile);
+
+                        tile = tiles.create(tilePositionX + 400, 0, 'f'+lastTile);
+
                         if (lastTile == 17) {
                             tile.inputEnabled = true;
+                            tile.input.useHandCursor = true;
                             tile.events.onInputDown.add(onClick);
                         }
                     }
@@ -103,16 +102,21 @@
                     }
 
                     tiles.setAll('x', step, false, false, 2, false);
-                } else {
-                    if (tiles.getChildAt(0).x > -step) {
+                }
+                else {
+                    tilePositionX = tiles.getChildAt(0).x
+
+                    if (tilePositionX > -step) {
                         if (firstTile == 1)
                             return;
                         firstTile--;
-                        var tile = game.add.sprite(tiles.getChildAt(0).x - 400, 0, 'f'+firstTile);
+
+                        tile = game.add.sprite(tilePositionX - 400, 0, 'f'+firstTile);
                         tiles.addAt(tile, 0);
 
                         if (firstTile == 17) {
                             tile.inputEnabled = true;
+                            tile.input.useHandCursor = true;
                             tile.events.onInputDown.add(onClick);
                         }
                     }
@@ -128,11 +132,11 @@
 
             function onClick(sprite, pointer) {
                 if (pointer.rightButton.isDown) {
-                    return;
+                  return;
                 }
 
-                if (bunkerEntrance.contains(pointer.x - sprite.position.x + 400,pointer.y)) {
-                    window.location.href = "bunker.html";
+                if (passageway.contains(pointer.x - sprite.position.x + 400, pointer.y)) {
+                  window.location.href = "entrada.html";
                 }
             }
         </script>
