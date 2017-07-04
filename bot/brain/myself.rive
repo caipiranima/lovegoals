@@ -123,7 +123,7 @@
 > topic mission_accepted
   + *
   - Deixei lá algumas pistas que poderão te ajudar na sua investigação.\n
-  ^ Além disso, confio na sua boa vontade... já que vc tbm me aturou até agora.\n
+  ^ Além disso, confio na sua boa vontade... já que vc tbm teve que me aturar até agora.\n
   ^ Boa sorte!\n
   ^ --- [<bot name> saiu da conversa]\n\n
   ^ <call>link_page_cont</call>
@@ -201,5 +201,5 @@
 < object
 
 > object link_page_cont javascript
-  return "<a href=\"floresta.html\">&gt;&gt;&gt;&gt;ENTRAR&lt;&lt;&lt;&lt;</a>";
+  return "<a href=\"main.html\">&gt;&gt;&gt;&gt;ENTRAR&lt;&lt;&lt;&lt;</a>";
 < object
