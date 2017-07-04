@@ -2,6 +2,7 @@ var gameWidth, gameHeight;
 var nTiles, firstTile, lastTile, tiles, tile, walkAwayTile;
 var cursors;
 var text;
+var corridorEntrance;
 var passageway = new Phaser.Rectangle(264, 134, 354, 216);
 
 //  The Google WebFont Loader will look for this object, so create it before loading the script.
@@ -13,7 +14,7 @@ WebFontConfig = {
   active: function() {
 		game.time.events.add(Phaser.Timer.SECOND, function() {
 			text = game.add.text(game.world.centerX - 200, game.world.centerY,
-				"Arraste ou use as setas do teclado para se mover... <= ou =>\n" +
+				"Arraste ou use as setas do teclado para se mover... <- ou ->\n" +
 				"Mas espere só até eu... desaparecer.\n" +
 				"Boa sorte! ;)"
 			);
@@ -157,7 +158,7 @@ floresta = {
 						tiles.addAt(tile, 0);
 
 						if (firstTile == 17) {
-								enableWalkAway();
+								this.enableWalkAway();
 						}
 				}
 
@@ -170,21 +171,20 @@ floresta = {
 		}
 	},
 	enableWalkAway: function() {
-		walkAwayTile = tile;
-		tile.inputEnabled = true;
-		tile.input.useHandCursor = true;
-		tile.events.onInputDown.add(function(sprite, pointer) {
-			if (pointer.rightButton.isDown)
-				return;
+    if (tile.children.length == 0) {
+      if (corridorEntrance == null) {
+        corridorEntrance = game.add.button(80, 0, '', function() {
+          game.camera.fade('#000000');
+          game.camera.onFadeComplete.add(function() {
+            game.state.start("Entrada");
+          }, this);
+        }, this);
+        //corridorEntrance.anchor.setTo(0.5, 0);
+        corridorEntrance.height = 200;
+        corridorEntrance.width = 200;
+      }
 
-			// if click is constrained in Phaser. Rectangle area
-			if (passageway.contains(pointer.x - sprite.position.x + 400, pointer.y)) {
-				game.camera.fade('#000000');
-        game.camera.onFadeComplete.add(function() {
-					game.state.start("Entrada")
-					//game.stateTransition.to("Entrada");
-				},this);
-			}
-		});
+      tile.addChild(corridorEntrance);
+    }
 	}
 }
