@@ -13,7 +13,7 @@ WebFontConfig = {
   //  For some reason if we don't the browser cannot render the text the first time it's created.
   active: function() {
 		game.time.events.add(Phaser.Timer.SECOND, function() {
-			text = game.add.text(game.world.centerX - 200, game.world.centerY,
+			text = game.add.text(gameWidth / 2, gameHeight / 2,
 				"Arraste ou use as setas do teclado para se mover... <- ou ->\n" +
 				"Mas espere só até eu... desaparecer.\n" +
 				"Boa sorte! ;)"
@@ -22,7 +22,7 @@ WebFontConfig = {
 			text.setShadow(5, 5, 'rgba(0,0,0,0.5)', 5);
 			text.alpha = 0.1;
 			text.font = 'Titillium Web';
-  		text.fontSize = 35;
+  		text.fontSize = 25;
 			text.fill = "#ffffff";
 			text.align = "center";
 
@@ -46,10 +46,8 @@ floresta = {
     gameHeight = window.innerHeight;
     nTiles = Math.ceil(gameWidth / ((gameHeight * 400) / 1080));
 
-		// going fullscreen
-		game.scale.pageAlignHorizontally = true;
-		game.scale.pageAlignVertically = true;
-    game.width = nTiles * 400;
+    //game.width = nTiles * 400;
+    game.width = gameWidth;
     game.height = gameHeight;
 
     //game.stage.bounds.height = gameHeight;

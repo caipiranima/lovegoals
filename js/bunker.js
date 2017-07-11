@@ -217,7 +217,6 @@ bunker = {
     game.scale.pageAlignVertically = true;
     game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.scale.parentIsWindow = true;
-    game.scale.refresh();
   },
   preload: function() {
     //loading background image
