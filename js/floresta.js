@@ -81,7 +81,7 @@ floresta = {
     }
 
     // load soundtrack
-    game.load.audio('wind', 'audio/112296__nageor__desertwind1final.ogg');
+    game.load.audio('wind', 'assets/audio/112296__nageor__desertwind1final.ogg');
 	},
 	create: function() {
     this.swipe = new Swipe(this.game);
