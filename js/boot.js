@@ -35,10 +35,14 @@ boot = {
   },
   loadingText: function(x, y) {
     // text message
-    var loadText = game.add.text(x, y, "Carregando...", { font: "Bold 60px Courier", fill: '#d1ad87' });
+    var loadText = game.add.text(x, y, "Carregando...");
     loadText.anchor.setTo(0.5);
     loadText.setShadow(5, 5, 'rgba(0,0,0,0.5)', 5);
     loadText.alpha = 0.1;
+    loadText.font = "Lucida Sans Unicode";
+    loadText.fontSize = 15;
+    loadText.fill = "#d1ad87";
+    loadText.align = "center";
     game.add.tween(loadText).to( { alpha: 1 }, 1500, "Quad.easeInOut", true, 0, -1, true);
   }
 }
