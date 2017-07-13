@@ -7,10 +7,10 @@ corredor02 = {
     game.scale.parentIsWindow = true;
   },
   preload: function() {
-    // loading this game state...
-    var preloadBar = game.add.sprite(game.world.centerX, game.world.centerY, 'preloadBar');
-    preloadBar.anchor.setTo(0.5);
-    game.load.setPreloadSprite(preloadBar);
+    // // loading this game state...
+    // var preloadBar = game.add.sprite(game.world.centerX, game.world.centerY, 'preloadBar');
+    // preloadBar.anchor.setTo(0.5);
+    // game.load.setPreloadSprite(preloadBar);
 
     //loading background image
     game.load.image('corredor02', 'assets/sprites/corredor02.jpg');
@@ -20,9 +20,13 @@ corredor02 = {
     entrance.inputEnabled = true;
 
     var corridorEntrance = game.add.button(game.world.centerX, 350, '', function() {
-          //game.state.start("Bunker");
-          game.stateTransition.to("Bunker");
-        }, this);
+      // text message
+      boot.loadingText(game.world.centerX, game.world.centerY);
+
+      // load state
+      //game.state.start("Bunker");
+      game.stateTransition.to("Bunker");
+    }, this);
     corridorEntrance.height = 500;
     corridorEntrance.width = 400;
     corridorEntrance.anchor.setTo(0.5, 0.5);

@@ -1,13 +1,18 @@
 var gameWidth, gameHeight;
 var nTiles, firstTile, lastTile, tiles, tile, walkAwayTile;
-var cursors;
-var text;
+var cursors, text;
 var corridorEntrance;
+var lightConfig = { position: new illuminated.Vec2(300, 50),
+                    color: '#fff699',
+                    distance: 50 };
 var passageway = new Phaser.Rectangle(264, 134, 354, 216);
 
 //  The Google WebFont Loader will look for this object, so create it before loading the script.
 WebFontConfig = {
-
+  //  The Google Fonts we want to load (specify as many as you like in the array)
+  google: {
+    families: ['Titillium Web']
+  },
   //  'active' means all requested fonts have finished loading
   //  We set a 1 second delay before calling 'createText'.
   //  For some reason if we don't the browser cannot render the text the first time it's created.
@@ -30,14 +35,12 @@ WebFontConfig = {
 			game.time.events.add(6000, function() {
 				game.add.tween(text).to({y: 0}, 1500, Phaser.Easing.Linear.None, true);
 				game.add.tween(text).to({alpha: 0}, 1500, Phaser.Easing.Linear.None, true);
-				//text.destroy();
+
+        //starting lighting effects
+        floresta.addLightingFX();
 			}, this);
 		}, this);
 	},
-  //  The Google Fonts we want to load (specify as many as you like in the array)
-  google: {
-    families: ['Titillium Web']
-  }
 };
 
 floresta = {
@@ -55,24 +58,14 @@ floresta = {
         game.renderer.resize(gameWidth, gameHeight);
         Phaser.Canvas.setSmoothingEnabled(game.context, false);
     }
-
-		// Initializes StateTransition Plugin
-		game.stateTransition = game.plugins.add(Phaser.Plugin.StateTransition);
-		game.stateTransition.configure({
-		  duration: Phaser.Timer.SECOND * 0.8,
-		  ease: Phaser.Easing.Exponential.InOut,
-		  properties: {
-		    alpha: 0,
-		    scale: {
-		      x: 1.4,
-		      y: 1.4
-		    }
-		  }
-		});
 	},
 	preload: function() {
     // loading this game state...
-    var preloadBar = game.add.sprite(gameWidth / 2, gameHeight / 2, 'preloadBar');
+    var preloadX = gameWidth / 2;
+    var preloadY = gameHeight / 2;
+    boot.loadingText(preloadX, preloadY - 100)
+
+    var preloadBar = game.add.sprite(preloadX, preloadY, 'preloadBar');
     preloadBar.anchor.setTo(0.5);
     game.load.setPreloadSprite(preloadBar);
 
@@ -110,11 +103,11 @@ floresta = {
 		var direction = this.swipe.check();
 		if (direction!==null) {
 				switch(direction.direction) {
-						case this.swipe.DIRECTION_LEFT:
-								this.moveTiles(true, 200);
-								break;
-						case this.swipe.DIRECTION_RIGHT:
-								this.moveTiles(false, 200);
+					case this.swipe.DIRECTION_LEFT:
+						this.moveTiles(true, 200);
+						break;
+					case this.swipe.DIRECTION_RIGHT:
+						this.moveTiles(false, 200);
 				}
 		}
 
@@ -125,6 +118,7 @@ floresta = {
 				this.moveTiles(false, 5);
 		}
 	},
+  // moving forest tiles accordingly to horizontal swipe
 	moveTiles: function(goRight, step) {
 		var tilePositionX = 0;
 
@@ -174,21 +168,41 @@ floresta = {
 				tiles.setAll('x', step, false, false, 1, false);
 		}
 	},
+  // enabling clickable area through which we'll get to the next game state
 	enableWalkAway: function() {
     if (tile.children.length == 0) {
       if (corridorEntrance == null) {
-        corridorEntrance = game.add.button(80, 0, '', function() {
+        //adding an invisbile button as a child to current tile
+        corridorEntrance = game.add.button(tile.width - 100, 150, '', function() {
           game.camera.fade('#000000');
-          game.camera.onFadeComplete.add(function() {
-            game.state.start("Entrada");
-          }, this);
+          game.camera.onFadeComplete.add(function() { game.state.start("Entrada"); }, this);
         }, this);
-        //corridorEntrance.anchor.setTo(0.5, 0);
+
+        corridorEntrance.anchor.setTo(0.5);
         corridorEntrance.height = 200;
         corridorEntrance.width = 200;
+
+        // light that will get one's attention
+        var tunnelLight = game.add.illuminated.lamp(corridorEntrance.x, corridorEntrance.y + 50, lightConfig);
+        tunnelLight.anchor.setTo(0.5);
+        tunnelLight.alpha = 0.2;
+        game.add.tween(tunnelLight).to( { alpha: 1 }, 2000, "Quad.easeInOut", true, 0, 1, true);
       }
 
       tile.addChild(corridorEntrance);
+      tile.addChild(tunnelLight);
     }
-	}
+	},
+  // lighting effect
+  addLightingFX: function() {
+    // light at right image corner
+    var cornerLight = game.add.illuminated.lamp(gameWidth / 2, gameHeight / 2, lightConfig);
+    cornerLight.anchor.setTo(0.5);
+    cornerLight.alpha = 0.2;
+
+    var tween = game.add.tween(cornerLight).to( { alpha: 1 }, 1500, "Quad.easeInOut", true, 0, -1, true);
+    tween.onLoop.addOnce(function() {
+      game.add.tween(cornerLight).to( { x: gameWidth + 100}, 6000, Phaser.Easing.Linear.None, true);
+    }, this);
+  }
 }

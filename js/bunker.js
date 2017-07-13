@@ -219,6 +219,10 @@ bunker = {
     game.scale.parentIsWindow = true;
   },
   preload: function() {
+    // var preloadBar = game.add.sprite(preloadX, preloadY, 'preloadBar');
+    // preloadBar.anchor.setTo(0.5);
+    // game.load.setPreloadSprite(preloadBar);
+
     //loading background image
     game.load.image('bunker', 'assets/sprites/bunker.png');
 
