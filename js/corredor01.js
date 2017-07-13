@@ -8,7 +8,7 @@ corredor01 = {
   },
   preload: function() {
     //loading background image
-    game.load.image('corredor01', 'img/corredor01.jpg');
+    game.load.image('corredor01', 'assets/sprites/corredor01.jpg');
   },
   create: function() {
     var entrance = game.add.sprite(0, 0, 'corredor01');

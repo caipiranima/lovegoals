@@ -8,7 +8,7 @@ entrada = {
   },
   preload: function() {
     //loading background image
-    game.load.image('entrada', 'img/entrada.jpg');
+    game.load.image('entrada', 'assets/sprites/entrada.jpg');
   },
   create: function() {
     var entrance = game.add.sprite(0, 0, 'entrada');

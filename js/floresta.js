@@ -77,7 +77,7 @@ floresta = {
 		// preloading various assets
     //load forest image strips as separated sprites
     for (i = 1; i < 25; i++) {
-        game.load.image('f'+i, 'img/f'+i+'.jpg');
+        game.load.image('f'+i, 'assets/sprites/f'+i+'.jpg');
     }
 
     // load soundtrack

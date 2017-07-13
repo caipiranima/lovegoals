@@ -220,12 +220,12 @@ bunker = {
   },
   preload: function() {
     //loading background image
-    game.load.image('bunker', 'img/bunker.png');
+    game.load.image('bunker', 'assets/sprites/bunker.png');
 
     var nArray = [];
     for (i = 1; i < 34; i++) {
         nArray.push(i);
-        game.load.image('m'+i, 'img/miniaturas-videos/'+i+'.png');
+        game.load.image('m'+i, 'assets/sprites/thumbs/'+i+'.png');
     }
 
     if (localStorage.getItem('screens') == null) {
