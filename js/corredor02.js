@@ -7,6 +7,11 @@ corredor02 = {
     game.scale.parentIsWindow = true;
   },
   preload: function() {
+    // loading this game state...
+    var preloadBar = game.add.sprite(game.world.centerX, game.world.centerY, 'preloadBar');
+    preloadBar.anchor.setTo(0.5);
+    game.load.setPreloadSprite(preloadBar);
+
     //loading background image
     game.load.image('corredor02', 'assets/sprites/corredor02.jpg');
   },

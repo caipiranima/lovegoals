@@ -12,13 +12,13 @@ WebFontConfig = {
   //  We set a 1 second delay before calling 'createText'.
   //  For some reason if we don't the browser cannot render the text the first time it's created.
   active: function() {
-		game.time.events.add(Phaser.Timer.SECOND, function() {
+		game.time.events.add(1000, function() {
 			text = game.add.text(gameWidth / 2, gameHeight / 2,
 				"Arraste ou use as setas do teclado para se mover... <- ou ->\n" +
 				"Mas espere só até eu... desaparecer.\n" +
 				"Boa sorte! ;)"
 			);
-			text.anchor.setTo(0.5, 0.5);
+			text.anchor.setTo(0.5);
 			text.setShadow(5, 5, 'rgba(0,0,0,0.5)', 5);
 			text.alpha = 0.1;
 			text.font = 'Titillium Web';
@@ -71,8 +71,10 @@ floresta = {
 		});
 	},
 	preload: function() {
-		//  Load the Google WebFont Loader script
-		game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+    // loading this game state...
+    var preloadBar = game.add.sprite(gameWidth / 2, gameHeight / 2, 'preloadBar');
+    preloadBar.anchor.setTo(0.5);
+    game.load.setPreloadSprite(preloadBar);
 
 		// preloading various assets
     //load forest image strips as separated sprites
@@ -82,6 +84,10 @@ floresta = {
 
     // load soundtrack
     game.load.audio('wind', 'assets/audio/112296__nageor__desertwind1final.ogg');
+
+    // Load the Google WebFont Loader script
+    // Text using WebFonts must be shown after images are loaded
+		game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 	},
 	create: function() {
     this.swipe = new Swipe(this.game);

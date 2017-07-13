@@ -6,12 +6,14 @@ var music;
 
 // global game variables
 game.global = {
-	levelFlow : ["Floresta", "Entrada", "Corredor01", "Corredor02", "Bunker"],
+	levelFlow : ["Boot", "Floresta", "Entrada", "Corredor01", "Corredor02", "Bunker"],
 	// level currently playing
-	level : 0
-}
+	startBunker : false
+};
 
 // game states
+// BOOT
+game.state.add("Boot", boot);
 // LEVEL 0
 game.state.add("Floresta", floresta);
 // LEVEL 1
@@ -23,13 +25,5 @@ game.state.add("Corredor02", corredor02);
 // LEVEL 4
 game.state.add("Bunker", bunker);
 
-// if there isn't previous references to the video screen in the bunker...
-if (localStorage.getItem('screens') == null || game.global.level == 0)
-{
-	// ...that means that the user didn't get to interact with the bunker yet
-	game.state.start("Floresta");
-}
-else {
-	// redirect user to bunker without passing through the previous levels all over again
-	game.state.start("Bunker");
-}
+// start me up!
+game.state.start("Boot");
