@@ -27,7 +27,7 @@ floresta = {
     // loading this game state...
     var preloadX = gameWidth / 2;
     var preloadY = gameHeight / 2;
-    boot.loadingText(preloadX, preloadY - 50)
+    boot.loadingText(preloadX, preloadY - 30);
 
     var preloadBar = game.add.sprite(preloadX, preloadY, 'preloadBar');
     preloadBar.anchor.setTo(0.5);
@@ -172,7 +172,7 @@ floresta = {
         corridorEntrance.width = 200;
 
         // light that will get one's attention
-        var tunnelLight = game.add.illuminated.lamp(corridorEntrance.x + 30, corridorEntrance.y + 50, lightConfig);
+        var tunnelLight = game.add.illuminated.lamp(corridorEntrance.x + 15, corridorEntrance.y + 50, lightConfig);
         tunnelLight.anchor.setTo(0.5);
         tunnelLight.alpha = 0.2;
         game.add.tween(tunnelLight).to( { alpha: 1 }, 2000, "Quad.easeInOut", true, 0, 1, true);
