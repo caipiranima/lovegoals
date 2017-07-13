@@ -28,14 +28,14 @@ boot = {
     	game.state.start("Floresta");
     }
     else {
-      
+
     	// redirect user to bunker without passing through the previous levels all over again
     	game.state.start("Bunker");
     }
   },
   loadingText: function(x, y) {
     // text message
-    var loadText = game.add.text(x, y, "Carregando...", { font: "Bold 30px Courier New", fill: '#d1ad87' });
+    var loadText = game.add.text(x, y, "Carregando...", { font: "Bold 60px Courier", fill: '#d1ad87' });
     loadText.anchor.setTo(0.5);
     loadText.setShadow(5, 5, 'rgba(0,0,0,0.5)', 5);
     loadText.alpha = 0.1;

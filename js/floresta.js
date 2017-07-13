@@ -7,42 +7,6 @@ var lightConfig = { position: new illuminated.Vec2(300, 50),
                     distance: 50 };
 var passageway = new Phaser.Rectangle(264, 134, 354, 216);
 
-//  The Google WebFont Loader will look for this object, so create it before loading the script.
-WebFontConfig = {
-  //  The Google Fonts we want to load (specify as many as you like in the array)
-  google: {
-    families: ['Titillium Web']
-  },
-  //  'active' means all requested fonts have finished loading
-  //  We set a 1 second delay before calling 'createText'.
-  //  For some reason if we don't the browser cannot render the text the first time it's created.
-  active: function() {
-		game.time.events.add(1000, function() {
-			text = game.add.text(gameWidth / 2, gameHeight / 2,
-				"Arraste ou use as setas do teclado para se mover... <- ou ->\n" +
-				"Mas espere só até eu... desaparecer.\n" +
-				"Boa sorte! ;)"
-			);
-			text.anchor.setTo(0.5);
-			text.setShadow(5, 5, 'rgba(0,0,0,0.5)', 5);
-			text.alpha = 0.1;
-			text.font = 'Titillium Web';
-  		text.fontSize = 25;
-			text.fill = "#ffffff";
-			text.align = "center";
-
-			game.add.tween(text).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true);
-			game.time.events.add(6000, function() {
-				game.add.tween(text).to({y: 0}, 1500, Phaser.Easing.Linear.None, true);
-				game.add.tween(text).to({alpha: 0}, 1500, Phaser.Easing.Linear.None, true);
-
-        //starting lighting effects
-        floresta.addLightingFX();
-			}, this);
-		}, this);
-	},
-};
-
 floresta = {
 	init: function() {
 		gameWidth = window.innerWidth;
@@ -63,7 +27,7 @@ floresta = {
     // loading this game state...
     var preloadX = gameWidth / 2;
     var preloadY = gameHeight / 2;
-    boot.loadingText(preloadX, preloadY - 100)
+    boot.loadingText(preloadX, preloadY - 50)
 
     var preloadBar = game.add.sprite(preloadX, preloadY, 'preloadBar');
     preloadBar.anchor.setTo(0.5);
@@ -77,10 +41,6 @@ floresta = {
 
     // load soundtrack
     game.load.audio('wind', 'assets/audio/112296__nageor__desertwind1final.ogg');
-
-    // Load the Google WebFont Loader script
-    // Text using WebFonts must be shown after images are loaded
-		game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 	},
 	create: function() {
     this.swipe = new Swipe(this.game);
@@ -96,7 +56,11 @@ floresta = {
     }
     firstTile = 1;
     lastTile = nTiles;
+
     cursors = game.input.keyboard.createCursorKeys();
+
+    // show welcome text message
+    this.showStartMessage();
 	},
 	update: function() {
 		// checking swipe direction (if touch-and-drag )
@@ -118,6 +82,31 @@ floresta = {
 				this.moveTiles(false, 5);
 		}
 	},
+  showStartMessage: function() {
+    game.time.events.add(1000, function() {
+			text = game.add.text(gameWidth / 2, gameHeight / 2,
+				"Arraste ou use as setas do teclado para se mover... <- ou ->\n" +
+				"Mas espere só até eu... desaparecer.\n" +
+				"Boa sorte! ;)"
+			);
+			text.anchor.setTo(0.5);
+			text.setShadow(5, 5, 'rgba(0,0,0,0.5)', 5);
+			text.alpha = 0.1;
+			text.font = "Lucida Sans Unicode";
+  		text.fontSize = 25;
+			text.fill = "#ffffff";
+			text.align = "center";
+
+			game.add.tween(text).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true);
+			game.time.events.add(6000, function() {
+				game.add.tween(text).to({y: 0}, 1500, Phaser.Easing.Linear.None, true);
+				game.add.tween(text).to({alpha: 0}, 1500, Phaser.Easing.Linear.None, true);
+
+        //starting lighting effects
+        floresta.addLightingFX();
+			}, this);
+		}, this);
+  },
   // moving forest tiles accordingly to horizontal swipe
 	moveTiles: function(goRight, step) {
 		var tilePositionX = 0;
@@ -183,7 +172,7 @@ floresta = {
         corridorEntrance.width = 200;
 
         // light that will get one's attention
-        var tunnelLight = game.add.illuminated.lamp(corridorEntrance.x, corridorEntrance.y + 50, lightConfig);
+        var tunnelLight = game.add.illuminated.lamp(corridorEntrance.x + 30, corridorEntrance.y + 50, lightConfig);
         tunnelLight.anchor.setTo(0.5);
         tunnelLight.alpha = 0.2;
         game.add.tween(tunnelLight).to( { alpha: 1 }, 2000, "Quad.easeInOut", true, 0, 1, true);
