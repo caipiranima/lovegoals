@@ -33,16 +33,20 @@ boot = {
     	game.state.start("Bunker");
     }
   },
-  loadingText: function(x, y) {
+  loadingText: function(x, y, alpha) {
     // text message
     var loadText = game.add.text(x, y, "Carregando...");
     loadText.anchor.setTo(0.5);
     loadText.setShadow(5, 5, 'rgba(0,0,0,0.5)', 5);
-    loadText.alpha = 0.1;
+    loadText.alpha = 0.2;
     loadText.font = "Lucida Sans Unicode";
     loadText.fontSize = 15;
     loadText.fill = "#d1ad87";
     loadText.align = "center";
-    game.add.tween(loadText).to( { alpha: 1 }, 1500, "Quad.easeInOut", true, 0, -1, true);
+    loadText.z = 0;
+
+    //if (alpha < 1) {
+      game.add.tween(loadText).to( { alpha: 1 }, 1500, "Quad.easeInOut", true, 0, -1, true);
+    //}
   }
 }

@@ -21,7 +21,7 @@ entrada = {
 
     var corridorEntrance = game.add.button(game.world.centerX, 500, '', function() {
       // text message
-      boot.loadingText(game.world.centerX, game.world.centerY);
+      boot.loadingText(game.world.centerX - 50, game.world.centerY - 100, 1);
 
       //load state
       //game.state.start("Corredor01");
@@ -34,5 +34,6 @@ entrada = {
 
     // câmera volta do fade-out
     game.camera.flash('#000000');
+    //game.camera.resetFX();
   }
 }

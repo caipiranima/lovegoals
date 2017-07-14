@@ -21,7 +21,7 @@ corredor02 = {
 
     var corridorEntrance = game.add.button(game.world.centerX, 350, '', function() {
       // text message
-      boot.loadingText(game.world.centerX, game.world.centerY);
+      boot.loadingText(game.world.centerX, game.world.centerY - 150, 1);
 
       // load state
       //game.state.start("Bunker");

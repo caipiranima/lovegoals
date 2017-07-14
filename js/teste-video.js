@@ -74,7 +74,8 @@ function takeSnapshot() {
     imageView.draw(videoBase.snapshot, 0, 0, game.width, game.height, 'multiply');
 
     if (interval <= 0) {
-      interval = randomize(0, 7000);
+      //interval = randomize(0, 7000);
+      interval = game.rnd.integerInRange(0, 7000);
 
       game.time.events.add(interval, function() {
         imageView.draw('glitch', 0, 0, game.width, game.height, 'color');
@@ -89,10 +90,10 @@ function fadeIntoNext() {
 }
 
 function changeVideoBaseSource() {
-  var randomFile = 0; //randomize(0, 12);
+  var randomFile = 0; //game.rnd.integerInRange(0, 12);
   game.camera.fade(0x000000, 2000); //fade to black
 }
 
-function randomize(plus, to) {
-  return Math.round((Math.random() * to) + plus);
-}
+// function randomize(plus, to) {
+//   return Math.round((Math.random() * to) + plus);
+// }

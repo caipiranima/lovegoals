@@ -27,7 +27,7 @@ floresta = {
     // loading this game state...
     var preloadX = gameWidth / 2;
     var preloadY = gameHeight / 2;
-    boot.loadingText(preloadX, preloadY - 30);
+    boot.loadingText(preloadX, preloadY - 30, 0.1);
 
     var preloadBar = game.add.sprite(preloadX, preloadY, 'preloadBar');
     preloadBar.anchor.setTo(0.5);

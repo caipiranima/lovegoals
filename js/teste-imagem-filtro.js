@@ -117,7 +117,8 @@ function update() {
 
 /* SHIFT SOUND AND IMAGE FILE SOURCES AS AUDIO PROGRESSES */
 function changeAudioSource() {
-    var randomFile = randomize(0, availableFile.length - 1);
+    //var randomFile = randomize(0, availableFile.length - 1);
+    var randomFile = game.rnd.integerInRange(0, availableFile.length - 1);
     var selected = availableFile[randomFile];
     interval = 0;
     imageView = null;
@@ -136,13 +137,13 @@ function changeAudioSource() {
     imageFile.anchor.set(0.5);
 
     //randomEffect = 8;
-    randomEffect = randomize(0, game.global.vfx);
+    randomEffect = game.rnd.integerInRange(0, game.global.vfx);
 }
 
 /* GENERAL-USE FUNCTIONS */
-function randomize(plus, to) {
-  return Math.round((Math.random() * to) + plus);
-}
+// function randomize(plus, to) {
+//   return Math.round((Math.random() * to) + plus);
+// }
 
 function fullImagePosition() {
   if (imageFile != null) {
@@ -162,7 +163,8 @@ function fadeIntoNext() {
 /* FUNCTIONS FOR APPLYING FILTER EFFECTS ON CURRENT SPRITE */
 function tint() {
   if (interval <= 0) {
-    interval = randomize(0, 20000);
+    //interval = randomize(0, 20000);
+    interval = game.rnd.integerInRange(0, 20000);
 
     var endColor = Math.random() * 0xffffff;
     var colorBlend = { step: 0 };
@@ -188,7 +190,7 @@ function tint() {
 function fireDistort() {
   if (interval <= 0) {
     // here we only need to make use of 'interval' variable as a 'flag'
-    interval = 1; //randomize(0, 1000);
+    interval = 1;
     fullImagePosition();
 
     // distort image sprite as sine wave with fixed base
@@ -233,7 +235,7 @@ function fireDistort() {
 function bacteriaOverlay() {
   if (interval <= 0) {
     // here we only need to make use of 'interval' variable as a 'flag'
-    interval = 1; //randomize(0, 1000);
+    interval = 1;
     filterX = new Phaser.Filter(game, null, game.cache.getShader('bacteria'));
     filterX.addToWorld(0, 0 ,game.width, game.height);
   }
@@ -245,7 +247,7 @@ function bacteriaOverlay() {
 function marbleOverlay() {
   if (interval <= 0) {
     // here we only need to make use of 'interval' variable as a 'flag'
-    interval = 1; //randomize(0, 1000);
+    interval = 1;
 
     // marble overlay effect
     background = game.add.sprite(0, 0);
@@ -294,7 +296,8 @@ function pointilize() {
 
 function pixelate() {
   if (interval <= 0) {
-    interval = randomize(5000, 10000);
+    //interval = randomize(5000, 10000);
+    interval = game.rnd.integerInRange(5000, 10000);
     filterX = game.add.filter('Pixelate', game.width, game.height);
     imageFile.filters = [filterX];
     game.add.tween(filterX).to( { sizeX: 100, sizeY: 100 }, interval, "Quad.easeInOut", true, 0, -1, true);
@@ -304,7 +307,7 @@ function pixelate() {
 function rotozoomify() {
   if (interval <= 0) {
     // here we only need to make use of 'interval' variable as a 'flag'
-    interval = 1; //randomize(0, 1000);
+    interval = 1;
     fullImagePosition();
 
     filterX = game.add.filter('Rotozoomer', game.width, game.height);
@@ -318,12 +321,14 @@ function rotozoomify() {
 
 function blurXY() {
   if (interval <= 0) {
-    interval = randomize(0, 100);
+    //interval = randomize(0, 100);
+    interval = game.rnd.integerInRange(0, 100);
     filterX = game.add.filter('BlurX');
 	  filterY = game.add.filter('BlurY');
 
     filterX.blur = interval;
-    filterY.blur = randomize(0, 100);
+    //filterY.blur = randomize(0, 100);
+    filterY.blur = game.rnd.integerInRange(0, 100);
 
     imageFile.filters = [filterX, filterY];
   }
