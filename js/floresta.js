@@ -1,7 +1,7 @@
 var gameWidth, gameHeight;
 var nTiles, firstTile, lastTile, tiles, tile, walkAwayTile;
-var cursors, text;
-var corridorEntrance;
+var cursors, corridorEntrance;
+var randomTiles = [];
 var lightConfig = { position: new illuminated.Vec2(300, 50),
                     color: '#fff699',
                     distance: 50 };
@@ -16,6 +16,8 @@ floresta = {
     //game.width = nTiles * 400;
     game.width = gameWidth;
     game.height = gameHeight;
+    // game.scale.pageAlignVertically = true;
+    // game.scale.parentIsWindow = true;
 
     //game.stage.bounds.height = gameHeight;
     if (game.renderType === 1) {
@@ -33,12 +35,25 @@ floresta = {
     preloadBar.anchor.setTo(0.5);
     game.load.setPreloadSprite(preloadBar);
 
-		// preloading various assets
-    //load forest image strips as separated sprites
-    for (i = 1; i < 25; i++) {
-        game.load.image('f'+i, 'assets/sprites/f'+i+'.jpg');
+		// preloading various assets...
+    // load forest image strips as separated sprites
+    for (var i = 1; i < 25; i++) {
+      game.load.image('f'+i, 'assets/sprites/f'+i+'.jpg');
     }
 
+    // load camera spritesheet animation
+    game.load.spritesheet('camera', 'assets/sprites/c-camera-forest.png', 100, 100, 12);
+
+    // let's say we want at least 6 cameras in this background
+    for (var i = 1; i < 7; i++) {
+      // let's use modulus to sort cameras amongs trees that come before and after bunker entrance
+      if (i % 2 == 0) {
+        randomTiles.push(game.rnd.integerInRange(3, 15));
+      }
+      else {
+        randomTiles.push(game.rnd.integerInRange(19, 23));
+      }
+    }
     // load soundtrack
     game.load.audio('wind', 'assets/audio/112296__nageor__desertwind1final.ogg');
 	},
@@ -83,6 +98,8 @@ floresta = {
 		}
 	},
   showStartMessage: function() {
+    var text;
+
     game.time.events.add(1000, function() {
 			text = game.add.text(gameWidth / 2, gameHeight / 2,
 				"Arraste ou use as setas do teclado para se mover... <- ou ->\n" +
@@ -121,9 +138,13 @@ floresta = {
 
 						tile = tiles.create(tilePositionX + 400, 0, 'f'+lastTile);
 
-						if (lastTile == 17) {
-								this.enableWalkAway();
-						}
+            // either we test tile index to verify camera insert or we insert invisible button
+            if (randomTiles.indexOf(lastTile) >= 0) {
+              this.enableCameraSprite(lastTile);
+            }
+						else if (lastTile == 17) {
+						  this.enableWalkAway();
+            }
 				}
 
 				if (tiles.getChildAt(0).x < -400) {
@@ -144,9 +165,13 @@ floresta = {
 						tile = game.add.sprite(tilePositionX - 400, 0, 'f'+firstTile);
 						tiles.addAt(tile, 0);
 
-						if (firstTile == 17) {
-								this.enableWalkAway();
-						}
+            // either we test tile index to verify camera insert or we insert invisible button
+            if (randomTiles.indexOf(firstTile) >= 0) {
+              this.enableCameraSprite(firstTile);
+            }
+            else if (firstTile == 17) {
+              this.enableWalkAway();
+            }
 				}
 
 				if (tiles.getChildAt(tiles.length-1).x > (nTiles)*400) {
@@ -170,18 +195,37 @@ floresta = {
         corridorEntrance.anchor.setTo(0.5);
         corridorEntrance.height = 200;
         corridorEntrance.width = 200;
-
-        // light that will get one's attention
-        var tunnelLight = game.add.illuminated.lamp(corridorEntrance.x + 15, corridorEntrance.y + 50, lightConfig);
-        tunnelLight.anchor.setTo(0.5);
-        tunnelLight.alpha = 0.2;
-        game.add.tween(tunnelLight).to( { alpha: 1 }, 2000, "Quad.easeInOut", true, 0, 1, true);
       }
 
+      // light that will get one's attention
+      var tunnelLight = game.add.illuminated.lamp(corridorEntrance.x + 15, corridorEntrance.y + 50, lightConfig);
+      tunnelLight.anchor.setTo(0.5);
+      tunnelLight.alpha = 0.2;
+      game.add.tween(tunnelLight).to( { alpha: 1 }, 2000, "Quad.easeInOut", true, 0, 1, true);
+
+      // adding button and light as children to current tile
       tile.addChild(corridorEntrance);
       tile.addChild(tunnelLight);
     }
 	},
+  enableCameraSprite: function(tileIndex) {
+    if (tile.children.length == 0) {
+      var camera = game.add.sprite(50, 75 + game.rnd.integerInRange(0, 50), 'camera');
+
+      // the closer the current tile is in relation to bunker entrance, the smaller the camera size will be
+      var diff = (-10 * Math.abs(17 - tileIndex));
+      camera.width -= diff;
+      camera.height -= diff;
+
+      if (tileIndex % 2 == 0)
+        camera.scale.x *= -1;
+
+      camera.anchor.setTo(0.5);
+      camera.animations.add('turn');
+      camera.animations.play('turn', 5, true);
+      tile.addChild(camera);
+    }
+  },
   // lighting effect
   addLightingFX: function() {
     // light at right image corner
