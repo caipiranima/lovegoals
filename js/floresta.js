@@ -1,5 +1,4 @@
-var gameWidth, gameHeight;
-var nTiles, firstTile, lastTile, tiles, tile, walkAwayTile;
+var nTiles, firstTile, lastTile, tiles, tile;
 var cursors, corridorEntrance;
 var randomTiles = [];
 var lightConfig = { position: new illuminated.Vec2(300, 50),
@@ -8,37 +7,24 @@ var lightConfig = { position: new illuminated.Vec2(300, 50),
 var passageway = new Phaser.Rectangle(264, 134, 354, 216);
 
 floresta = {
-	init: function() {
-		gameWidth = window.innerWidth;
-    gameHeight = window.innerHeight;
-    nTiles = Math.ceil(gameWidth / ((gameHeight * 400) / 1080));
-
-    //game.width = nTiles * 400;
-    game.width = gameWidth;
-    game.height = gameHeight;
-    // game.scale.pageAlignVertically = true;
-    // game.scale.parentIsWindow = true;
-
-    //game.stage.bounds.height = gameHeight;
-    if (game.renderType === 1) {
-        game.renderer.resize(gameWidth, gameHeight);
-        Phaser.Canvas.setSmoothingEnabled(game.context, false);
-    }
-	},
 	preload: function() {
     // loading this game state...
-    var preloadX = gameWidth / 2;
-    var preloadY = gameHeight / 2;
+    // adapting forest tile size accordingly to screen resolution
+    this.resizeGame();
+
+    // preload sprite -> progress bar
+    var preloadX = game.width / 2;
+    var preloadY = game.height / 2;
     boot.loadingText(preloadX, preloadY - 30, 0.1);
 
     var preloadBar = game.add.sprite(preloadX, preloadY, 'preloadBar');
     preloadBar.anchor.setTo(0.5);
     game.load.setPreloadSprite(preloadBar);
 
-		// preloading various assets...
+		// preloading several assets...
     // load forest image strips as separated sprites
     for (var i = 1; i < 25; i++) {
-      game.load.image('f'+i, 'assets/sprites/f'+i+'.jpg');
+      game.load.image('f' + i, 'assets/sprites/f' + i +'.jpg');
     }
 
     // load camera spritesheet animation
@@ -48,7 +34,7 @@ floresta = {
     for (var i = 1; i < 7; i++) {
       // let's use modulus to sort cameras amongs trees that come before and after bunker entrance
       if (i % 2 == 0) {
-        randomTiles.push(game.rnd.integerInRange(3, 15));
+        randomTiles.push(game.rnd.integerInRange(4, 15));
       }
       else {
         randomTiles.push(game.rnd.integerInRange(19, 23));
@@ -67,13 +53,15 @@ floresta = {
 
 		// tiles for background image
     for (i = 1; i <= nTiles; i++) {
-        tiles.create(0 + (i-1)*400, 0, 'f'+i);
+        tiles.create(0 + (i - 1) * 400, 0, 'f' + i);
     }
     firstTile = 1;
     lastTile = nTiles;
 
     cursors = game.input.keyboard.createCursorKeys();
 
+    //adapting tile size accordingly to screen resolution
+    //this.resizeGame();
     // show welcome text message
     this.showStartMessage();
 	},
@@ -97,11 +85,28 @@ floresta = {
 				this.moveTiles(false, 5);
 		}
 	},
+  resizeGame: function() {
+    var gameWidth = window.innerWidth;
+    var gameHeight = window.innerHeight;
+    nTiles = Math.ceil(gameWidth / ((gameHeight * 400) / 1080));
+
+    game.scale.pageAlignHorizontally = true;
+    game.scale.pageAlignVertically = true;
+    //game.width = gameWidth;
+    game.width = nTiles * 400;
+    game.height = gameHeight;
+
+    //game.stage.bounds.height = gameHeight;
+    if (game.renderType === 1) {
+        game.renderer.resize(gameWidth, gameHeight);
+        Phaser.Canvas.setSmoothingEnabled(game.context, false);
+    }
+  },
   showStartMessage: function() {
     var text;
 
     game.time.events.add(1000, function() {
-			text = game.add.text(gameWidth / 2, gameHeight / 2,
+			text = game.add.text(game.width / 2, game.height / 2,
 				"Arraste ou use as setas do teclado para se mover... <- ou ->\n" +
 				"Mas espere só até eu... desaparecer.\n" +
 				"Boa sorte! ;)"
@@ -115,7 +120,7 @@ floresta = {
 			text.align = "center";
 
 			game.add.tween(text).to( { alpha: 1 }, 2000, Phaser.Easing.Linear.None, true);
-			game.time.events.add(6000, function() {
+			game.time.events.add(5000, function() {
 				game.add.tween(text).to({y: 0}, 1500, Phaser.Easing.Linear.None, true);
 				game.add.tween(text).to({alpha: 0}, 1500, Phaser.Easing.Linear.None, true);
 
@@ -187,7 +192,7 @@ floresta = {
     if (tile.children.length == 0) {
       if (corridorEntrance == null) {
         //adding an invisbile button as a child to current tile
-        corridorEntrance = game.add.button(tile.width - 100, 150, '', function() {
+        corridorEntrance = game.add.button(tile.width - 250, 150, "", function() {
           game.camera.fade('#000000');
           game.camera.onFadeComplete.add(function() { game.state.start("Entrada"); }, this);
         }, this);
@@ -198,7 +203,7 @@ floresta = {
       }
 
       // light that will get one's attention
-      var tunnelLight = game.add.illuminated.lamp(corridorEntrance.x + 15, corridorEntrance.y + 50, lightConfig);
+      var tunnelLight = game.add.illuminated.lamp(tile.width - 90, 170, lightConfig);
       tunnelLight.anchor.setTo(0.5);
       tunnelLight.alpha = 0.2;
       game.add.tween(tunnelLight).to( { alpha: 1 }, 2000, "Quad.easeInOut", true, 0, 1, true);
@@ -229,13 +234,13 @@ floresta = {
   // lighting effect
   addLightingFX: function() {
     // light at right image corner
-    var cornerLight = game.add.illuminated.lamp(gameWidth / 2, gameHeight / 2, lightConfig);
+    var cornerLight = game.add.illuminated.lamp(game.width / 2, game.height / 2, lightConfig);
     cornerLight.anchor.setTo(0.5);
     cornerLight.alpha = 0.2;
 
     var tween = game.add.tween(cornerLight).to( { alpha: 1 }, 1500, "Quad.easeInOut", true, 0, -1, true);
     tween.onLoop.addOnce(function() {
-      game.add.tween(cornerLight).to( { x: gameWidth + 100}, 6000, Phaser.Easing.Linear.None, true);
+      game.add.tween(cornerLight).to( { x: game.width + 100}, 6000, Phaser.Easing.Linear.None, true);
     }, this);
   }
 }
