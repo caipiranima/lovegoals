@@ -18,7 +18,7 @@ corredor01 = {
 
     var corridorEntrance = game.add.button(game.world.centerX + 100, 700, "", function() {
       // text message
-      boot.loadingText(game.world.centerX + 30, game.world.centerY,
+      boot.loadingText(game.world.centerX + 20, game.world.centerY,
         "Mas você quer MESMO continuar?", "#ffffff", 1);
 
       // load state

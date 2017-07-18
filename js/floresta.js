@@ -212,7 +212,7 @@ floresta = {
     if (tile.children.length == 0) {
       if (corridorEntrance == null) {
         //adding an invisbile button as a child to current tile
-        corridorEntrance = game.add.button(tileWidth * 0.9, 150, "", function() {
+        corridorEntrance = game.add.button(tileWidth * 0.7, gameHeight * 0.15, "", function() {
           // text message
           boot.loadingText(preloadX, preloadY, "Você precisa continuar...", "#ffffff", 0.1);
 
@@ -222,14 +222,14 @@ floresta = {
           });
         }, this);
 
-        corridorEntrance.anchor.setTo(0.5);
-        corridorEntrance.height = 200;
-        corridorEntrance.width = 200;
+        //corridorEntrance.anchor.setTo(0.5);
+        corridorEntrance.height = 150;
+        corridorEntrance.width = tileWidth / 2;
       }
 
       // light that will get one's attention
-      var tunnelLight = game.add.illuminated.lamp(tileWidth * 0.9, 170, lightConfig);
-      tunnelLight.anchor.setTo(0.5);
+      var tunnelLight = game.add.illuminated.lamp(tileWidth * 0.75, gameHeight * 0.15, lightConfig);
+      //tunnelLight.anchor.setTo(0.5);
       tunnelLight.alpha = 0.2;
       game.add.tween(tunnelLight).to( { alpha: 1 }, 2000, "Quad.easeInOut", true, 0, 1, true);
 
