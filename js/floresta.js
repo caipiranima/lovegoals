@@ -1,5 +1,6 @@
 var nTiles, firstTile, lastTile, tiles, tile;
-var cursors, corridorEntrance;
+var gameWidth, gameHeight, tileWidth, preloadX, preloadY;
+var cursors, corridorEntrance, imageView;
 var randomTiles = [];
 var lightConfig = { position: new illuminated.Vec2(300, 50),
                     color: '#fff699',
@@ -13,16 +14,17 @@ floresta = {
     this.resizeGame();
 
     // preload sprite -> progress bar
-    var preloadX = game.width / 2;
-    var preloadY = game.height / 2;
-    boot.loadingText(preloadX, preloadY - 30, 0.1);
+    interval = 0;
+    preloadX = game.width / 2;
+    preloadY = game.height / 2;
+    boot.loadingText(preloadX, preloadY - 30, "Carregando...", "#d1ad87", 0.1);
 
     var preloadBar = game.add.sprite(preloadX, preloadY, 'preloadBar');
     preloadBar.anchor.setTo(0.5);
     game.load.setPreloadSprite(preloadBar);
 
 		// preloading several assets...
-    // load forest image strips as separated sprites
+    // load forest image strips as separated tiles
     for (var i = 1; i < 25; i++) {
       game.load.image('f' + i, 'assets/sprites/f' + i +'.jpg');
     }
@@ -42,6 +44,13 @@ floresta = {
     }
     // load soundtrack
     game.load.audio('wind', 'assets/audio/112296__nageor__desertwind1final.ogg');
+
+    //if game loses focus, it pauses by itself and it may lose its scale configurations while resuming
+    game.onResume.add(function() {
+      if (game.scale.scaleMode !== Phaser.ScaleManager.SHOW_ALL) {
+        game.renderer.resize(gameWidth, gameHeight);
+      }
+    }, this);
 	},
 	create: function() {
     this.swipe = new Swipe(this.game);
@@ -53,22 +62,27 @@ floresta = {
 
 		// tiles for background image
     for (i = 1; i <= nTiles; i++) {
-        tiles.create(0 + (i - 1) * 400, 0, 'f' + i);
+        tile = tiles.create(0 + (i - 1) * tileWidth, 0, 'f' + i);
+        tile.width = tileWidth;
+        tile.height = gameHeight;
     }
     firstTile = 1;
     lastTile = nTiles;
 
+    // mapping input from keyboard
     cursors = game.input.keyboard.createCursorKeys();
 
-    //adapting tile size accordingly to screen resolution
-    //this.resizeGame();
+    // glitch overlay
+    imageView = game.add.bitmapData(game.width, game.height)
+    imageView.addToWorld(0, 0);
+
     // show welcome text message
     this.showStartMessage();
 	},
 	update: function() {
 		// checking swipe direction (if touch-and-drag )
 		var direction = this.swipe.check();
-		if (direction!==null) {
+		if (direction !== null) {
 				switch(direction.direction) {
 					case this.swipe.DIRECTION_LEFT:
 						this.moveTiles(true, 200);
@@ -84,29 +98,31 @@ floresta = {
 		} else if (cursors.left.isDown) {
 				this.moveTiles(false, 5);
 		}
+
+    // glitch overlay
+    boot.showGlitchOverlay();
 	},
   resizeGame: function() {
-    var gameWidth = window.innerWidth;
-    var gameHeight = window.innerHeight;
-    nTiles = Math.ceil(gameWidth / ((gameHeight * 400) / 1080));
+    // general dimensions
+    gameWidth = window.innerWidth;
+    gameHeight = window.innerHeight;
+    tileWidth = (gameHeight * 400) / 1080;
+    nTiles = Math.ceil(gameWidth / tileWidth);
+    //nTiles = Math.ceil((1080 * gameWidth) / (400 * gameHeight));
 
-    game.scale.pageAlignHorizontally = true;
-    game.scale.pageAlignVertically = true;
-    //game.width = gameWidth;
-    game.width = nTiles * 400;
+    game.width = gameWidth;
     game.height = gameHeight;
 
-    //game.stage.bounds.height = gameHeight;
-    if (game.renderType === 1) {
-        game.renderer.resize(gameWidth, gameHeight);
-        Phaser.Canvas.setSmoothingEnabled(game.context, false);
-    }
+    // if (game.renderType === 1) {
+    //     game.renderer.resize(gameWidth, gameHeight);
+    //     Phaser.Canvas.setSmoothingEnabled(game.context, false);
+    // }
   },
   showStartMessage: function() {
     var text;
 
     game.time.events.add(1000, function() {
-			text = game.add.text(game.width / 2, game.height / 2,
+			text = game.add.text(preloadX, preloadY,
 				"Arraste ou use as setas do teclado para se mover... <- ou ->\n" +
 				"Mas espere só até eu... desaparecer.\n" +
 				"Boa sorte! ;)"
@@ -134,14 +150,16 @@ floresta = {
 		var tilePositionX = 0;
 
 		if (goRight) {
-				tilePositionX = tiles.getChildAt(tiles.length-1).x
+				tilePositionX = tiles.getChildAt(tiles.length - 1).x
 
-				if (tilePositionX < (nTiles-1)*400 + step) {
+				if (tilePositionX < (nTiles-1) * tileWidth + step) {
 						if (lastTile == 24)
 								return;
 						lastTile++;
 
-						tile = tiles.create(tilePositionX + 400, 0, 'f'+lastTile);
+						tile = tiles.create(tilePositionX + tileWidth, 0, 'f' + lastTile);
+            tile.width = tileWidth;
+            tile.height = gameHeight;
 
             // either we test tile index to verify camera insert or we insert invisible button
             if (randomTiles.indexOf(lastTile) >= 0) {
@@ -152,7 +170,7 @@ floresta = {
             }
 				}
 
-				if (tiles.getChildAt(0).x < -400) {
+				if (tiles.getChildAt(0).x < -tileWidth) {
 						tiles.removeChildAt(0);
 						firstTile++;
 				}
@@ -167,7 +185,9 @@ floresta = {
 								return;
 						firstTile--;
 
-						tile = game.add.sprite(tilePositionX - 400, 0, 'f'+firstTile);
+						tile = game.add.sprite(tilePositionX - tileWidth, 0, 'f' + firstTile);
+            tile.width = tileWidth;
+            tile.height = gameHeight;
 						tiles.addAt(tile, 0);
 
             // either we test tile index to verify camera insert or we insert invisible button
@@ -179,9 +199,9 @@ floresta = {
             }
 				}
 
-				if (tiles.getChildAt(tiles.length-1).x > (nTiles)*400) {
+				if (tiles.getChildAt(tiles.length - 1).x > (nTiles) * tileWidth) {
 						lastTile--;
-						tiles.removeChildAt(tiles.length-1);
+						tiles.removeChildAt(tiles.length - 1);
 				}
 
 				tiles.setAll('x', step, false, false, 1, false);
@@ -192,9 +212,14 @@ floresta = {
     if (tile.children.length == 0) {
       if (corridorEntrance == null) {
         //adding an invisbile button as a child to current tile
-        corridorEntrance = game.add.button(tile.width - 250, 150, "", function() {
-          game.camera.fade('#000000');
-          game.camera.onFadeComplete.add(function() { game.state.start("Entrada"); }, this);
+        corridorEntrance = game.add.button(tileWidth * 0.9, 150, "", function() {
+          // text message
+          boot.loadingText(preloadX, preloadY, "Você precisa continuar...", "#ffffff", 0.1);
+
+          game.time.events.add(4000, function() {
+            game.camera.fade('#000000');
+            game.camera.onFadeComplete.add(function() { game.state.start("Entrada"); }, this);
+          });
         }, this);
 
         corridorEntrance.anchor.setTo(0.5);
@@ -203,7 +228,7 @@ floresta = {
       }
 
       // light that will get one's attention
-      var tunnelLight = game.add.illuminated.lamp(tile.width - 90, 170, lightConfig);
+      var tunnelLight = game.add.illuminated.lamp(tileWidth * 0.9, 170, lightConfig);
       tunnelLight.anchor.setTo(0.5);
       tunnelLight.alpha = 0.2;
       game.add.tween(tunnelLight).to( { alpha: 1 }, 2000, "Quad.easeInOut", true, 0, 1, true);
@@ -215,26 +240,26 @@ floresta = {
 	},
   enableCameraSprite: function(tileIndex) {
     if (tile.children.length == 0) {
-      var camera = game.add.sprite(50, 75 + game.rnd.integerInRange(0, 50), 'camera');
+      var cameraSprite = game.add.sprite(50, 75 + game.rnd.integerInRange(0, 50), 'camera');
 
       // the closer the current tile is in relation to bunker entrance, the smaller the camera size will be
       var diff = (-10 * Math.abs(17 - tileIndex));
-      camera.width -= diff;
-      camera.height -= diff;
+      cameraSprite.width -= diff;
+      cameraSprite.height -= diff;
 
       if (tileIndex % 2 == 0)
-        camera.scale.x *= -1;
+        cameraSprite.scale.x *= -1;
 
-      camera.anchor.setTo(0.5);
-      camera.animations.add('turn');
-      camera.animations.play('turn', 5, true);
-      tile.addChild(camera);
+      cameraSprite.anchor.setTo(0.5);
+      cameraSprite.animations.add('turn');
+      cameraSprite.animations.play('turn', 5, true);
+      tile.addChild(cameraSprite);
     }
   },
   // lighting effect
   addLightingFX: function() {
     // light at right image corner
-    var cornerLight = game.add.illuminated.lamp(game.width / 2, game.height / 2, lightConfig);
+    var cornerLight = game.add.illuminated.lamp(preloadX, preloadY, lightConfig);
     cornerLight.anchor.setTo(0.5);
     cornerLight.alpha = 0.2;
 

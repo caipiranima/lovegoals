@@ -212,16 +212,13 @@ var VIDEO_DEFS = ['AxkuUCPH6D0',
                   '9PJw1U0_rns']
 
 bunker = {
-  init: function() {
-    game.scale.pageAlignHorizontally = true;
-    game.scale.pageAlignVertically = true;
-    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-    game.scale.parentIsWindow = true;
-  },
   preload: function() {
     // var preloadBar = game.add.sprite(preloadX, preloadY, 'preloadBar');
     // preloadBar.anchor.setTo(0.5);
     // game.load.setPreloadSprite(preloadBar);
+
+    // test current scale configurations to check if game needs to go fullscreen
+    boot.updateGameScale();
 
     //loading background image
     game.load.image('bunker', 'assets/sprites/bunker.png');

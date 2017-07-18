@@ -1,6 +1,10 @@
 //http://www.emanueleferonato.com/2014/12/05/html5-phaser-tutorial-how-to-create-a-level-selection-screen-with-locked-levels-and-stars-finished-prototype/
 // default Phaser.Game instance
 var game = new Phaser.Game(1920, 1080, Phaser.AUTO, "");
+// variables for general glitch overlay
+var imageView = null;
+var interval = 0;
+
 // variable for general sound ambience
 var music;
 

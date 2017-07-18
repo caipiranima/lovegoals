@@ -1,16 +1,13 @@
 entrada = {
-  init: function() {
-    // going fullscreen
-    game.scale.pageAlignHorizontally = true;
-    game.scale.pageAlignVertically = true;
-    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-    game.scale.parentIsWindow = true;
-  },
   preload: function() {
     // // loading this game state...
+    interval = 0;
     // var preloadBar = game.add.sprite(game.world.centerX, game.world.centerY, 'preloadBar');
     // preloadBar.anchor.setTo(0.5);
     // game.load.setPreloadSprite(preloadBar);
+
+    // test current scale configurations to check if game needs to go fullscreen
+    boot.updateGameScale();
 
     //loading background image
     game.load.image('entrada', 'assets/sprites/entrada.jpg');
@@ -21,7 +18,8 @@ entrada = {
 
     var corridorEntrance = game.add.button(game.world.centerX, 500, '', function() {
       // text message
-      boot.loadingText(game.world.centerX - 50, game.world.centerY - 100, 1);
+      boot.loadingText(game.world.centerX - 50, game.world.centerY - 100,
+        "O que te espera aqui?", "#ffffff", 1);
 
       //load state
       //game.state.start("Corredor01");
@@ -32,8 +30,15 @@ entrada = {
     corridorEntrance.width = 500;
     corridorEntrance.anchor.setTo(0.5, 0.5);
 
-    // câmera volta do fade-out
+    // camera returns from fade-out
     game.camera.flash('#000000');
-    //game.camera.resetFX();
+
+    // glitch overlay
+    imageView = game.add.bitmapData(game.width, game.height)
+    imageView.addToWorld(0, 0);
+  },
+  update: function() {
+    // glitch overlay
+    boot.showGlitchOverlay();
   }
 }
