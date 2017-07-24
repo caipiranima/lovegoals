@@ -35,6 +35,10 @@ function preload() {
   game.input.touch.preventDefault = false;
   game.stage.smoothed = false;
 
+  // loading...
+  game.add.text(game.world.centerX, game.world.centerY, "Carregando...",
+              { font: "50px Calibri", fill: "#000000" });
+
   // load some useful scripts
   game.load.script('Pixelate', 'js/filters/Pixelate.js');
   game.load.script('Rotozoomer', 'js/filters/Rotozoomer.js');

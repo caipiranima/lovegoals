@@ -11,6 +11,17 @@ var imageView, videoStream, videoBase;
 
 function preload() {
     var file = '';
+    
+    //setting up the game world
+    game.stage.backgroundColor = '#000000';
+    game.scale.pageAlignHorizontally = true;
+    game.scale.pageAlignVertically = true;
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    game.scale.parentIsWindow = true;
+    game.input.touch.preventDefault = false;
+    game.stage.smoothed = false;
+
+    // loading...
     game.add.text(game.world.centerX, game.world.centerY, "Carregando...",
                 { font: "50px Calibri", fill: "#ffffff" });
 
@@ -21,15 +32,6 @@ function preload() {
 }
 
 function create() {
-    //setting up the game world
-    game.stage.backgroundColor = '#000000';
-    game.scale.pageAlignHorizontally = true;
-    game.scale.pageAlignVertically = true;
-    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-    game.scale.parentIsWindow = true;
-    game.input.touch.preventDefault = false;
-    game.stage.smoothed = false;
-
     // setting up camera fade
     game.camera.onFadeComplete.add(fadeIntoNext, this);
 
