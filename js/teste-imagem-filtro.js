@@ -36,7 +36,7 @@ function preload() {
   game.stage.smoothed = false;
 
   // loading...
-  game.add.text(game.world.centerX, game.world.centerY, "Carregando...",
+  game.add.text(game.width / 2, game.height / 2, "Carregando...",
               { font: "50px Calibri", fill: "#000000" });
 
   // load some useful scripts
