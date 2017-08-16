@@ -1,17 +1,17 @@
   //game global settings
-var game = new Phaser.Game(1024, 768, Phaser.AUTO, "",
+var game = new Phaser.Game(1024, 1024, Phaser.AUTO, "",
                           { preload: preload,
                             create: create,
                             render: render });
 
 // variables of general use
-var interval = 0;
+var randomFile = 0;
 var alpha = { alpha: 0.2 };
 var imageView, videoStream, videoBase;
 
 function preload() {
     var file = '';
-    
+
     //setting up the game world
     game.stage.backgroundColor = '#000000';
     game.scale.pageAlignHorizontally = true;
@@ -26,9 +26,9 @@ function preload() {
                 { font: "50px Calibri", fill: "#ffffff" });
 
       //GIF overlay
-      game.load.image('glitch', 'assets/gif/glitch.gif');
+      //game.load.image('glitch', 'assets/gif/glitch.gif');
       //video test
-      game.load.video('recorte', 'assets/video/recorte0.mp4');
+      game.load.video('recorte', 'assets/video/TESTE-00.mp4');
 }
 
 function create() {
@@ -65,37 +65,31 @@ function camAllowed() {
 }
 
 function camBlocked(videoStatus, error) {
-    console.log('Camera was blocked', videoStatus, error);
+    console.log('Acesso à câmera bloqueado!', videoStatus, error);
 }
 
 function takeSnapshot() {
     videoStream.grab(true, alpha.alpha);
     imageView.draw(videoStream.snapshot, 0, 0, game.width, game.height);
-    //imageView.draw(imageFile, 0, 0, game.width, game.height, 'multiply');
     videoBase.grab(true, alpha.alpha);
-    imageView.draw(videoBase.snapshot, 0, 0, game.width, game.height, 'multiply');
+    imageView.draw(videoBase.snapshot, 0, 0, game.width, game.height, 'difference');
 
-    if (interval <= 0) {
-      //interval = randomize(0, 7000);
-      interval = game.rnd.integerInRange(0, 7000);
-
-      game.time.events.add(interval, function() {
-        imageView.draw('glitch', 0, 0, game.width, game.height, 'color');
-        interval = 0;
-      });
-    }
+    // if (interval <= 0) {
+    //   interval = game.rnd.integerInRange(0, 7000);
+    //
+    //   game.time.events.add(interval, function() {
+    //     imageView.draw('glitch', 0, 0, game.width, game.height, 'color');
+    //     interval = 0;
+    //   });
+    // }
 }
 
 function fadeIntoNext() {
   game.camera.resetFX();
-  videoBase.changeSource('assets/video/recorte' + randomFile);
+  videoBase.changeSource('assets/video/TESTE-0' + randomFile + '.mp4');
 }
 
 function changeVideoBaseSource() {
-  var randomFile = 0; //game.rnd.integerInRange(0, 12);
+  randomFile = game.rnd.integerInRange(0, 3);
   game.camera.fade(0x000000, 2000); //fade to black
 }
-
-// function randomize(plus, to) {
-//   return Math.round((Math.random() * to) + plus);
-// }
