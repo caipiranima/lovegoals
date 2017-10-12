@@ -5,9 +5,9 @@ var game = new Phaser.Game(1024, 1024, Phaser.AUTO, "",
                             render: render });
 
 // variables of general use
-var randomFile = 0;
+var interval = 0, randomFile = 0;
 var alpha = { alpha: 0.2 };
-var imageView, videoStream, videoBase;
+var imageView, soundStream, videoStream, videoBase;
 
 function preload() {
     var file = '';
@@ -26,9 +26,12 @@ function preload() {
                 { font: "50px Calibri", fill: "#ffffff" });
 
       //GIF overlay
-      //game.load.image('glitch', 'assets/gif/glitch.gif');
+      game.load.image('glitch', 'assets/gif/glitch.gif');
       //video test
-      game.load.video('recorte', 'assets/video/TESTE-00.mp4');
+      game.load.video('recorte', 'assets/video/recorte0.mp4');
+
+      // load white noise as background sound
+      game.load.audio('whitenoise', 'assets/audio/35291__jace__continuous-static.ogg');
 }
 
 function create() {
@@ -45,13 +48,19 @@ function create() {
     videoStream.onAccess.add(camAllowed, this); //  If access to the camera is allowed
     videoStream.onError.add(camBlocked, this); //  If access to the camera is denied
     videoStream.startMediaStream(); //starting video stream from webcam
+
+    // play audio as background sound
+    soundStream = game.add.audio('whitenoise');
+    //soundStream.onDecoded.add(function() { soundStream.fadeIn(4000); }, this);
+    soundStream.loopFull(); //to play just once -> soundStream.play();
 }
 
 function render() {
     // Input debug info
-    game.debug.inputInfo(32, 32);
+    //game.debug.inputInfo(32, 32);
+    game.debug.soundInfo(soundStream, 20, 32);
     //game.debug.spriteInputInfo(sprite, 32, 130);
-    game.debug.pointer(game.input.activePointer);
+    //game.debug.pointer(game.input.activePointer);
 }
 
 function camAllowed() {
@@ -65,31 +74,37 @@ function camAllowed() {
 }
 
 function camBlocked(videoStatus, error) {
-    console.log('Acesso à câmera bloqueado!', videoStatus, error);
+    console.log('Camera was blocked', videoStatus, error);
 }
 
 function takeSnapshot() {
     videoStream.grab(true, alpha.alpha);
     imageView.draw(videoStream.snapshot, 0, 0, game.width, game.height);
+    //imageView.draw(imageFile, 0, 0, game.width, game.height, 'multiply');
     videoBase.grab(true, alpha.alpha);
     imageView.draw(videoBase.snapshot, 0, 0, game.width, game.height, 'difference');
 
-    // if (interval <= 0) {
-    //   interval = game.rnd.integerInRange(0, 7000);
-    //
-    //   game.time.events.add(interval, function() {
-    //     imageView.draw('glitch', 0, 0, game.width, game.height, 'color');
-    //     interval = 0;
-    //   });
-    // }
+    if (interval <= 0) {
+      //interval = randomize(0, 7000);
+      interval = game.rnd.integerInRange(0, 7000);
+
+      game.time.events.add(interval, function() {
+        imageView.draw('glitch', 0, 0, game.width, game.height, 'color');
+        interval = 0;
+      });
+    }
 }
 
 function fadeIntoNext() {
   game.camera.resetFX();
-  videoBase.changeSource('assets/video/TESTE-0' + randomFile + '.mp4');
+  videoBase.changeSource('assets/video/recorte' + randomFile);
 }
 
 function changeVideoBaseSource() {
   randomFile = game.rnd.integerInRange(0, 3);
   game.camera.fade(0x000000, 2000); //fade to black
 }
+
+// function randomize(plus, to) {
+//   return Math.round((Math.random() * to) + plus);
+// }
