@@ -7,13 +7,25 @@
 		<script type="text/javascript" src="js/util/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="bot/datadumper.js"></script>
 		<script type="text/javascript" src="bot/rivescript.js"></script>
+		<script type="text/javascript" src="js/util/phaser.min.js"></script>
+		<!-- must be the LAST JS reference -->
+		<script type="text/javascript" src="js/chat.js"></script>
 	</head>
 	<body>
 		<h2>Chat</h2>
-		<fieldset>
-			<legend>Histórico de conversas</legend>
-			<div id="dialogue"></div>
-		</fieldset>
+		<table class="input-table">
+			<tr>
+				<td style="vertical-align: top;">
+					<div id="camera-stream"></div>
+				</td>
+				<td>
+					<fieldset>
+						<legend>Histórico de conversas</legend>
+						<div id="dialogue"></div>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
 		<form onSubmit="return sendMessage()">
 			<fieldset>
 				<legend>...</legend>
@@ -41,172 +53,5 @@
 		<br />
 		<br />
 		<small>Servidor Apache ~WEISSHAUPT - status: <span id="currentDate"><u>conectado</u></span></small>
-
-		<script type="text/javascript">
-			// Handle the debug mode query string parameter.
-			var debugMode = false;
-			var info = {
-				timeOpened:new Date(),
-				timezone:(new Date()).getTimezoneOffset()/60,
-
-				pageon(){return window.location.pathname},
-				referrer(){return document.referrer},
-				previousSites(){return history.length},
-				browserName(){return navigator.appName},
-				browserEngine(){return navigator.product},
-				browserVersion1a(){return navigator.appVersion},
-				browserVersion1b(){return navigator.userAgent},
-				browserLanguage(){return navigator.language},
-				browserOnline(){return navigator.onLine},
-				browserPlatform(){return navigator.platform},
-				javaEnabled(){return navigator.javaEnabled()},
-				dataCookiesEnabled(){return navigator.cookieEnabled},
-				dataCookies1(){return document.cookie},
-				dataCookies2(){return decodeURIComponent(document.cookie.split(";"))},
-				dataStorage(){return localStorage},
-				sizeScreenW(){return screen.width},
-				sizeScreenH(){return screen.height},
-				sizeDocW(){return document.width},
-				sizeDocH(){return document.height},
-				sizeInW(){return innerWidth},
-				sizeInH(){return innerHeight},
-				sizeAvailW(){return screen.availWidth},
-				sizeAvailH(){return screen.availHeight},
-				scrColorDepth(){return screen.colorDepth},
-				scrPixelDepth(){return screen.pixelDepth},
-				latitude(){return position.coords.latitude},
-				longitude(){return position.coords.longitude},
-				accuracy(){return position.coords.accuracy},
-				altitude(){return position.coords.altitude},
-				altitudeAccuracy(){return position.coords.altitudeAccuracy},
-				heading(){return position.coords.heading},
-				speed(){return position.coords.speed},
-				timestamp(){return position.timestamp}
-			};
-
-			if (window.location.search.indexOf("debug=1") > -1) {
-				$("#toggle").val("Disable Debug Mode");
-				debugMode = true;
-			} else {
-				$("#toggle").val("Enable Debug Mode");
-			}
-
-			// Create our RiveScript interpreter.
-			var rs = new RiveScript({
-				debug: debugMode,
-				onDebug: onDebug
-			});
-
-			// This won't work on the web!
-			//rs.loadDirectory("brain");
-
-			// Load our files from the brain/ folder.
-			rs.loadFile([
-				"bot/brain/begin.rive",
-				"bot/brain/eliza.rive",
-				"bot/brain/myself.rive"
-			], on_load_success, on_load_error);
-
-			// You can register objects that can then be called
-			// using <call></call> syntax
-			rs.setSubroutine('fancyJSObject', function(rs, args) {
-				// doing complex stuff here
-			});
-
-			function on_load_success() {
-				// preppin' the dialogue box with some information
-				$("#dialogue").append("<div><span class='bot'>Conexão redirecionada com sucesso para " + info.pageon() + "<br/>"+
-				"Estabelecendo nova conexão em canal seguro via " + info.browserName() + "/" + info.browserEngine() + ", versão " + info.browserVersion1a() + "<br/>" +
-				"Verificando SO: " + info.browserPlatform() + "<br/>" +
-				"Idioma padrão identificado como "  + info.browserLanguage() + "<br/>" +
-				 "<br/>Aguardando input do usuário..............</div><br/>");
-
-				//focus on message text box
-				$("#message").removeAttr("disabled");
-				$("#message").attr("placeholder", "Digite aqui sua mensagem");
-				$("#message").focus();
-
-				// Now to sort the replies!
-				rs.sortReplies();
-			}
-
-			function on_load_error(err) {
-				console.log("Erro: " + err);
-			}
-
-			// Handle sending a message to the bot.
-			function sendMessage() {
-				var text = $("#message").val();
-
-				if (text.replace(/\s/g, '').length <= 1) {
-					window.alert("Vc não tem NADA a dizer mesmo? :O");
-				} else {
-					$("#message").val("");
-					$("#dialogue").append("<div><span class='user'>&gt;&gt;</span> " + text + "</div>");
-
-					text = removeAccents(text);
-
-					try {
-						var reply = rs.reply("soandso", text);
-						reply = reply.replace(/\n/g, "<br>");
-						$("#dialogue").append("<div><span class='bot'>&gt;</span> " + reply + "</div>");
-
-						$("#dialogue").stop().animate({
-							scrollTop: $("#dialogue")[0].scrollHeight
-						}, 1000);
-						$("#currentDate").html("on-line em: " + new Date().toISOString());
-					} catch (e) {
-						window.alert(e.message + "\n" + e.line);
-						console.log(e);
-					}
-				}
-				return false;
-			}
-
-			function removeAccents(text) {
-				text = text.replace(/[éèêë]/gi, "e");
-				text = text.replace(/[àâäãá]/gi, "a");
-				text = text.replace(/[ïîí]/gi, "i");
-				text = text.replace(/[üûùú]/gi, "u");
-				text = text.replace(/[öôó]/gi, "o");
-				text = text.replace(/[ç]/gi, "c");
-				text = text.replace(/[ñ]/gi, "n");
-				text = text.replace(/[']/gi, " ");
-				text = text.replace(/[-]/gi, " ");
-				text = text.replace(/[\s]{2,}/g, " "); // Remove espaços a mais
-				text = text.trim();
-				return text;
-			}
-
-			function stoppedTyping() {
-				var text = $("#message").val();
-				text = text.replace(/\s/g, '');
-
-				if (text.length > 1) {
-					$("#send_button").removeAttr("disabled");
-				} else {
-					$("#send_button").attr("disabled", "disabled");
-				}
-			}
-
-			// Button that turns debugging on and off.
-			function toggleDebug() {
-				if (debugMode) {
-					window.location = "?debug=0";
-				} else {
-					window.location = "?debug=1";
-				}
-			}
-
-			function onDebug(message) {
-				if (debugMode) {
-					$("#debug").append("<div>[RS] " + escapeHtml(message) + "</div>");
-				}
-			}
-
-			function escapeHtml(text) {
-				return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-			}
-		</script>
 	</body>
 </html>
