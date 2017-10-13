@@ -9,17 +9,14 @@ html {
 body {
 	/*background-color: #EDEDFF;
 	font-family: Verdana,Arial,Helvetica,sans-serif;*/
-	font-family: mono;
-	/*font-size: small;*/
+	font-family: monospace;
+	font-size: x-large;
 	color: #ddd;
 	padding: 0px;
 	margin: 0px;
 	width: 100%;
 }
-h1, h2 {
-	font-weight: bold;
-	color: #0000FF;
-}
+
 fieldset {
 	border: none;
 	border-top: 2px solid #2b2b2b;
@@ -30,12 +27,13 @@ fieldset {
 input#message {
 	border: none;
 	background-color: #333;
-	font-size: large;
-	font-family: mono;
+	font-size: x-large;
+	font-family: monospace;
 	position: absolute;
 	left: 0px;
 	width: 88%;
 	margin: 10px;
+	color: #ddd;
 }
 
 div#debug {
@@ -44,12 +42,11 @@ div#debug {
 	width: 100%;
 }
 span.user {
-	font-weight: bold;
-	color: #3465a4;
+	color: #2e6fc2;
 }
 span.bot {
 	font-weight: bold;
-	color: #ef2929;
+	color: #d74f4f;
 }
 
 #dialogue {
@@ -91,6 +88,10 @@ span.bot {
 	background-color: #2b5900;
 	font-size: large;
 	color: #ddd;
+}
+
+a {
+	color: #2e6fc2;
 }
 
 @media screen and (max-width: 764px) {
