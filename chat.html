@@ -12,33 +12,13 @@
 		<script type="text/javascript" src="js/chat.js"></script>
 	</head>
 	<body>
-		<h2>Chat</h2>
-		<table class="input-table">
-			<tr>
-				<td style="vertical-align: top;">
-					<div id="camera-stream"></div>
-				</td>
-				<td>
-					<fieldset>
-						<legend>Histórico de conversas</legend>
-						<div id="dialogue"></div>
-					</fieldset>
-				</td>
-			</tr>
-		</table>
-		<form onSubmit="return sendMessage()">
+		<!-- <h2>Chat</h2> -->
+		<div id="camera-stream"></div>
+		<div id="dialogue"></div>
+		<form onSubmit="return sendMessage()" class="send-message-panel">
 			<fieldset>
-				<legend>...</legend>
-				<table class="input-table">
-					<tr>
-						<td class="text-box">
-							<input type="text" size="40" id="message" autocomplete="off" disabled placeholder="Carregando..." onkeyup="stoppedTyping()" />
-						</td>
-						<td class="send-button">
-							<input type="submit" value="Enviar" id="send_button" disabled />
-						</td>
-					</tr>
-				</table>
+				<input type="text" size="40" id="message" autocomplete="off" disabled placeholder="Carregando..." onkeyup="stoppedTyping()" />
+				<input type="submit" value="Enviar" id="send_button" disabled />
 			</fieldset>
 		</form>
 		<!--<fieldset>
@@ -52,6 +32,6 @@
 		</fieldset>-->
 		<br />
 		<br />
-		<small>Servidor Apache ~WEISSHAUPT - status: <span id="currentDate"><u>conectado</u></span></small>
+		<!-- <small>Servidor Apache ~WEISSHAUPT - status: <span id="currentDate"><u>conectado</u></span></small> -->
 	</body>
 </html>

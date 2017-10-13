@@ -1,27 +1,43 @@
+html {
+	background-color: #333;
+	overflow: hidden;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
 body {
-	background-color: #EDEDFF;
-	font-family: Verdana,Arial,Helvetica,sans-serif;
-	font-size: small;
-	color: #000000;
+	/*background-color: #EDEDFF;
+	font-family: Verdana,Arial,Helvetica,sans-serif;*/
+	font-family: mono;
+	/*font-size: small;*/
+	color: #ddd;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
 }
 h1, h2 {
 	font-weight: bold;
 	color: #0000FF;
 }
 fieldset {
-	border: 1px dotted #000000;
+	border: none;
+	border-top: 2px solid #2b2b2b;
+	margin: 0px;
+	padding: 0px;
 }
-legend {
-	font-weight: bold;
-}
+
 input#message {
-	width: 100%;
+	border: none;
+	background-color: #333;
+	font-size: large;
+	font-family: mono;
+	position: absolute;
+	left: 0px;
+	width: 88%;
+	margin: 10px;
 }
-div#dialogue {
-	overflow: auto;
-	height: 450px;
-	width: 100%;
-}
+
 div#debug {
 	overflow: auto;
 	max-height: 450px;
@@ -29,26 +45,77 @@ div#debug {
 }
 span.user {
 	font-weight: bold;
-	color: #0000FF;
+	color: #3465a4;
 }
 span.bot {
 	font-weight: bold;
-	color: #FF0000;
+	color: #ef2929;
 }
-table.input-table {
+
+#dialogue {
+	overflow: auto;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 90%;
+}
+
+#dialogue div {
+	padding-left: 10px;
+}
+
+#dialogue div:first-child {
+	padding-top: 10px;
+}
+
+#camera-stream {
+	position: absolute;
+	right: 0px;
+	margin: 50px;
+	border: 1px solid #ddd;
+}
+
+.send-message-panel {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 7%;
+}
+
+#send_button {
+	position: absolute;
+	right: 0px;
+	width: 10%;
+	height: 100%;
+	border: none;
+	background-color: #2b5900;
+	font-size: large;
+	color: #ddd;
+}
+
+@media screen and (max-width: 764px) {
+    #message {
+			width: 66% !important;
+		}
+
+		#send_button {
+			width: 30%;
+		}
+}
+/*.chat-panel {
 	border: 0px;
 	border-collapse: separate;
 	border-spacing: 4px;
 	width: 100%;
 }
-table.input-table td.text-box {
+.text-box {
 	padding: 4px;
 	text-align: left;
 	vertical-align: middle;
 }
-table.input-table td.send-button {
+.send-button {
 	padding: 4px;
 	text-align: center;
 	vertical-align: middle;
 	width: 10px;
-}
+}*/
