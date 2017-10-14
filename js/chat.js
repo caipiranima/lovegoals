@@ -1,7 +1,6 @@
 var game = new Phaser.Game(100, 100, Phaser.CANVAS, 'camera-stream', { preload: preload,
                                                                         create: create });
-
-var video;
+var video, sprite;
 var videoAllowed = false;
 var debugMode = false; // Handle the debug mode query string parameter.
 var info = {
@@ -27,10 +26,12 @@ var info = {
 /************** PHASER / CAMERA CONNECTION  ***************/
 function preload() {
   //setting up the game world
-  game.stage.backgroundColor = '#EDEDFF';
+  game.stage.backgroundColor = '#333';
   game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
   game.input.touch.preventDefault = false;
   game.stage.smoothed = false;
+
+  game.load.image('cam', 'assets/sprites/webcam.png');
 }
 
 function create() {
@@ -49,20 +50,27 @@ function create() {
 
 function camAllowed(video) {
     console.log('--> camera was allowed', video);
-    var sprite = video.addToWorld();
+    sprite = video.addToWorld(0, 0, 0, 0, 0.25, 0.25);
     videoAllowed = true;
     //game.input.onDown.add(stopCam, this);
 }
 
 function camBlocked(video, error) {
     console.log('camera was blocked', video, error);
-    videoAllowed = false;
     video.destroy();
+    videoAllowed = false;
+
+    sprite = game.add.image(0, 0, 'cam');
+    sprite.alpha = 0.5;
+    sprite.width = 100;
+    sprite.height = 100;
 }
 
 function stopCam() {
-    console.log('camera stopped');
-    video.stop();
+    if (video != null) {
+      console.log('camera stopped');
+      video.stop();
+    }
 }
 
 /************** RIVESCRIPT - BOT  ***************/
