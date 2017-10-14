@@ -24,7 +24,7 @@ var info = {
   dataCookies2(){return decodeURIComponent(document.cookie.split(";"))},
 };
 
-/* CAMERA CONNECTION  */
+/************** PHASER / CAMERA CONNECTION  ***************/
 function preload() {
   //setting up the game world
   game.stage.backgroundColor = '#EDEDFF';
@@ -65,7 +65,7 @@ function stopCam() {
     video.stop();
 }
 
-/* RIVESCRIPT - BOT  */
+/************** RIVESCRIPT - BOT  ***************/
 // Create our RiveScript interpreter.
 var rs = new RiveScript({
   debug: debugMode,
@@ -122,10 +122,9 @@ function sendMessage() {
 
   if (text.replace(/\s/g, '').length <= 1) {
     window.alert("Vc não tem NADA a dizer mesmo? :O");
-  } else {
-    $("#message").val("");
+  }
+  else {
     $("#dialogue").append("<div><span class='user'>&gt;&gt;</span> " + text + "</div>");
-
     text = removeAccents(text);
 
     try {
@@ -142,6 +141,10 @@ function sendMessage() {
       console.log(e);
     }
   }
+
+  $("#message").val("");
+  $("#message").focus();
+  $("#send_button").attr("disabled", "disabled");
   return false;
 }
 
