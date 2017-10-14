@@ -109,15 +109,20 @@ function on_load_success() {
   "Estabelecendo nova conexão em canal seguro via " + info.browserName() + "/" + info.browserEngine() + ", versão " + info.browserVersion1a() + "<br/>" +
   "Verificando SO: " + info.browserPlatform() + "<br/>" +
   "Idioma padrão identificado como "  + info.browserLanguage() + "<br/>" +
-   "<br/>Aguardando input do usuário..............</div><br/>");
+   "<br/>Aguardando input do usuário.............<span class='blink-me'>.</span></div><br/>");
 
   //focus on message text box
   $("#message").removeAttr("disabled");
   $("#message").attr("placeholder", "Digite aqui sua mensagem");
   $("#message").focus();
+  blinkForInput();
 
   // Now to sort the replies!
   rs.sortReplies();
+}
+
+function blinkForInput() {
+  $('.blink-me').fadeOut(500).fadeIn(500, blinkForInput);
 }
 
 function on_load_error(err) {
