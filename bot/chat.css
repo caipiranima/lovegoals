@@ -90,6 +90,11 @@ span.bot {
 	color: #ddd;
 }
 
+input:disabled {
+  background-color: #62877a !important;
+	color: #9bb2ac !important;
+}
+
 a {
 	color: #2e6fc2;
 }
